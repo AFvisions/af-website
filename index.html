@@ -1,0 +1,242 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        table {
+            border-spacing: 0;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        img {
+            border: 0;
+        }
+
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            background-color: salmon;
+            padding-bottom: 60px;
+        }
+
+        .main {
+            width: 100%;
+            max-width: 600px;
+            background-color: brown;
+            font-family: courier, serif;
+            color: white;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+            text-align: center;
+        }
+
+        td {
+            outline: dashed 1px orange
+        }
+
+        .three-columns {
+            font-size: 0;
+            padding: 35px 0 20px;
+        }
+
+        .three-columns .column {
+            width: 100%;
+            max-width: 200px;
+            display: inline-block;
+            vertical-align: top;
+
+        }
+
+        .three-columns .padding {
+            padding: 25px;
+        }
+
+        .three-columns .content {
+            font-size: 15px;
+            line-height: 20px;
+
+        }
+
+        h1 {
+            width: 150px;
+            height: 100px;
+        }
+
+
+        .responsive-table {
+            display: block;
+            width: 100% !important
+        }
+
+        .responsive-image {
+            height: auto;
+            max-width: 100% !important;
+            border-radius: 15%;
+        }
+
+
+
+
+        /* @media screen and (max-width: 600px) {
+            .responsive-table {
+                display: block;
+                width: 100% !important;
+            }
+
+            .responsive-image {
+                height: auto;
+                max-width: 100% !important;
+            }
+        }*/
+    </style>
+</head>
+
+<body>
+
+    <center class="wrapper">
+
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td bgcolor="#00a9f7" align="center">
+                    <table border="0" cellpadding="0" cellspacing="0" width="600" class="responsive-table">
+                        <tr>
+                            <td align="center" valign="top" style="padding: 40px 0px 40px 0px;">
+                                <!-- IMAGE -->
+                                <img alt="Example" src="images/tna-8bit.jpeg" width="400px" style="display: block;"
+                                    border="0" border-radius="50px" class="responsive-image">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top" style="padding: 0px 10px 20px 10px;">
+                                <!-- HEADLINE -->
+                                <p
+                                    style="color: #ffffff; font-family: sans-serif; font-size: 24px; font-weight: bold; line-height: 28px; margin: 0;">
+                                    Welcome to My Website</p>
+                                <a href="./designs/index.html">Designs Page</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top" style="padding: 0px 10px 60px 10px;">
+                                <!-- COPY -->
+                                <p
+                                    style="color: #b5e2f7; font-family: sans-serif; font-size: 16px; font-weight: normal; line-height: 24px; margin: 0;">
+                                    Don't be afraid to make these big decisions. Once you start, they sort of just make
+                                    themselves. How do you make a round circle with a square knife? That's your
+                                    challenge for the day. Son of a gun. Just think about these things in your mind and
+                                    drop em' on canvas. Exercising the imagination, experimenting with talents, being
+                                    creative; these things, to me, are truly the windows to your soul.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <table class="main" width="100%">
+
+                <!-- BORDER -->
+
+                <tr>
+                    <td height="8" style="background-color: #000;"></td>
+                </tr>
+
+                <tr>
+
+                    <td class="three-columns">
+                        <table class="column">
+                            <tr>
+                                <td class="padding">
+                                    <table class="content">
+                                        <tr>
+                                            <td>
+                                                <h1> 1 </h1>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h1> 2 </h1>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="column">
+                            <tr>
+                                <td class="padding">
+                                    <table class="content">
+                                        <tr>
+                                            <td>
+                                                <h1> 3 </h1>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h1> 4 </h1>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="column">
+                            <tr>
+                                <td class="padding">
+                                    <table class="content">
+                                        <tr>
+                                            <td>
+                                                <h1> 5 </h1>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h1> 6 </h1>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+
+                </tr>
+
+                <!-- BORDER -->
+
+                <tr>
+                    <td height="8" style="background-color: #000;"></td>
+                </tr>
+
+            </table>
+        </table>
+
+
+
+
+    </center>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
