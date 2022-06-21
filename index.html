@@ -1,22 +1,54 @@
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
+    <meta name="x-apple-disable-message-reformatting">
+    <!--[if !mso]><!-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--<![endif]-->
+    <title>AFvisions</title>
+
+    <!--[if mso]>
+    <style type="text/css">
+        table {border-collapse:collapse;border:0;border-spacing:0;margin:0;}
+        div, td {padding:0;}
+        div {margin:0 !important;}
+    </style>
+    <noscript>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
 
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/index.css">
 
+    <!-- Font Families -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400;1,700&family=Carrois+Gothic&family=Francois+One&display=swap"
+        rel="stylesheet">
+
+
+
+
     <style type="text/css">
         body {
             margin: 0;
+            word-spacing: normal;
+            color: #c7c7c7;
+            background-color: #2e2e2e;
         }
 
         table {
@@ -27,32 +59,97 @@
             padding: 0;
         }
 
-        img {
-            border: 0;
+        p {
+            font-family: 'Carrois Gothic', sans-serif;
         }
 
         .wrapper {
             width: 100%;
             table-layout: fixed;
-            background-color: salmon;
-            padding-bottom: 60px;
+            margin: 0;
         }
 
         .main {
             width: 100%;
             max-width: 600px;
-            background-color: brown;
             font-family: courier, serif;
-            color: white;
+            color: #afafaf;
+            text-align: center;
+            margin-top: 5em;
+            border-collapse: collapse;
+            border-radius: 1em;
+            overflow: hidden;
             box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+        .main-header {
+            width: 100%;
+            max-width: 600px;
+            font-family: courier, serif;
+            color: #afafaf;
             text-align: center;
         }
 
-        td {
+        .main-footer {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 5em;
+            font-family: courier, serif;
+            color: #afafaf;
+            text-align: center;
+            border-top-left-radius: 1em;
+            border-top-right-radius: 1em;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+        .header {
+            background-color: #324744;
+            padding: 2em;
+            height: 3em;
+            margin-top: 0px;
+            border-collapse: collapse;
+            border-radius: 1em;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+        .footer {
+            background-color: #324744;
+            padding: 2em;
+            height: 3em;
+            margin-bottom: 0px;
+            border-collapse: collapse;
+
+        }
+
+
+
+        .center-image {
+            padding: 40px 0px 40px 0px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+        }
+
+        img {
+            border: 0;
+        }
+
+        /* td {
             outline: dashed 1px orange
+        } */
+
+        .one-column {
+            background-color: #324744;
+            padding: 2em;
+
         }
 
         .three-columns {
+            background-color: #324744;
+
             font-size: 0;
             padding: 35px 0 20px;
         }
@@ -76,14 +173,19 @@
         }
 
         h1 {
-            width: 150px;
-            height: 100px;
+            font-family: 'Francois One', sans-serif;
+            font-size: 3.5em;
+            line-height: 1em;
+        }
+
+        h2 {
+            font-family: 'Averia Serif Libre', cursive;
         }
 
 
         .responsive-table {
             display: block;
-            width: 100% !important
+            width: 100% !important;
         }
 
         .responsive-image {
@@ -91,6 +193,9 @@
             max-width: 100% !important;
             border-radius: 15%;
         }
+
+
+
 
 
 
@@ -109,134 +214,327 @@
     </style>
 </head>
 
+
 <body>
 
     <center class="wrapper">
 
-        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <!-- Header -->
+
+        <table class="main-header">
+            <tr class="header">
+                <td></td>
+                <td>Icon</td>
+                <td>Icon</td>
+                <td>Logo</td>
+                <td>Icon</td>
+                <td>Icon</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <table class="main">
             <tr>
-                <td bgcolor="#00a9f7" align="center">
-                    <table border="0" cellpadding="0" cellspacing="0" width="600" class="responsive-table">
+                <td class="one-column">
+                    <table>
                         <tr>
-                            <td align="center" valign="top" style="padding: 40px 0px 40px 0px;">
-                                <!-- IMAGE -->
-                                <img alt="Example" src="images/tna-8bit.jpeg" width="400px" style="display: block;"
-                                    border="0" border-radius="50px" class="responsive-image">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center" valign="top" style="padding: 0px 10px 20px 10px;">
-                                <!-- HEADLINE -->
-                                <p
-                                    style="color: #ffffff; font-family: sans-serif; font-size: 24px; font-weight: bold; line-height: 28px; margin: 0;">
-                                    Welcome to My Website</p>
-                                <a href="./designs/index.html">Designs Page</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center" valign="top" style="padding: 0px 10px 60px 10px;">
-                                <!-- COPY -->
-                                <p
-                                    style="color: #b5e2f7; font-family: sans-serif; font-size: 16px; font-weight: normal; line-height: 24px; margin: 0;">
-                                    Don't be afraid to make these big decisions. Once you start, they sort of just make
-                                    themselves. How do you make a round circle with a square knife? That's your
-                                    challenge for the day. Son of a gun. Just think about these things in your mind and
-                                    drop em' on canvas. Exercising the imagination, experimenting with talents, being
-                                    creative; these things, to me, are truly the windows to your soul.
-                                </p>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <h1>Andrew Fumagalli</h1>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h2>Graphc Designer + Email Developer</h2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p> Don't be afraid to make these big decisions. Once you start, they
+                                                sort of just make
+                                                themselves. How do you make a round circle with a square knife?
+                                                That's your
+                                                challenge for the day. Son of a gun. Just think about these things
+                                                in your mind and
+                                                drop em' on canvas. Exercising the imagination, experimenting with
+                                                talents, being
+                                                creative; these things, to me, are truly the windows to your soul.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
-
-            <table class="main" width="100%">
-
-                <!-- BORDER -->
-
-                <tr>
-                    <td height="8" style="background-color: #000;"></td>
-                </tr>
-
-                <tr>
-
-                    <td class="three-columns">
-                        <table class="column">
-                            <tr>
-                                <td class="padding">
-                                    <table class="content">
-                                        <tr>
-                                            <td>
-                                                <h1> 1 </h1>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h1> 2 </h1>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-
-                        <table class="column">
-                            <tr>
-                                <td class="padding">
-                                    <table class="content">
-                                        <tr>
-                                            <td>
-                                                <h1> 3 </h1>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h1> 4 </h1>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-
-                        <table class="column">
-                            <tr>
-                                <td class="padding">
-                                    <table class="content">
-                                        <tr>
-                                            <td>
-                                                <h1> 5 </h1>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h1> 6 </h1>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-
-                    </td>
-
-                </tr>
-
-                <!-- BORDER -->
-
-                <tr>
-                    <td height="8" style="background-color: #000;"></td>
-                </tr>
-
-            </table>
         </table>
+
+
+        <!-- <tr>
+                <td>
+                    <table class="responsive-table">
+                        <tr>
+                            <td class="center-image">
+                        
+                                <img alt=" Example" src="images/tna-8bit.jpeg" class="responsive-image">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top" style="padding: 0px 10px 20px 10px;">
+                                
+                                <h1>Andrew Fumagalli</h1>
+                                <h2>Graphic Designer + Email Developer<h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top" style="padding: 0px 10px 60px 10px;">
+                                
+                                <p
+                                    style="color: #b5e2f7; font-family: sans-serif; font-size: 16px; font-weight: normal; line-height: 24px; margin: 0;">
+
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr> -->
+
+
+        <table class="main">
+
+            <tr>
+                <td>
+                    <h2>Projects</h1>
+                </td>
+            </tr>
+
+            <tr>
+
+                <td class="three-columns">
+                    <table class="column">
+                        <tr>
+                            <td class="padding">
+                                <table class="content">
+                                    <tr>
+                                        <td>
+                                            <a href="#">
+                                                <img src="images/rsweep-150.png" alt="1">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p> RecoSweep
+                                            <p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="column">
+                        <tr>
+                            <td class="padding">
+                                <table class="content">
+                                    <tr>
+                                        <td>
+                                            <a href="#">
+                                                <img src="images/zuh-150.png" alt="3">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>
+                                                RecoSweep<br>
+                                                RecoSweep<br>
+                                                RecoSweep<br>
+                                                RecoSweep<br>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="column">
+                        <tr>
+                            <td class="padding">
+                                <table class="content">
+                                    <tr>
+                                        <td>
+                                            <a href="#">
+                                                <img src="images/castle-150.png" alt="5">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p> 6
+                                            <p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="column">
+                        <tr>
+                            <td class="padding">
+                                <table class="content">
+                                    <tr>
+                                        <td>
+                                            <a href="#">
+                                                <img src="images/rsweep-150.png" alt="1">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>
+                                                RecoSweep<br>
+                                                RecoSweep<br>
+                                                RecoSweep<br>
+                                                RecoSweep<br>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="column">
+                        <tr>
+                            <td class="padding">
+                                <table class="content">
+                                    <tr>
+                                        <td>
+                                            <a href="#">
+                                                <img src="images/zuh-150.png" alt="3">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p> 4 </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="column">
+                        <tr>
+                            <td class="padding">
+                                <table class="content">
+                                    <tr>
+                                        <td>
+                                            <a href="#">
+                                                <img src="images/castle-150.png" alt="5">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p> 6
+                                            <p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </td>
+
+            </tr>
+
+            <table class="main">
+
+                <tr>
+                    <td>
+                        <h2>Let's Work Together</h1>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="one-column">
+                        <table>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <p> Don't be afraid to make these big decisions. Once you start,
+                                                    they
+                                                    sort of just make
+                                                    themselves. How do you make a round circle with a square knife?
+                                                    That's your
+                                                    challenge for the day. Son of a gun. Just think about these
+                                                    things
+                                                    in your mind and
+                                                    drop em' on canvas. Exercising the imagination, experimenting
+                                                    with
+                                                    talents, being
+                                                    creative; these things, to me, are truly the windows to your
+                                                    soul.
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#"><img src="images/tna-8bit.jpeg" alt="Profile Pic"></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Footer -->
+
+            <table class="main-footer">
+                <tr class="footer">
+                    <td></td>
+                    <td>Icon</td>
+                    <td>Icon</td>
+                    <td>Logo</td>
+                    <td>Icon</td>
+                    <td>Icon</td>
+                    <td></td>
+                </tr>
+            </table>
+
+
+
+        </table>
+
+
+
 
 
 
 
     </center>
 
-    <script src="index.js"></script>
+    <script src=" index.js"></script>
 </body>
 
 </html>
