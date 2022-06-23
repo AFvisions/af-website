@@ -41,14 +41,14 @@
         rel="stylesheet">
 
 
-
-
     <style type="text/css">
         body {
             margin: 0;
             word-spacing: normal;
             color: #c7c7c7;
             background-color: #2e2e2e;
+            background-image: url('images/wraught-iron.png');
+            background-repeat: repeat;
         }
 
         table {
@@ -63,10 +63,24 @@
             font-family: 'Carrois Gothic', sans-serif;
         }
 
+        a {
+            color: #324744;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #6e6578;
+            text-decoration: none;
+        }
+
         .wrapper {
             width: 100%;
             table-layout: fixed;
             margin: 0;
+            min-width: 320px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .main {
@@ -84,10 +98,13 @@
 
         .main-header {
             width: 100%;
-            max-width: 600px;
             font-family: courier, serif;
             color: #afafaf;
             text-align: center;
+            border-bottom-left-radius: 1em;
+            border-bottom-right-radius: 1em;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
         }
 
         .main-footer {
@@ -182,6 +199,11 @@
             font-family: 'Averia Serif Libre', cursive;
         }
 
+        .sub-title {
+            margin-top: 3em;
+            margin-bottom: -4.5em;
+        }
+
 
         .responsive-table {
             display: block;
@@ -190,10 +212,19 @@
 
         .responsive-image {
             height: auto;
+            width: 350px;
             max-width: 100% !important;
-            border-radius: 15%;
+            border: #567a75 solid 1em;
+            border-radius: 1em;
+
         }
 
+
+        svg {
+            color: red;
+            width: 10px;
+
+        }
 
 
 
@@ -223,15 +254,17 @@
 
         <table class="main-header">
             <tr class="header">
-                <td></td>
-                <td>Icon</td>
-                <td>Icon</td>
-                <td>Logo</td>
-                <td>Icon</td>
-                <td>Icon</td>
-                <td></td>
+
+                <td><img src="images/icon-git-green.png"></td>
+                <td><img src="images/icon-git-green.png"></td>
+                <td><img src="images/afvisions-endcap.png"></td>
+                <td><img src="images/icon-twitter-green.png"></td>
+                <td><img src="images/icon-insta-green.png"></td>
+
             </tr>
         </table>
+
+        <!-- Intro -->
 
         <table class="main">
             <tr>
@@ -247,7 +280,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <h2>Graphc Designer + Email Developer</h2>
+                                            <h2>Graphic Designer + Email Developer</h2>
                                         </td>
                                     </tr>
                                     <tr>
@@ -302,14 +335,18 @@
                 </td>
             </tr> -->
 
+        <!-- Projects -->
 
-        <table class="main">
-
+        <table class="sub-title">
             <tr>
                 <td>
                     <h2>Projects</h1>
                 </td>
             </tr>
+        </table>
+
+
+        <table class="main">
 
             <tr>
 
@@ -321,7 +358,7 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/rsweep-150.png" alt="1">
+                                                <img src="images/recosweep-thumb.png" alt="1">
                                             </a>
                                         </td>
                                     </tr>
@@ -343,7 +380,7 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/zuh-150.png" alt="3">
+                                                <img src="images/360-thumb.png" alt="3">
                                             </a>
                                         </td>
                                     </tr>
@@ -369,7 +406,7 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/castle-150.png" alt="5">
+                                                <img src="images/zuh-thumb.png" alt="5">
                                             </a>
                                         </td>
                                     </tr>
@@ -391,7 +428,7 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/rsweep-150.png" alt="1">
+                                                <img src="images/blank-g-thumb.png" alt="1">
                                             </a>
                                         </td>
                                     </tr>
@@ -417,7 +454,7 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/zuh-150.png" alt="3">
+                                                <img src="images/castle-thumb.png" alt="3">
                                             </a>
                                         </td>
                                     </tr>
@@ -438,7 +475,7 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/castle-150.png" alt="5">
+                                                <img src="images/blank-g-thumb.png" alt="5">
                                             </a>
                                         </td>
                                     </tr>
@@ -458,13 +495,19 @@
 
             </tr>
 
-            <table class="main">
+            <!-- Contact -->
 
+            <table class="sub-title">
                 <tr>
                     <td>
                         <h2>Let's Work Together</h1>
                     </td>
                 </tr>
+            </table>
+
+            <table class="main">
+
+
 
                 <tr>
                     <td class="one-column">
@@ -492,14 +535,22 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <a href="#"><img src="images/tna-8bit.jpeg" alt="Profile Pic"></a>
+                                                <a href="#"><img src="images/af-cloisters-glasspane.jpg"
+                                                        alt="Profile Pic" class="responsive-image"></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-
-                                            </td>
-                                        </tr>
+                                        <table style="display:inline-block">
+                                            <tr>
+                                                <td>
+                                                    <h2
+                                                        style="background-color: #c7c7c7; padding: .25em 1em; margin-top: 1em; border-radius: .45em; display: inline-block; ;">
+                                                        <a href="#footer">
+                                                            <!-- will make this an onClick copy text -->
+                                                            andrew@afvisions.com
+                                                    </h2>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </table>
                                 </td>
                             </tr>
@@ -510,7 +561,7 @@
 
             <!-- Footer -->
 
-            <table class="main-footer">
+            <table class=" main-footer">
                 <tr class="footer">
                     <td></td>
                     <td>Icon</td>
