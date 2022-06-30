@@ -61,6 +61,7 @@
 
         p {
             font-family: 'Carrois Gothic', sans-serif;
+            text-align: left;
         }
 
         a {
@@ -69,14 +70,11 @@
         }
 
         a:hover {
-            color: #6e6578;
+            color: #324744;
             text-decoration: none;
         }
 
-        .hover:hover {
-            background-image: "icon-git-purple.png";
 
-        }
 
         .wrapper {
             width: 100%;
@@ -93,10 +91,10 @@
             max-width: 600px;
             font-family: courier, serif;
             color: #afafaf;
-            text-align: center;
+            text-align: left;
             margin-top: 5em;
             border-collapse: collapse;
-            border-radius: 1em;
+            border-radius: .5em;
             overflow: hidden;
             box-shadow: 0 0 25px rgba(0, 0, 0, .5);
         }
@@ -106,11 +104,13 @@
             font-family: courier, serif;
             color: #afafaf;
             text-align: center;
-            border-bottom-left-radius: 1em;
-            border-bottom-right-radius: 1em;
+            border-bottom-left-radius: .5em;
+            border-bottom-right-radius: .5em;
             overflow: hidden;
             box-shadow: 0 0 25px rgba(0, 0, 0, .5);
         }
+
+
 
         /* #i-github {
             background-image: url('icon-git-green.png');
@@ -129,8 +129,8 @@
             font-family: courier, serif;
             color: #afafaf;
             text-align: center;
-            border-top-left-radius: 1em;
-            border-top-right-radius: 1em;
+            border-top-left-radius: .5em;
+            border-top-right-radius: .5em;
             overflow: hidden;
             box-shadow: 0 0 25px rgba(0, 0, 0, .5);
         }
@@ -176,12 +176,14 @@
         .one-column {
             background-color: #324744;
             padding: 2em;
-
+            text-align: center;
         }
+
+        .cell-padding {}
 
         .three-columns {
             background-color: #324744;
-
+            text-align: center;
             font-size: 0;
             padding: 35px 0 20px;
         }
@@ -245,6 +247,10 @@
             height: 1.25em;
         }
 
+        .pointer {
+            cursor: pointer;
+        }
+
 
 
 
@@ -272,18 +278,18 @@
         <table class="main-header">
             <tr class="header">
 
-                <td><a href="https://www.facebook.com/afvisions"><img src="images/icon-fb-green.png" class="endcap-icon"
-                            onmouseover="this.src='images/icon-fb-purple.png';"
+                <td><a href="https://www.facebook.com/afvisions"><img src="images/icon-fb-green.png" alt="facebook"
+                            class="endcap-icon" onmouseover="this.src='images/icon-fb-purple.png';"
                             onmouseout="this.src='images/icon-fb-green.png';" /></a></td>
-                <td><a href="https://github.com/AFvisions"><img src="images/icon-git-green.png" class="endcap-icon"
-                            onmouseover="this.src='images/icon-git-purple.png';"
+                <td><a href="https://github.com/AFvisions"><img src="images/icon-git-green.png" alt="GitHub"
+                            class="endcap-icon" onmouseover="this.src='images/icon-git-purple.png';"
                             onmouseout="this.src='images/icon-git-green.png';" /></a></td>
-                <td><img src="images/afvisions-endcap.png"></td>
-                <td><a href="https://twitter.com/afvisions"><img src="images/icon-twitter-green.png" class="endcap-icon"
-                            onmouseover="this.src='images/icon-twitter-purple.png';"
+                <td><img src="images/afvisions-endcap.png" alt="AFvisions text logo"></td>
+                <td><a href="https://twitter.com/afvisions"><img src="images/icon-twitter-green.png" alt="twitter"
+                            class="endcap-icon" onmouseover="this.src='images/icon-twitter-purple.png';"
                             onmouseout="this.src='images/icon-twitter-green.png';" /></a></td>
                 <td><a href="https://www.instagram.com/afvisions/"><img src="images/icon-insta-green.png"
-                            class="endcap-icon" onmouseover="this.src='images/icon-insta-purple.png';"
+                            alt="instagram" class="endcap-icon" onmouseover="this.src='images/icon-insta-purple.png';"
                             onmouseout="this.src='images/icon-insta-green.png';" /></a></td>
 
             </tr>
@@ -294,24 +300,28 @@
         <table class="main">
             <tr>
                 <td class="one-column">
-                    <table>
+                    <table width="100%">
                         <tr>
                             <td>
-                                <table>
+                                <table class="cell-padding" style="margin-left: auto;margin-right:auto; padding: 20px;">
                                     <tr>
                                         <td>
-                                            <h1>Andrew Fumagalli</h1>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
+                                            <h1 style="padding-bottom: .15em">Andrew Fumagalli</h1>
+
                                             <h2>Graphic Designer + Email Developer</h2>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p> This website is designed and built similar to an email campaign. I have
-                                                used
+
+                                            <p style="padding-top: 2em"> Welcome! This website is designed and coded
+                                                similarly to an email with techincal <em>and</em> human accessability in
+                                                mind. I've
+                                                used tables, inline and embeded CSS, responive breakpoints, partials and
+                                                snippets via spongy coding.</p>
+
+                                            <p> All emails have been tested
+                                                thoroughly across a multitude of ESP's covering over 94% of
+                                                audiences!
+                                            </p>
+                                            <p>
+                                                Below are client projects you can view and even send to your own email.
                                             </p>
                                         </td>
                                     </tr>
@@ -376,7 +386,7 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/recosweep-thumb.png" alt="1">
+                                                <img src="images/recosweep-thumb.png" alt="Recosweep">
                                             </a>
                                         </td>
                                     </tr>
@@ -398,17 +408,14 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/360-thumb.png" alt="3">
+                                                <img src="images/360-thumb.png" alt="360 Concept">
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <p>
-                                                RecoSweep<br>
-                                                RecoSweep<br>
-                                                RecoSweep<br>
-                                                RecoSweep<br>
+                                                Concept 360
                                             </p>
                                         </td>
                                     </tr>
@@ -424,13 +431,13 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/zuh-thumb.png" alt="5">
+                                                <img src="images/zuh-thumb.png" alt="Suh Chili Beer">
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p> 6
+                                            <p> Suh Chili Beer
                                             <p>
                                         </td>
                                     </tr>
@@ -446,17 +453,14 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/blank-g-thumb.png" alt="1">
+                                                <img src="images/blank-g-thumb.png" alt="no project yet">
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <p>
-                                                RecoSweep<br>
-                                                RecoSweep<br>
-                                                RecoSweep<br>
-                                                RecoSweep<br>
+                                                X
                                             </p>
                                         </td>
                                     </tr>
@@ -472,13 +476,13 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/castle-thumb.png" alt="3">
+                                                <img src="images/castle-thumb.png" alt="castle">
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p> 4 </p>
+                                            <p> Castle </p>
                                         </td>
                                     </tr>
                                 </table>
@@ -493,14 +497,14 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/blank-g-thumb.png" alt="5">
+                                                <img src="images/blank-g-thumb.png" alt="no project yet">
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p> 6
-                                            <p>
+                                            <p> X
+
                                         </td>
                                     </tr>
                                 </table>
@@ -529,44 +533,42 @@
 
                 <tr>
                     <td class="one-column">
-                        <table>
+                        <table width="100%">
                             <tr>
                                 <td>
-                                    <table>
+                                    <table style="margin-left: auto; margin-right: auto">
+
                                         <tr>
                                             <td>
-                                                <p> Don't be afraid to make these big decisions. Once you start,
-                                                    they
-                                                    sort of just make
-                                                    themselves. How do you make a round circle with a square knife?
-                                                    That's your
-                                                    challenge for the day. Son of a gun. Just think about these
-                                                    things
-                                                    in your mind and
-                                                    drop em' on canvas. Exercising the imagination, experimenting
-                                                    with
-                                                    talents, being
-                                                    creative; these things, to me, are truly the windows to your
-                                                    soul.
-                                                </p>
+                                                <a href="#"><img src="images/af-cloisters-glasspane.jpg"
+                                                        alt="Andrew Fumagalli sitting in a granite blocked window with ornate medieval stained glass behind. He looks serene and happy with a light smile that does not show teeth."
+                                                        class="responsive-image"></a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <a href="#"><img src="images/af-cloisters-glasspane.jpg"
-                                                        alt="Profile Pic" class="responsive-image"></a>
+                                                <p style="margin-top: 1em"> <em> Mission Statement: </em> to provide
+                                                    effective and valuable services while fostering a
+                                                    convenient and gratifying environment for clients and peers
+                                                    alike.
+                                                <p><em style="margin-top: 1em"></em>
+                                                </p>
+                                                </p>
                                             </td>
                                         </tr>
                                         <table style="display:inline-block">
                                             <tr>
-                                                <td>
-                                                    <h2
-                                                        style="background-color: #c7c7c7; padding: .25em 1em; margin-top: 1em; border-radius: .45em; display: inline-block; ;">
-                                                        <a href="#footer">
-                                                            <!-- will make this an onClick copy text -->
-                                                            andrew@afvisions.com
-                                                    </h2>
+                                                <td><img src="images/email-button-static.png"
+                                                        alt="click to copy my email address - andrew@afvisions.com"
+                                                        class="pointer"
+                                                        onmouseover="this.src='images/email-button-click.png';"
+                                                        onmouseout="this.src='images/email-button-static.png';" />
                                                 </td>
+
+                                                <!-- <a href="#footer" class="hover-email"
+                                                        style="background-color: #c7c7c7; padding: .25em 1em; margin-top: 1em; border-radius: .45em; display: inline-block; hover ;">
+                                                       
+                                                        <h2>andrew@afvisions.com</h2> -->
                                             </tr>
                                         </table>
                                     </table>
