@@ -229,13 +229,15 @@
 
         .responsive-image {
             height: auto;
-            width: 350px;
             max-width: 100% !important;
-            border: #567a75 solid 1em;
-            border-radius: 1em;
+
 
         }
 
+        .img-border {
+            border: #567a75 solid 1em;
+            border-radius: .5em;
+        }
 
         svg {
             color: red;
@@ -254,17 +256,17 @@
 
 
 
-        /* @media screen and (max-width: 600px) {
-            .responsive-table {
-                display: block;
+        @media screen and (max-width: 600px) {
+            table[class="responsive-table"] {
+                display: block !important;
                 width: 100% !important;
             }
 
-            .responsive-image {
-                height: auto;
+            img[class="responsive-image"] {
+                height: auto !important;
                 max-width: 100% !important;
             }
-        }*/
+        }
     </style>
 </head>
 
@@ -313,7 +315,8 @@
                                             <p style="padding-top: 2em"> Welcome! This website is designed and coded
                                                 similarly to an email with techincal <em>and</em> human accessability in
                                                 mind. I've
-                                                used tables, inline and embeded CSS, responive breakpoints, partials and
+                                                used tables, inline and embeded CSS, responsive breakpoints, partials
+                                                and
                                                 snippets via spongy coding.</p>
 
                                             <p> All emails have been tested
@@ -533,16 +536,16 @@
 
                 <tr>
                     <td class="one-column">
-                        <table width="100%">
+                        <table width="100%" class="responsive-table">
                             <tr>
                                 <td>
-                                    <table style="margin-left: auto; margin-right: auto">
+                                    <table class="responsive-table" style="margin-left: auto; margin-right: auto">
 
                                         <tr>
                                             <td>
                                                 <a href="#"><img src="images/af-cloisters-glasspane.jpg"
                                                         alt="Andrew Fumagalli sitting in a granite blocked window with ornate medieval stained glass behind. He looks serene and happy with a light smile that does not show teeth."
-                                                        class="responsive-image"></a>
+                                                        class="responsive-image img-border"></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -551,6 +554,7 @@
                                                     effective and valuable services while fostering a
                                                     convenient and gratifying environment for clients and peers
                                                     alike.
+
                                                 <p><em style="margin-top: 1em"></em>
                                                 </p>
                                                 </p>
@@ -560,7 +564,7 @@
                                             <tr>
                                                 <td><img src="images/email-button-static.png"
                                                         alt="click to copy my email address - andrew@afvisions.com"
-                                                        class="pointer"
+                                                        class="pointer responsive-image"
                                                         onmouseover="this.src='images/email-button-click.png';"
                                                         onmouseout="this.src='images/email-button-static.png';" />
                                                 </td>
