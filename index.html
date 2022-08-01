@@ -61,7 +61,7 @@
 
         p {
             font-family: 'Carrois Gothic', sans-serif;
-            text-align: left;
+            text-align: center;
         }
 
         a {
@@ -136,18 +136,16 @@
         }
 
         .header {
-            background-color: #324744;
+            background-color: #2e2e2e;
             padding: 2em;
             height: 3em;
-            margin-top: 0px;
-            border-collapse: collapse;
-            border-radius: 1em;
+
             overflow: hidden;
             box-shadow: 0 0 25px rgba(0, 0, 0, .5);
         }
 
         .footer {
-            background-color: #324744;
+            background-color: #2e2e2e;
             padding: 2em;
             height: 3em;
             margin-bottom: 0px;
@@ -185,7 +183,6 @@
             background-color: #324744;
             text-align: center;
             font-size: 0;
-            padding: 35px 0 20px;
         }
 
         .three-columns .column {
@@ -239,6 +236,11 @@
             border-radius: .5em;
         }
 
+        .rounded-image {
+            border-radius: .5em;
+
+        }
+
         svg {
             color: red;
             width: 10px;
@@ -277,8 +279,8 @@
 
         <!-- Header -->
 
-        <table class="main-header">
-            <tr class="header">
+        <table class="main-header header">
+            <tr>
 
                 <td><a href="https://www.facebook.com/afvisions"><img src="images/icon-fb-green.png" alt="facebook"
                             class="endcap-icon" onmouseover="this.src='images/icon-fb-purple.png';"
@@ -307,33 +309,44 @@
                             <td>
                                 <table class="cell-padding" style="margin-left: auto;margin-right:auto; padding: 20px;">
                                     <tr>
+                                        <td align="center">
+
+                                            <a href="#">
+                                                <img src="images/andrewfumagalli.png" alt="Suh Chili Beer"
+                                                    class="responsive-image">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>
-                                            <h1 style="padding-bottom: .15em">Andrew Fumagalli</h1>
 
                                             <h2>Graphic Designer + Email Developer</h2>
 
-                                            <p style="padding-top: 2em"> Welcome! This website is designed and coded
-                                                similarly to an email with techincal <em>and</em> human accessability in
-                                                mind. I've
-                                                used tables, inline and embeded CSS, responsive breakpoints, partials
-                                                and
-                                                snippets via spongy coding.</p>
+                                            <p style=" padding-top: 2.75em; text-align: left;">
+                                                Welcome!... This portfolio is
+                                                designed and
+                                                coded
+                                                similarly to an email with technical <em>and</em> human
+                                                accessability in
+                                                mind.</p>
 
-                                            <p> All emails have been tested
-                                                thoroughly across a multitude of ESP's covering over 94% of
-                                                audiences!
-                                            </p>
-                                            <p>
-                                                Below are client projects you can view and even send to your own email.
+                                            <p style="text-align: left;">My focus is creating bulletproof code while
+                                                expanding my knowledge of email best practices and progressive
+                                                enhancements.
                                             </p>
                                         </td>
+
                                     </tr>
-                                </table>
+
+
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
+        </table>
+        </td>
+        </tr>
         </table>
 
 
@@ -387,16 +400,17 @@
                             <td class="padding">
                                 <table class="content">
                                     <tr>
-                                        <td>
-                                            <a href="#">
-                                                <img src="images/recosweep-thumb.png" alt="Recosweep">
+                                        <td text-align="center">
+                                            <a href="portfolio/recosweep.html">
+                                                <img src="images/recosweep-thumb.png" alt="Recosweep"
+                                                    class="rounded-image">
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <p> RecoSweep
-                                            <p>
+                                            </p>
                                         </td>
                                     </tr>
                                 </table>
@@ -411,7 +425,7 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/360-thumb.png" alt="360 Concept">
+                                                <img src="images/360-thumb.png" alt="360 Concept" class="rounded-image">
                                             </a>
                                         </td>
                                     </tr>
@@ -434,14 +448,15 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/zuh-thumb.png" alt="Suh Chili Beer">
+                                                <img src="images/zuh-thumb.png" alt="Suh Chili Beer"
+                                                    class="rounded-image">
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <p> Suh Chili Beer
-                                            <p>
+                                            </p>
                                         </td>
                                     </tr>
                                 </table>
@@ -456,7 +471,8 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/blank-g-thumb.png" alt="no project yet">
+                                                <img src="images/blank-g-thumb.png" alt="no project yet"
+                                                    class="rounded-image">
                                             </a>
                                         </td>
                                     </tr>
@@ -479,7 +495,7 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/castle-thumb.png" alt="castle">
+                                                <img src="images/castle-thumb.png" alt="castle" class="rounded-image">
                                             </a>
                                         </td>
                                     </tr>
@@ -500,13 +516,14 @@
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="images/blank-g-thumb.png" alt="no project yet">
+                                                <img src="images/nastynug-thumb.png" alt="no project yet"
+                                                    class="rounded-image">
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p> X
+                                            <p>The Nasty Nuggets</p>
 
                                         </td>
                                     </tr>
@@ -545,7 +562,7 @@
                                             <td>
                                                 <a href="#"><img src="images/af-cloisters-glasspane.jpg"
                                                         alt="Andrew Fumagalli sitting in a granite blocked window with ornate medieval stained glass behind. He looks serene and happy with a light smile that does not show teeth."
-                                                        class="responsive-image img-border"></a>
+                                                        class="responsive-image img-border rounded-image"></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -553,11 +570,11 @@
                                                 <p style="margin-top: 1em"> <em> Mission Statement: </em> to provide
                                                     effective and valuable services while fostering a
                                                     convenient and gratifying environment for clients and peers
-                                                    alike.
+                                                    alike.</p>
 
                                                 <p><em style="margin-top: 1em"></em>
                                                 </p>
-                                                </p>
+
                                             </td>
                                         </tr>
                                         <table style="display:inline-block">
@@ -585,8 +602,8 @@
 
             <!-- Footer -->
 
-            <table class=" main-footer">
-                <tr class="footer">
+            <table class="main-footer footer">
+                <tr>
                     <td><a href="https://www.facebook.com/afvisions"><img src="images/icon-fb-green.png"
                                 class="endcap-icon" onmouseover="this.src='images/icon-fb-purple.png';"
                                 onmouseout="this.src='images/icon-fb-green.png';" /></a></td>
