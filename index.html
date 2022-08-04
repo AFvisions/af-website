@@ -28,9 +28,8 @@
     <![endif]-->
 
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/index.css">
+
+
 
     <!-- Font Families -->
 
@@ -62,6 +61,16 @@
         p {
             font-family: 'Carrois Gothic', sans-serif;
             text-align: center;
+            font-size: 18px;
+
+        }
+
+        h2 {
+            font-family: 'Averia Serif Libre', cursive;
+            text-align: center;
+            font-size: 32px;
+            margin: 0;
+
         }
 
         a {
@@ -94,7 +103,7 @@
             text-align: left;
             margin-top: 5em;
             border-collapse: collapse;
-            border-radius: .5em;
+            border-radius: .7em;
             overflow: hidden;
             box-shadow: 0 0 25px rgba(0, 0, 0, .5);
         }
@@ -104,8 +113,8 @@
             font-family: courier, serif;
             color: #afafaf;
             text-align: center;
-            border-bottom-left-radius: .5em;
-            border-bottom-right-radius: .5em;
+            border-bottom-left-radius: .7em;
+            border-bottom-right-radius: .7em;
             overflow: hidden;
             box-shadow: 0 0 25px rgba(0, 0, 0, .5);
         }
@@ -129,8 +138,8 @@
             font-family: courier, serif;
             color: #afafaf;
             text-align: center;
-            border-top-left-radius: .5em;
-            border-top-right-radius: .5em;
+            border-top-left-radius: .7em;
+            border-top-right-radius: .7em;
             overflow: hidden;
             box-shadow: 0 0 25px rgba(0, 0, 0, .5);
         }
@@ -139,7 +148,6 @@
             background-color: #2e2e2e;
             padding: 2em;
             height: 3em;
-
             overflow: hidden;
             box-shadow: 0 0 25px rgba(0, 0, 0, .5);
         }
@@ -147,7 +155,7 @@
         .footer {
             background-color: #2e2e2e;
             padding: 2em;
-            height: 3em;
+            height: 7em;
             margin-bottom: 0px;
             border-collapse: collapse;
 
@@ -173,7 +181,7 @@
 
         .one-column {
             background-color: #324744;
-            padding: 2em;
+            /* padding: 2em; */
             text-align: center;
         }
 
@@ -203,15 +211,7 @@
 
         }
 
-        h1 {
-            font-family: 'Francois One', sans-serif;
-            font-size: 3.5em;
-            line-height: 1em;
-        }
 
-        h2 {
-            font-family: 'Averia Serif Libre', cursive;
-        }
 
         .sub-title {
             margin-top: 3em;
@@ -233,11 +233,11 @@
 
         .img-border {
             border: #567a75 solid 1em;
-            border-radius: .5em;
+            border-radius: .7em;
         }
 
         .rounded-image {
-            border-radius: .5em;
+            border-radius: .7em;
 
         }
 
@@ -255,10 +255,32 @@
             cursor: pointer;
         }
 
+        /* @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+            u~div .email-container {
+                min-width: 320px !important;
+            }
+        } */
+
+        @media (max-width: 550px) {
+            .narrow {
+                display: block;
+            }
+
+            .no-and {
+                display: none;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .size {
+                font-size: 24px;
+            }
+        }
 
 
 
-        @media screen and (max-width: 600px) {
+
+        /* @media screen and (max-width: 640px) {
             table[class="responsive-table"] {
                 display: block !important;
                 width: 100% !important;
@@ -268,7 +290,7 @@
                 height: auto !important;
                 max-width: 100% !important;
             }
-        }
+        } */
     </style>
 </head>
 
@@ -307,12 +329,12 @@
                     <table width="100%">
                         <tr>
                             <td>
-                                <table class="cell-padding" style="margin-left: auto;margin-right:auto; padding: 20px;">
+                                <table class="cell-padding" style="margin-left: auto;margin-right:auto; padding: 20px">
                                     <tr>
                                         <td align="center">
 
                                             <a href="#">
-                                                <img src="images/andrewfumagalli.png" alt="Suh Chili Beer"
+                                                <img src="images/andrewfumagalli.png" alt="Andrew Fumagalli"
                                                     class="responsive-image">
                                             </a>
                                         </td>
@@ -320,17 +342,19 @@
                                     <tr>
                                         <td>
 
-                                            <h2>Graphic Designer + Email Developer</h2>
+                                            <h2 class="size">Graphic Designer <span class="narrow"><span
+                                                        class="no-and">+</span> Email
+                                                    Developer</span></h2>
 
-                                            <p style=" padding-top: 2.75em; text-align: left;">
+                                            <p style="text-align: left; padding-top: 1.5em;">
                                                 Welcome!... This portfolio is
                                                 designed and
                                                 coded
                                                 similarly to an email with technical <em>and</em> human
                                                 accessability in
-                                                mind.</p>
+                                                mind. <br><br>
 
-                                            <p style="text-align: left;">My focus is creating bulletproof code while
+                                                My focus is creating bulletproof code while
                                                 expanding my knowledge of email best practices and progressive
                                                 enhancements.
                                             </p>
@@ -553,72 +577,112 @@
 
                 <tr>
                     <td class="one-column">
-                        <table width="100%" class="responsive-table">
+                        <table class="responsive-table">
                             <tr>
                                 <td>
-                                    <table class="responsive-table" style="margin-left: auto; margin-right: auto">
+                                    <table width="76%" align="center"
+                                        style="background-color:#567a75; border: #567a75 solid 1em; border-collapse:separate; border-radius: .7em;">
 
                                         <tr>
                                             <td>
-                                                <a href="#"><img src="images/af-cloisters-glasspane.jpg"
-                                                        alt="Andrew Fumagalli sitting in a granite blocked window with ornate medieval stained glass behind. He looks serene and happy with a light smile that does not show teeth."
-                                                        class="responsive-image img-border rounded-image"></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p style="margin-top: 1em"> <em> Mission Statement: </em> to provide
-                                                    effective and valuable services while fostering a
-                                                    convenient and gratifying environment for clients and peers
-                                                    alike.</p>
+                                                <table width="100%" align="center" style="background-color:#567a75;">
+                                                    <tr>
+                                                        <td>
 
-                                                <p><em style="margin-top: 1em"></em>
-                                                </p>
+                                                            <a href="#"><img src="images/af-cloisters-glasspane.jpg"
+                                                                    alt="Andrew Fumagalli sitting in a granite blocked window with ornate medieval stained glass behind. He looks serene and happy with a light smile that does not show teeth."
+                                                                    class="responsive-image" style="border-radius: .5em"
+                                                                    width="600px" height="800px"></a>
+
+                                                        </td>
+                                                    </tr>
+                                                </table>
 
                                             </td>
                                         </tr>
-                                        <table style="display:inline-block">
-                                            <tr>
-                                                <td><img src="images/email-button-static.png"
-                                                        alt="click to copy my email address - andrew@afvisions.com"
-                                                        class="pointer responsive-image"
-                                                        onmouseover="this.src='images/email-button-click.png';"
-                                                        onmouseout="this.src='images/email-button-static.png';" />
-                                                </td>
-
-                                                <!-- <a href="#footer" class="hover-email"
-                                                        style="background-color: #c7c7c7; padding: .25em 1em; margin-top: 1em; border-radius: .45em; display: inline-block; hover ;">
-                                                       
-                                                        <h2>andrew@afvisions.com</h2> -->
-                                            </tr>
-                                        </table>
                                     </table>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <p style="margin-top: 1em"> <em> Mission Statement: </em> to provide
+                                        effective and valuable service while fostering a
+                                        convenient and gratifying environment for clients and peers
+                                        alike.</p>
+
+                                    <p><em style="margin-top: 1em"></em>
+                                    </p>
+
+                                </td>
+                            </tr>
+                            <table style="display:inline-block">
+                                <tr>
+                                    <td><img src="images/email-button-static.png"
+                                            alt="click to copy my email address - andrew@afvisions.com"
+                                            class="pointer responsive-image"
+                                            onmouseover="this.src='images/email-button-click.png';"
+                                            onmouseout="this.src='images/email-button-static.png';" />
+                                    </td>
+
+                                    <!-- <a href="#footer" class="hover-email"
+                                                        style="background-color: #c7c7c7; padding: .25em 1em; margin-top: 1em; border-radius: .45em; display: inline-block; hover ;">
+                                                       
+                                                        <h2>andrew@afvisions.com</h2> -->
+                                </tr>
+                            </table>
                         </table>
                     </td>
                 </tr>
             </table>
+            </td>
+            </tr>
+        </table>
 
-            <!-- Footer -->
+        <!-- Footer -->
 
-            <table class="main-footer footer">
-                <tr>
-                    <td><a href="https://www.facebook.com/afvisions"><img src="images/icon-fb-green.png"
-                                class="endcap-icon" onmouseover="this.src='images/icon-fb-purple.png';"
-                                onmouseout="this.src='images/icon-fb-green.png';" /></a></td>
-                    <td><a href="https://github.com/AFvisions"><img src="images/icon-git-green.png" class="endcap-icon"
-                                onmouseover="this.src='images/icon-git-purple.png';"
-                                onmouseout="this.src='images/icon-git-green.png';" /></a></td>
-                    <td><img src="images/afvisions-endcap.png"></td>
-                    <td><a href="https://twitter.com/afvisions"><img src="images/icon-twitter-green.png"
-                                class="endcap-icon" onmouseover="this.src='images/icon-twitter-purple.png';"
-                                onmouseout="this.src='images/icon-twitter-green.png';" /></a></td>
-                    <td><a href="https://www.instagram.com/afvisions/"><img src="images/icon-insta-green.png"
-                                class="endcap-icon" onmouseover="this.src='images/icon-insta-purple.png';"
-                                onmouseout="this.src='images/icon-insta-green.png';" /></a></td>
-                </tr>
-            </table>
+        <table class="main-footer footer" text-align="center">
+            <tr>
+                <td>
+                    <table width="100%">
+                        <tr>
+
+
+                            <td valign="top"><a href="https://www.facebook.com/afvisions"><img
+                                        src="images/icon-fb-green.png" class="endcap-icon"
+                                        onmouseover="this.src='images/icon-fb-purple.png';"
+                                        onmouseout="this.src='images/icon-fb-green.png';" /></a></td>
+                            <td valign="top"><a href="https://github.com/AFvisions"><img src="images/icon-git-green.png"
+                                        class="endcap-icon" onmouseover="this.src='images/icon-git-purple.png';"
+                                        onmouseout="this.src='images/icon-git-green.png';" /></a></td>
+                            <td valign="top"><img src="images/afvisions-endcap.png"></td>
+                            <td valign="top"><a href="https://twitter.com/afvisions"><img
+                                        src="images/icon-twitter-green.png" class="endcap-icon"
+                                        onmouseover="this.src='images/icon-twitter-purple.png';"
+                                        onmouseout="this.src='images/icon-twitter-green.png';" /></a></td>
+                            <td valign="top"><a href="https://www.instagram.com/afvisions/"><img
+                                        src="images/icon-insta-green.png" class="endcap-icon"
+                                        onmouseover="this.src='images/icon-insta-purple.png';"
+                                        onmouseout="this.src='images/icon-insta-green.png';" /></a></td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100%">
+                    <table width="100%">
+                        <tr>
+                            <td text-align="center"
+                                style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 10px">Created
+                                by © AFvisions
+                                2022. All rights reserved
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
 
 
 
