@@ -1,0 +1,341 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>AFvisions</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- Font Families -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400;1,700&family=Carrois+Gothic&family=Francois+One&display=swap"
+        rel="stylesheet">
+
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            word-spacing: normal;
+            color: #c7c7c7;
+            background-color: #2e2e2e;
+            background-image: url('../images/wraught-iron.png');
+            background-repeat: repeat;
+        }
+
+        table {
+            border-spacing: 0;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        p {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            font-size: 16px;
+
+        }
+
+        h2 {
+            font-family: 'Averia Serif Libre', cursive;
+            text-align: center;
+            font-size: 32px;
+            margin: 0;
+
+        }
+
+        a {
+            color: #324744;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #324744;
+            text-decoration: none;
+        }
+
+
+
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            margin: 0;
+            min-width: 320px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .main {
+            width: 100%;
+            max-width: 600px;
+            font-family: courier, serif;
+            color: #afafaf;
+            text-align: left;
+            margin-top: 2em;
+            margin-bottom: 2em;
+            border-collapse: collapse;
+            border-radius: .7em;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+        .main-header {
+            width: 100%;
+            font-family: courier, serif;
+            color: #afafaf;
+            text-align: center;
+            border-bottom-left-radius: .7em;
+            border-bottom-right-radius: .7em;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+
+
+        /* #i-github {
+            background-image: url('icon-git-green.png');
+            height: 100%;
+        }
+
+        #i-github:hover {
+            background-image: url('icon-git-purple.png');
+            height: 100%;
+        } */
+
+        .main-footer {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 2em;
+            font-family: courier, serif;
+            color: #afafaf;
+            text-align: center;
+            border-top-left-radius: .7em;
+            border-top-right-radius: .7em;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+        .header {
+            background-color: #2e2e2e;
+
+            height: 3em;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+        .footer {
+            background-color: #2e2e2e;
+            padding: 2em;
+            height: 7em;
+            margin-bottom: 0px;
+            border-collapse: collapse;
+
+        }
+
+        .center-image {
+            padding: 40px 0px 40px 0px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+        }
+
+        img {
+            border: 0;
+        }
+
+        /* td {
+            outline: dashed 1px orange
+        } */
+
+        .one-column {
+            background-color: #2e2e2e;
+            padding: 2em;
+            text-align: center;
+        }
+
+        .cell-padding {}
+
+        .three-columns {
+            background-color: #324744;
+            text-align: center;
+            font-size: 0;
+        }
+
+        .three-columns .column {
+            width: 100%;
+            max-width: 200px;
+            display: inline-block;
+            vertical-align: top;
+
+        }
+
+        .three-columns .padding {
+            padding: 25px;
+        }
+
+        .three-columns .content {
+            font-size: 15px;
+            line-height: 20px;
+
+        }
+
+
+
+        .sub-title {
+            margin-top: 3em;
+            margin-bottom: -4.5em;
+        }
+
+
+        .responsive-table {
+            display: block;
+            width: 100% !important;
+        }
+
+        .responsive-image {
+            height: auto;
+            max-width: 100% !important;
+
+
+        }
+
+        .img-border {
+            border: #567a75 solid 1em;
+            border-radius: .7em;
+        }
+
+        .rounded-image {
+            border-radius: .7em;
+
+        }
+
+        svg {
+            color: red;
+            width: 10px;
+
+        }
+
+        .endcap-icon {
+            height: 1.25em;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        /* @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+            u~div .email-container {
+                min-width: 320px !important;
+            }
+        } */
+
+        @media (max-width: 550px) {
+            .narrow {
+                display: block;
+            }
+
+            .no-and {
+                display: none;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .size {
+                font-size: 24px;
+            }
+        }
+
+
+
+
+        /* @media screen and (max-width: 640px) {
+            table[class="responsive-table"] {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            img[class="responsive-image"] {
+                height: auto !important;
+                max-width: 100% !important;
+            }
+        } */
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <table class="main">
+            <tr>
+                <td>
+                    <table width="100%" class="one-column">
+                        <tr>
+                            <td>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="20%"><a href="../index.html">Home</a></td>
+                                        <td>
+                                            <h2>The Nasty Nuggets</h2>
+                                        </td>
+                                        <td width="20%"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="text-align: left;"><br><b>Project Type</b> <br> Print Production,
+                                    Graphic/Logo
+                                    Design<br><br>
+
+                                    <b>Software + Tools</b> <br>Adobe Illustrator<br><br>
+
+                                    <b>Project Details</b> <br>
+                                    An old college friend reached out on Instagram to catch up. He mentioned
+                                    he was
+                                    sketching ideas for a design that he needed to have finished and printed
+                                    on apparel
+                                    by mid April before the U.S. CBP Class of 1154 graduated. Although the
+                                    deadline was
+                                    tight with only 35 business days until graduation (and during the many
+                                    supply issues
+                                    faced in 2021) I confidently accepted the government contract and set to
+                                    work. I
+                                    was able to create the t-shirt design with a bonus circular logo (can
+                                    you spot the
+                                    double meaning of the logo?), locally outsource the athletic apparel and
+                                    deliver the
+                                    100+ shirts and hoodies to New Mexico with days to spare.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/nastynuggets-collage.png" width="564px" class="responsive-image"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p text-align="center"
+                                    style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 10px">
+                                    Created
+                                    by © AFvisions
+                                    2022. All rights reserved</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </center>
+
+</body>
