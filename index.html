@@ -56,7 +56,7 @@
         }
 
         a {
-            color: #324744;
+            color: #567a75;
             text-decoration: none;
         }
 
@@ -64,6 +64,89 @@
             color: #324744;
             text-decoration: none;
         }
+
+        #iconArea1:hover {
+            opacity: 0;
+            transition: all 0.3s linear;
+        }
+
+        #iconArea1BG {
+            background-image: url(images/thumb-g-recosweep.png);
+            background-repeat: no-repeat;
+            border-radius: .7em;
+        }
+
+        #iconArea2:hover {
+            opacity: 0;
+            transition: all 0.3s linear;
+        }
+
+        #iconArea2BG {
+            background-image: url(images/thumb-g-360.png);
+            background-repeat: no-repeat;
+            border-radius: .7em;
+        }
+
+        /* #iconArea3:hover {
+            opacity: 0;
+            transition: all 0.3s linear;
+        }
+
+        #iconArea3BG {
+            background-image: url(images/nastynug-thumb.png);
+            background-repeat: no-repeat;
+            border-radius: .7em; 
+        } */
+
+
+        #iconArea4:hover {
+            opacity: 0;
+            transition: all 0.3s linear;
+        }
+
+        #iconArea4BG {
+            background-image: url(images/thumb-p-applied.png);
+            background-repeat: no-repeat;
+            border-radius: .7em;
+        }
+
+        /* #iconArea5:hover {
+            opacity: 0;
+            transition: all 0.3s linear;
+        }
+
+        #iconArea5BG {
+            background-image: url(images/nastynug-thumb.png);
+            background-repeat: no-repeat;
+            border-radius: .7em;
+        } */
+
+        #iconArea6:hover {
+            opacity: 0;
+            transition: all 0.3s linear;
+        }
+
+        #iconArea6BG {
+            background-image: url(images/thumb-p-nasty.png);
+            background-repeat: no-repeat;
+            border-radius: .7em;
+        }
+
+        #buttonEmail:hover {
+            transition: all 0.3s linear;
+
+        }
+
+        #buttonEmailBG:hover {
+            transition: all 0.3s linear;
+            background-color: #6e6578 !important;
+            color: #c7c7c7 !important;
+        }
+
+
+
+
+
 
 
 
@@ -244,6 +327,8 @@
         } */
 
 
+
+
         @media (max-width: 575px) {
             .narrow {
                 display: block;
@@ -421,10 +506,10 @@
                             <td class="padding">
                                 <table class="content">
                                     <tr>
-                                        <td text-align="center">
+                                        <td text-align="center" id="iconArea1BG">
                                             <a href="portfolio/p-recosweep.html">
-                                                <img src="images/recosweep-thumb.png" alt="Recosweep"
-                                                    class="rounded-image">
+                                                <img src="images/thumb-p-recosweep.png" alt="Recosweep"
+                                                    class="rounded-image" id="iconArea1">
                                             </a>
                                         </td>
                                     </tr>
@@ -444,9 +529,10 @@
                             <td class="padding">
                                 <table class="content">
                                     <tr>
-                                        <td>
+                                        <td id="iconArea2BG">
                                             <a href="portfolio/p-57west.html">
-                                                <img src="images/360-thumb.png" alt="360 Concept" class="rounded-image">
+                                                <img src="images/thumb-p-360.png" alt="360 Concept"
+                                                    class="rounded-image" id="iconArea2">
                                             </a>
                                         </td>
                                     </tr>
@@ -467,9 +553,10 @@
                             <td class="padding">
                                 <table class="content">
                                     <tr>
-                                        <td>
+                                        <td id="iconArea3BG">
                                             <a href="#">
-                                                <img src="images/blank-p-thumb.png" alt="" class="rounded-image">
+                                                <img src="images/thumb-blank.png" alt="" class="rounded-image"
+                                                    style="opacity: 50%" id="iconArea3">
                                             </a>
                                         </td>
                                     </tr>
@@ -489,10 +576,10 @@
                             <td class="padding">
                                 <table class="content">
                                     <tr>
-                                        <td>
+                                        <td id="iconArea4BG">
                                             <a href="#">
-                                                <img src="images/p-appliedbio-thumb.png" alt="Applied Bioplastics"
-                                                    class="rounded-image">
+                                                <img src="images/thumb-g-applied.png" alt="Applied Bioplastics"
+                                                    class="rounded-image" id="iconArea4">
                                             </a>
                                         </td>
                                     </tr>
@@ -513,9 +600,10 @@
                             <td class="padding">
                                 <table class="content">
                                     <tr>
-                                        <td>
+                                        <td id="iconArea5BG">
                                             <a href="#">
-                                                <img src="images/blank-g-thumb.png" alt="" class="rounded-image">
+                                                <img src="images/thumb-blank.png" alt="" class="rounded-image"
+                                                    style="opacity: 50%" id="iconArea5">
                                             </a>
                                         </td>
                                     </tr>
@@ -534,10 +622,10 @@
                             <td class="padding">
                                 <table class="content">
                                     <tr>
-                                        <td>
+                                        <td id="iconArea6BG">
                                             <a href="portfolio/p-nastynuggets.html">
-                                                <img src="images/nastynug-thumb.png" alt="no project yet"
-                                                    class="rounded-image">
+                                                <img src="images/thumb-g-nasty.png" alt="no project yet"
+                                                    class="rounded-image" id="iconArea6">
                                             </a>
                                         </td>
                                     </tr>
@@ -612,11 +700,28 @@
                             </tr>
                             <table style="display:inline-block; margin-top:1em;">
                                 <tr>
-                                    <td><img src="images/email-button-static.png"
+                                    <td>
+
+                                        <table>
+                                            <tr>
+                                                <td id="buttonEmail">
+                                                    <!--[if mso]>
+                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="<a href="mailto:andrew@afvisions.com">" style="height:40px;v-text-anchor:middle;width:200px;" arcsize="10%" strokecolor="#324744" fillcolor="#c7c7c7">
+                                              <w:anchorlock/>
+                                              <center style="color:#324744;font-family:sans-serif;font-size:13px;font-weight:bold;">andrew@afvisions.com</center>
+                                            </v:roundrect>
+                                          <![endif]--><a href="mailto:andrew@afvisions.com" id="buttonEmailBG"
+                                                        style="background-color:#c7c7c7;border:1px solid
+                                                #324744;border-radius:4px;color:#324744;display:inline-block;font-family:sans-serif;font-size:16px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;">andrew@afvisions.com</a>
+                                                    </div>
+                                                    <!-- <img src="images/email-button-static.png"
                                             alt="click to copy my email address - andrew@afvisions.com"
                                             class="pointer responsive-image"
                                             onmouseover="this.src='images/email-button-click.png';"
-                                            onmouseout="this.src='images/email-button-static.png';" />
+                                            onmouseout="this.src='images/email-button-static.png';" /> -->
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </td>
 
                                     <!-- <a href="#footer" class="hover-email"
