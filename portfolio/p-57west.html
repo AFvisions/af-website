@@ -40,7 +40,7 @@
 
         p {
             font-family: 'Roboto', sans-serif;
-            text-align: center;
+            text-align: left;
             font-size: 16px;
 
         }
@@ -61,6 +61,17 @@
         a:hover {
             color: #324744;
             text-decoration: none;
+        }
+
+        #button:hover {
+            transition: all 0.3s linear;
+
+        }
+
+        #buttonBG:hover {
+            transition: all 0.3s linear;
+            background-color: #6e6578 !important;
+            color: #c7c7c7 !important;
         }
 
 
@@ -297,14 +308,19 @@
                         </tr>
                         <tr>
                             <td>
-                                <p style="text-align: left;"><br><b>Project Type</b> <br> Graphic Design, Print, 3D
-                                    Graphics, Illustration<br><br>
+                                <p style="text-align: left;"><b>Project Type</b>
+                                    <br>Graphic Design, Print, 3D
+                                    Graphics, Illustration
+                                </p>
 
-                                    <b>Software + Tools</b> <br>Adobe InDesign, Photoshop, Illustrator, Acrobat,
-                                    Blender<br><br>
+                                <p><b>Software + Tools</b>
+                                    <br>Adobe InDesign, Photoshop, Illustrator, Acrobat,
+                                    Blender
+                                </p>
 
-                                    <b>Project Details</b> <br>
-                                    This project is one that I inherited from my client’s former designer and because I
+                                <p><b>Project Details</b>
+                                    <br>This project is one that I inherited from my client’s former designer and
+                                    because I
                                     didn’t have the native files I chose to completely recreate the digital brochure
                                     using InDesign so that current and future changes that the brochure needed could
                                     easily be accomplished.Highlights of the brochure include a spanish version and a
@@ -313,17 +329,19 @@
                                 </p>
                             </td>
                         </tr>
-                        <td>
+                        <td id="button" style="padding: 16px 0 16px 0">
                             <div>
                                 <!--[if mso]>
-                                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="portfolio/recosweep.html" style="height:36px;v-text-anchor:middle;width:132px;" arcsize="12%" strokecolor="#000000" fillcolor="#567A75">
+                                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="portfolio/recosweep.html" style="height:36px;v-text-anchor:middle;width:132px;" arcsize="12%" strokecolor="#000000" fillcolor="#c7c7c7">
                                   <w:anchorlock/>
-                                  <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">View the Brochure</center>
+                                  <center style="color:#324744;font-family:sans-serif;font-size:14px;font-weight:bold;">View the Brochure</center>
                                 </v:roundrect>
                               <![endif]--><a href="https://indd.adobe.com/view/42fa5652-3fc4-4c8c-b7a1-bb9788f79f06"
-                                    style="background-color:#567A75;border:1px solid #000000;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:36px;text-align:center;text-decoration:none;width:132px;-webkit-text-size-adjust:none;mso-hide:all;">View
-                                    the Brochure</a>
+                                    id="buttonBG"
+                                    style="background-color:#c7c7c7;border:1px solid #000000;border-radius:4px;color:#324744;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:36px;text-align:center;text-decoration:none;width:132px;-webkit-text-size-adjust:none;mso-hide:all;">View
+                                    Brochure</a>
                             </div>
+
                         </td>
                         <tr>
                             <td><img src="images/57west-collage.png" width="564px" class="responsive-image"></td>
@@ -331,7 +349,7 @@
                         <tr>
                             <td>
                                 <p text-align="center"
-                                    style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 10px">
+                                    style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 10px;text-align:center">
                                     Created
                                     by © AFvisions
                                     2022. All rights reserved</p>
