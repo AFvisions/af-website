@@ -1,0 +1,359 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>AFvisions</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT9WN4B9BP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MT9WN4B9BP');
+    </script>
+
+    <!-- Font Families -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400;1,700&family=Carrois+Gothic&family=Francois+One&display=swap"
+        rel="stylesheet">
+
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            word-spacing: normal;
+            color: #c7c7c7;
+            background-color: #2e2e2e;
+            background-image: url('../images/tna-heart.png');
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        table {
+            border-spacing: 0;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        p {
+            font-family: 'Roboto', sans-serif;
+            text-align: left;
+            font-size: 16px;
+
+        }
+
+        h2 {
+            font-family: 'Averia Serif Libre', cursive;
+            text-align: center;
+            font-size: 32px;
+            margin: 0;
+
+        }
+
+        a {
+            color: #567a75;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #324744;
+            text-decoration: none;
+        }
+
+
+
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            margin: 0;
+            min-width: 320px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .main {
+            width: 100%;
+            max-width: 640px;
+            font-family: courier, serif;
+            color: #afafaf;
+            text-align: left;
+            margin-top: 2em;
+            margin-bottom: 2em;
+            border-collapse: collapse;
+            border-radius: .7em;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+        .main-header {
+            width: 100%;
+            font-family: courier, serif;
+            color: #afafaf;
+            text-align: center;
+            border-bottom-left-radius: .7em;
+            border-bottom-right-radius: .7em;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+
+
+        /* #i-github {
+            background-image: url('icon-git-green.png');
+            height: 100%;
+        }
+
+        #i-github:hover {
+            background-image: url('icon-git-purple.png');
+            height: 100%;
+        } */
+
+        .main-footer {
+            width: 100%;
+            max-width: 640px;
+            margin-top: 2em;
+            font-family: courier, serif;
+            color: #afafaf;
+            text-align: center;
+            border-top-left-radius: .7em;
+            border-top-right-radius: .7em;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+        .header {
+            background-color: #2e2e2e;
+
+            height: 3em;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+        .footer {
+            background-color: #2e2e2e;
+            padding: 2em;
+            height: 7em;
+            margin-bottom: 0px;
+            border-collapse: collapse;
+
+        }
+
+        .center-image {
+            padding: 40px 0px 40px 0px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+        }
+
+        img {
+            border: 0;
+        }
+
+        /* td {
+            outline: dashed 1px orange
+        } */
+
+        .one-column {
+            background-color: #2e2e2e;
+            padding: 2em;
+            text-align: center;
+        }
+
+        .cell-padding {}
+
+        .three-columns {
+            background-color: #324744;
+            text-align: center;
+            font-size: 0;
+        }
+
+        .three-columns .column {
+            width: 100%;
+            max-width: 200px;
+            display: inline-block;
+            vertical-align: top;
+
+        }
+
+        .three-columns .padding {
+            padding: 25px;
+        }
+
+        .three-columns .content {
+            font-size: 15px;
+            line-height: 20px;
+
+        }
+
+
+
+        .sub-title {
+            margin-top: 3em;
+            margin-bottom: -4.5em;
+        }
+
+
+        .responsive-table {
+            display: block;
+            width: 100% !important;
+        }
+
+        .responsive-image {
+            height: auto;
+            max-width: 100% !important;
+
+
+        }
+
+        .img-border {
+            border: #567a75 solid 1em;
+            border-radius: .7em;
+        }
+
+        .rounded-image {
+            border-radius: .7em;
+
+        }
+
+        svg {
+            color: red;
+            width: 10px;
+
+        }
+
+        .endcap-icon {
+            height: 1.25em;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        /* @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+            u~div .email-container {
+                min-width: 320px !important;
+            }
+        } */
+
+        @media (max-width: 550px) {
+            .narrow {
+                display: block;
+            }
+
+            .no-and {
+                display: none;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .size {
+                font-size: 24px;
+            }
+        }
+
+
+
+
+        /* @media screen and (max-width: 640px) {
+            table[class="responsive-table"] {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            img[class="responsive-image"] {
+                height: auto !important;
+                max-width: 100% !important;
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" roles="presentation">
+        <tr>
+            <td align="center" style="padding: 30px 0px 100px 0px">
+                <table border="0" cellpadding="0" cellspacing="0" width="390" roles="presentation">
+                    <tr>
+                        <td>
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" roles="presentation">
+
+                                <tr>
+                                    <td style="color: #fffff; padding: 0px 0px 30px 0px">
+                                        <p class="poem">My love for you, fair Christina,<br>
+                                            Grows stronger with each passing day.<br>
+                                            You are the light that guides me through the dark,<br>
+                                            The beat that keeps my heart at bay.<br><br>
+
+                                            Your beauty, both inside and out,<br>
+                                            Is like a rose in full bloom.<br>
+                                            Your radiance shines like the sun,<br>
+                                            Our love will never wane or doom.<br><br>
+
+                                            Our family is better now,<br>
+                                            With you by my side.<br>
+                                            Together we face the world,<br>
+                                            Our love will never subside.<br>
+
+                                        </p>
+
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                            <div class="line"
+                                style="line: height 2px;height: 2px;mso-line-height-rule:exactly; background-color: purple;">
+                                &nbsp;
+                            </div>
+
+                            <div class="spacer"
+                                style="line-height:26px;height:26px;mso-line-height-rule:exactly; padding: 100px 0px 0px 0px">
+                                &nbsp;
+                            </div>
+
+                            <!-- SECTION CLUE -->
+
+                    <tr>
+                        <td class="clue" style="padding: 30px 0px 0px 0px">
+                            <p>
+                                There are more codes in Austin! The theme is <span
+                                    style="color: rgb(140, 50, 140); font-weight: bold">Memories!</span><br><br>
+
+                                But we’ll have to find them...Here is a clue to the
+                                next code. </p>
+
+                            <p style="color: rgb(140, 50, 140); font-weight: bold">
+                                I sit at the moon’s feet.<br>
+                                To the West an ancient millennium sits.<br>
+                                To the East toxic
+                                medicines await.<br>
+                                Across the street we drink!
+                            </p>
+                        </td>
+                    </tr>
+
+
+            </td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+    </table>
+</body>
