@@ -367,12 +367,122 @@
             cursor: pointer;
         }
 
-        /* @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
-            u~div .email-container {
-                min-width: 320px !important;
-            }
-        } */
+        /*
+        FLEXBOX PORTFOLIO CSS
+        */
 
+        .portfolio-section {
+            padding-top: 3em;
+            padding-bottom: 2em;
+            background-color: #324744;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Averia Serif Libre', cursive;
+            font-size: 32px;
+            color: #c7c7c7;
+            margin-bottom: 1em;
+        }
+
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2em;
+        }
+
+        .portfolio-item {
+            width: 150px;
+            text-align: center;
+            position: relative;
+        }
+
+        .portfolio-thumb {
+            width: 150px;
+            border-radius: 6%;
+            transition: opacity 0.3s linear;
+        }
+
+        .portfolio-item:hover .portfolio-thumb {
+            opacity: 0;
+        }
+
+        .portfolio-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #c7c7c7;
+            margin-top: 0.5em;
+        }
+
+        /* Container for each image hover effect */
+        .thumb-transition {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            border-radius: 6%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        /* Foreground image */
+        .thumb-img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 6%;
+            transition: opacity 0.3s linear;
+        }
+
+        /* Fade out image on hover */
+        .thumb-transition:hover .thumb-img {
+            opacity: 0;
+        }
+
+        /* Background hover states (purple versions) */
+
+        .thumb-sxsw {
+            background-image: url('images/thumb-p-sxsw.png');
+        }
+
+        .thumb-applied {
+            background-image: url('images/thumb-p-applied.png');
+        }
+
+        .thumb-jeffco {
+            background-image: url('images/thumb-p-jeffco.png');
+        }
+
+        .thumb-recosweep {
+            background-image: url('images/thumb-p-recosweep.png');
+        }
+
+        .thumb-360 {
+            background-image: url('images/thumb-p-360.png');
+        }
+
+        .thumb-nasty {
+            background-image: url('images/thumb-p-nasty.png');
+        }
+
+
+        @media (max-width: 768px) {
+            .portfolio-item {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-item {
+                width: 90%;
+            }
+        }
+
+        /*
+        END - FLEXBOX PORTFOLIO CSS
+        */
 
 
 
@@ -647,160 +757,65 @@
         </table>
 
 
-        <table class="main table400 table200">
+        <!-- Portfolio Grid Using Flexbox -->
+        <section class="portfolio-section main">
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <a href="portfolio/p-sxsw2025.html">
+                        <div class="thumb-transition thumb-sxsw">
+                            <img src="images/thumb-g-sxsw.png" alt="SXSW Event Signs Coordinator" class="thumb-img">
+                        </div>
+                    </a>
+                    <p class="portfolio-title">SXSW Event Signs Coordinator</p>
+                </div>
+                <div class="portfolio-item">
+                    <a href="portfolio/p-appliedbioplastics.html">
+                        <div class="thumb-transition thumb-applied">
+                            <img src="images/thumb-g-applied.png" alt="Applied Bioplastics" class="thumb-img">
+                        </div>
+                    </a>
+                    <p class="portfolio-title">Applied Bioplastics</p>
+                </div>
 
-            <tr>
+                <div class="portfolio-item">
+                    <a href="portfolio/p-jeffco.html">
+                        <div class="thumb-transition thumb-jeffco">
+                            <img src="images/thumb-g-jeffco.png" alt="JEFFCO Food Policy Council" class="thumb-img">
+                        </div>
+                    </a>
+                    <p class="portfolio-title">JEFFCO Food Policy Council</p>
+                </div>
 
-                <td class="three-columns">
-                    <table class="column">
-                        <tr>
-                            <td class="padding">
-                                <table class="content">
-                                    <tr>
-                                        <td id="iconArea1BG">
+                <div class="portfolio-item">
+                    <a href="portfolio/p-recosweep.html">
+                        <div class="thumb-transition thumb-recosweep">
+                            <img src="images/thumb-g-recosweep.png" alt="RecoSweep" class="thumb-img">
+                        </div>
+                    </a>
+                    <p class="portfolio-title">RecoSweep</p>
+                </div>
 
-                                            <a href="portfolio/p-appliedbioplastics.html">
-                                                <img src="images/thumb-g-applied.png" alt="Applied Bioplastics"
-                                                    width="150px" class="rounded-image" id="iconArea4">
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <td>
-                                        <p style="text-align:center">
-                                            Applied Bioplastics
-                                        </p>
+                <div class="portfolio-item">
+                    <a href="portfolio/p-57west.html">
+                        <div class="thumb-transition thumb-360">
+                            <img src="images/thumb-g-360.png" alt="57 West" class="thumb-img">
+                        </div>
+                    </a>
+                    <p class="portfolio-title">57 West</p>
+                </div>
 
-                                    </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
+                <div class="portfolio-item">
+                    <a href="portfolio/p-nastynuggets.html">
+                        <div class="thumb-transition thumb-nasty">
+                            <img src="images/thumb-g-nasty.png" alt="The Nasty Nuggets" class="thumb-img">
+                        </div>
+                    </a>
+                    <p class="portfolio-title">The Nasty Nuggets</p>
+                </div>
 
-        <table class="column">
-            <tr>
-                <td class="padding">
-                    <table class="content">
-                        <tr>
-                            <td id="iconArea2BG">
+            </div>
+        </section>
 
-                                <a href="portfolio/p-jeffco.html">
-                                    <img src="images/thumb-g-jeffco.png" alt="" width="150px" class="rounded-image"
-                                        class="rounded-image" id="iconArea1">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p style="text-align:center"> JEFFCO Food Policy Council
-                                </p>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-
-        <table class="column">
-            <tr>
-                <td class="padding">
-                    <table class="content">
-                        <tr>
-                            <td id="iconArea4BG">
-
-                                <a href="portfolio/p-recosweep.html">
-                                    <img src="images/thumb-g-recosweep.png" alt="Recosweep" width="150px"
-                                        class="rounded-image" id="iconArea2">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p style="text-align:center">
-                                    RecoSweep
-                                </p>
-
-
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-
-        <table class="column">
-            <tr>
-                <td class="padding">
-                    <table class="content">
-                        <tr>
-                            <td id="iconArea3BG">
-                                <a href="portfolio/p-wysiwyg.html">
-                                    <img src="images/thumb-g-wys.png" alt="" width="150px" class="rounded-image"
-                                        id="iconArea3">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p style="text-align:center"> WYSIWYG
-                                </p>
-                            </td>
-
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-
-        <table class="column">
-            <tr>
-                <td class="padding">
-                    <table class="content">
-                        <tr>
-                            <td id="iconArea5BG">
-                                <a href="portfolio/p-57west.html">
-                                    <img src="images/thumb-g-360.png" alt="360 Concept" width="150px"
-                                        class="rounded-image" id="iconArea5">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p style="text-align:center"> 57 West </p>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-
-        <table class="column">
-            <tr>
-                <td class="padding">
-                    <table class="content">
-                        <tr>
-                            <td id="iconArea6BG">
-                                <a href="portfolio/p-nastynuggets.html">
-                                    <img src="images/thumb-g-nasty.png" alt="no project yet" width="150px"
-                                        class="rounded-image" id="iconArea6">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p style="text-align:center">The Nasty Nuggets</p>
-
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-
-
-        </td>
-
-        </tr>
 
         <!-- Email Acolades -->
 
