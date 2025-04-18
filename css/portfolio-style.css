@@ -1,0 +1,139 @@
+/* Shared Back Button Styles */
+.back-button-container {
+    margin-bottom: 2em;
+}
+
+.back-button {
+    background-color: #c7c7c7;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    color: #324744;
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 36px;
+    text-align: center;
+    text-decoration: none;
+    width: 60px;
+    -webkit-text-size-adjust: none;
+    transition: all 0.3s linear;
+}
+
+.back-button:hover {
+    background-color: #6e6578;
+    color: #c7c7c7;
+}
+
+/* FLEXBOX PORTFOLIO CSS */
+
+.portfolio-section {
+    padding-top: 3em;
+    padding-bottom: 2em;
+    background-color: #324744;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Averia Serif Libre', cursive;
+    font-size: 32px;
+    color: #c7c7c7;
+    margin-bottom: 1em;
+}
+
+.portfolio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+}
+
+.portfolio-item {
+    width: 150px;
+    text-align: center;
+    position: relative;
+}
+
+.portfolio-thumb {
+    width: 150px;
+    border-radius: 6%;
+    transition: opacity 0.3s linear;
+}
+
+.portfolio-item:hover .portfolio-thumb {
+    opacity: 0;
+}
+
+.portfolio-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #c7c7c7;
+    margin-top: 0.5em;
+}
+
+/* Container for each image hover effect */
+.thumb-transition {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    border-radius: 6%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Foreground image */
+.thumb-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 6%;
+    transition: opacity 0.3s linear;
+}
+
+/* Fade out image on hover */
+.thumb-transition:hover .thumb-img {
+    opacity: 0;
+}
+
+/* Background hover states (purple versions) */
+
+.thumb-sxsw {
+    background-image: url('../images/thumb-p-sxsw.png');
+}
+
+.thumb-applied {
+    background-image: url('../images/thumb-p-applied.png');
+}
+
+.thumb-jeffco {
+    background-image: url('../images/thumb-p-jeffco.png');
+}
+
+.thumb-recosweep {
+    background-image: url('../images/thumb-p-recosweep.png');
+}
+
+.thumb-360 {
+    background-image: url('../images/thumb-p-360.png');
+}
+
+.thumb-nasty {
+    background-image: url('../images/thumb-p-nasty.png');
+}
+
+
+@media (max-width: 768px) {
+    .portfolio-item {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-item {
+        width: 90%;
+    }
+}
+
+/* END - FLEXBOX PORTFOLIO CSS */
