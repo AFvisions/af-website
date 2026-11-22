@@ -138,11 +138,150 @@
             </ul>
         </section>
 
-        <!-- Codex goes here (next step), after another divider. -->
+        <div class="divider" aria-hidden="true"><span class="divider__diamond"></span></div>
+
+        <!-- Codex: quick pieces, personal work and series -->
+        <section class="section" id="codex" aria-labelledby="codex-heading">
+            <div class="section__intro">
+                <h2 class="t-section-heading" id="codex-heading">Codex</h2>
+                <p class="t-sublabel">Illustrations, experiments, freelance, and things made just for fun.</p>
+            </div>
+
+            <!-- Collection banners. Copy one <li> to add a collection. -->
+            <ul class="banner-list">
+                <li>
+                    <a class="codex-banner" href="/codex/halloween-cards.html">
+                        <span class="codex-banner__text">
+                            <span class="codex-banner__title">Halloween Cards</span>
+                            <span class="codex-banner__desc">[A themed series, gathered on one page. Replace with your own.]</span>
+                        </span>
+                        <span class="codex-banner__cta">View Collection →</span>
+                        <span class="veil veil--slide" aria-hidden="true">View Collection</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="codex-banner" href="/codex/illustration-collection.html">
+                        <span class="codex-banner__text">
+                            <span class="codex-banner__title">Illustration Collection</span>
+                            <span class="codex-banner__desc">[A themed series, gathered on one page. Replace with your own.]</span>
+                        </span>
+                        <span class="codex-banner__cta">View Collection →</span>
+                        <span class="veil veil--slide" aria-hidden="true">View Collection</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Filter chips. data-filter must match a tile's data-category. -->
+            <div class="chips" role="group" aria-label="Filter the Codex">
+                <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+                <button class="chip" type="button" data-filter="Illustration" aria-pressed="false">Illustration</button>
+                <button class="chip" type="button" data-filter="Photo Manipulation" aria-pressed="false">Photo Manipulation</button>
+                <button class="chip" type="button" data-filter="Logos" aria-pressed="false">Logos</button>
+                <button class="chip" type="button" data-filter="Email" aria-pressed="false">Email</button>
+            </div>
+
+            <!-- Codex tiles. To add a piece, copy one <li> and change:
+                 data-category (one of the chip names), the image src and alt,
+                 data-title, data-medium (for the lightbox caption "Category · Medium, Year"),
+                 and the badge text. Tiles open the lightbox (next step). -->
+            <ul class="codex-grid" data-codex-grid>
+                <li data-category="Email">
+                    <button class="codex-tile frame" type="button" data-title="Applied Bioplastics"
+                        data-full="/images/codex/applied-bioplastics.png" data-medium="[Medium, year]">
+                        <img src="/images/codex/applied-bioplastics.png" width="847" height="846" loading="lazy"
+                            alt="[Applied Bioplastics logo in green over a dark background of HTML email code]">
+                        <span class="badge">Email</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+                <li data-category="Email">
+                    <button class="codex-tile frame" type="button" data-title="RecoSweep"
+                        data-full="/images/codex/recosweep.png" data-medium="[Medium, year]">
+                        <img src="/images/codex/recosweep.png" width="1128" height="1128" loading="lazy"
+                            alt="[RecoSweep logo with an eye icon, hand-drawn stars, balloons, a telescope and a gift on a pale yellow card, beside a green bar chart]">
+                        <span class="badge">Email</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+                <li data-category="Logos">
+                    <button class="codex-tile frame" type="button" data-title="The Nasty Nuggets"
+                        data-full="/images/codex/nasty-nuggets.png" data-medium="[Medium, year]">
+                        <img src="/images/codex/nasty-nuggets.png" width="1128" height="1128" loading="lazy"
+                            alt="[The Nasty Nuggets 1154 logo: a man in a gray logo T-shirt on a desert hilltop, the circular 1154 mark, and a box of printed shirts and hoodies]">
+                        <span class="badge">Logos</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+                <li data-category="Illustration">
+                    <button class="codex-tile frame" type="button" data-title="[Title 1]" data-medium="[Medium, year]">
+                        <span class="codex-tile__placeholder placeholder--lavender" role="img" aria-label="[Placeholder: Codex piece 1]">[Title 1]</span>
+                        <span class="badge">Illustration</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+                <li data-category="Photo Manipulation">
+                    <button class="codex-tile frame" type="button" data-title="[Title 2]" data-medium="[Medium, year]">
+                        <span class="codex-tile__placeholder placeholder--night" role="img" aria-label="[Placeholder: Codex piece 2]">[Title 2]</span>
+                        <span class="badge">Photo Manipulation</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+                <li data-category="Illustration">
+                    <button class="codex-tile frame" type="button" data-title="[Title 3]" data-medium="[Medium, year]">
+                        <span class="codex-tile__placeholder placeholder--lavender" role="img" aria-label="[Placeholder: Codex piece 3]">[Title 3]</span>
+                        <span class="badge">Illustration</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+                <li data-category="Photo Manipulation">
+                    <button class="codex-tile frame" type="button" data-title="[Title 4]" data-medium="[Medium, year]">
+                        <span class="codex-tile__placeholder placeholder--night" role="img" aria-label="[Placeholder: Codex piece 4]">[Title 4]</span>
+                        <span class="badge">Photo Manipulation</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+                <li data-category="Illustration">
+                    <button class="codex-tile frame" type="button" data-title="[Title 5]" data-medium="[Medium, year]">
+                        <span class="codex-tile__placeholder placeholder--lavender" role="img" aria-label="[Placeholder: Codex piece 5]">[Title 5]</span>
+                        <span class="badge">Illustration</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+                <li data-category="Logos">
+                    <button class="codex-tile frame" type="button" data-title="[Title 6]" data-medium="[Medium, year]">
+                        <span class="codex-tile__placeholder placeholder--teal" role="img" aria-label="[Placeholder: Codex piece 6]">[Title 6]</span>
+                        <span class="badge">Logos</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+                <li data-category="Illustration">
+                    <button class="codex-tile frame" type="button" data-title="[Title 7]" data-medium="[Medium, year]">
+                        <span class="codex-tile__placeholder placeholder--lavender" role="img" aria-label="[Placeholder: Codex piece 7]">[Title 7]</span>
+                        <span class="badge">Illustration</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+                <li data-category="Photo Manipulation">
+                    <button class="codex-tile frame" type="button" data-title="[Title 8]" data-medium="[Medium, year]">
+                        <span class="codex-tile__placeholder placeholder--night" role="img" aria-label="[Placeholder: Codex piece 8]">[Title 8]</span>
+                        <span class="badge">Photo Manipulation</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+                <li data-category="Illustration">
+                    <button class="codex-tile frame" type="button" data-title="[Title 9]" data-medium="[Medium, year]">
+                        <span class="codex-tile__placeholder placeholder--lavender" role="img" aria-label="[Placeholder: Codex piece 9]">[Title 9]</span>
+                        <span class="badge">Illustration</span>
+                        <span class="veil veil--small" aria-hidden="true">View larger</span>
+                    </button>
+                </li>
+            </ul>
+        </section>
 
     </main>
 
     <div data-include="footer"></div>
+    <script src="/js/codex.js" defer></script>
 </body>
 
 </html>
