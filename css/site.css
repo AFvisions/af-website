@@ -530,3 +530,206 @@
     border-radius: var(--radius-panel);
   }
 }
+
+/* ------------------------------------------------------------------
+   Placeholders and veil (shared by tiles and cards)
+   ------------------------------------------------------------------ */
+@layer components {
+
+  /* Stand-ins for real image crops. Only Dark Teal, Night Teal, Lavender and Pink. */
+  .placeholder--pink { background-color: var(--pink); }
+  .placeholder--lavender { background-color: var(--lavender); }
+  .placeholder--night { background-color: var(--night-teal); }
+  .placeholder--teal { background-color: var(--dark-teal); }
+
+  .placeholder-text {
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+    padding: var(--space-4);
+  }
+
+  /* Pink veil over an image area. Fades in on hover or keyboard focus of the parent link. */
+  .veil {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    padding: var(--space-4);
+    background-color: var(--pink-veil);
+    color: var(--silver);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.2;
+    text-align: center;
+    opacity: 0;
+    transition: opacity var(--duration-tile);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Homepage
+   ------------------------------------------------------------------ */
+@layer pages {
+
+  /* Hero: two columns (520px and 420px starting widths) that stack when narrow. */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+  }
+
+  .hero__intro {
+    flex: 1 1 520px;
+    display: grid;
+    align-content: start;
+    gap: var(--space-4);
+  }
+
+  .hero__featured {
+    flex: 1 1 420px;
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+  }
+
+  .hero .btn-row {
+    margin-top: var(--space-2);
+  }
+
+  /* Featured video: teal card, 72px Pink play button, title along the bottom. Links out. */
+  .video-card {
+    position: relative;
+    display: block;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    color: var(--silver);
+    text-decoration: none;
+  }
+
+  .video-card__media {
+    display: flex;
+    align-items: flex-start;
+    aspect-ratio: 16 / 9;
+    background-color: var(--night-teal);
+    border-radius: var(--radius-card);
+  }
+
+  .video-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-card__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 72px;
+    height: 72px;
+    margin: -36px 0 0 -36px;
+    border-radius: 50%;
+    background-color: var(--pink);
+  }
+
+  /* Play triangle, drawn with borders in Silver. */
+  .video-card__play::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -12px 0 0 -7px;
+    border-style: solid;
+    border-width: 12px 0 12px 20px;
+    border-color: transparent transparent transparent var(--silver);
+  }
+
+  .video-card__title {
+    position: absolute;
+    left: var(--space-2);
+    right: var(--space-2);
+    bottom: var(--space-2);
+    padding: var(--space-3);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* Section head: heading left, count right. */
+  .section {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .section__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-4);
+  }
+
+  /* Case studies grid: auto-fill, 300px minimum, 32px gap. */
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    gap: var(--space-6);
+  }
+
+  .case-grid > li {
+    display: flex;
+  }
+
+  /* Case-study tile: image, title, tags. The whole tile is one link. */
+  .case-tile {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-teal);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-tile);
+    overflow: hidden;
+    color: var(--silver);
+    text-decoration: none;
+    transition: transform var(--duration-tile);
+  }
+
+  .case-tile__media {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 240px;
+  }
+
+  .case-tile__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .case-tile__info {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-4) var(--space-5);
+  }
+
+  .case-tile:hover,
+  .case-tile:focus-visible {
+    transform: translateY(-4px);
+  }
+
+  .case-tile:hover .veil,
+  .case-tile:focus-visible .veil {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-tile:hover,
+    .case-tile:focus-visible {
+      transform: none;
+    }
+  }
+}
