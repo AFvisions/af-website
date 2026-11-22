@@ -98,7 +98,7 @@ These ten colors are the only colors on the site. Overlays and placeholders are 
 | Gold Label | `--gold-label` | Text on gold |
 | Night Teal | `--night-teal` | Ghost button hover |
 
-**Pink and buttons.** Pink never goes on action buttons such as Contact Me or View Brochure, because it can read as a stop or error. Close is the one exception, and selected chips are Pink because they show state, not an action.
+**Pink and buttons.** Pink never goes on action buttons such as Contact Me or View Brochure, because it can read as a stop or error. The lightbox's X close button is the one exception, and selected chips are Pink because they show state, not an action.
 
 **Overlays**
 
@@ -145,14 +145,14 @@ Load all three with one link in the `<head>` of every page:
 | Wordmark | UnifrakturCook | 30px (header), 26px (footer) | 700 | Logo Teal | AFvisions mark |
 | Tagline and field labels | Averia Serif Libre Italic | 22px | 400 | Silver | Hero tagline, Project Type, Software + Tools, Problem, Solution, Impact |
 | Sub-label | Averia Serif Libre Italic | 18px | 400 | Silver | Featured label, Codex tagline |
-| Hover and banner text | Averia Serif Libre Italic | 24px (case-study veil, banner titles, lightbox title), 18px (Codex veil) | 400 | Silver | Veils, collection banners, lightbox |
+| Hover and banner text | Averia Serif Libre Italic | 24px (case-study veil, banner titles), 18px (Codex veil) | 400 | Silver | Veils, collection banners |
 | Card title | Inter | 18px | 600 | Silver | Case-study tile titles |
 | Body | Inter | 16px / 1.65 | 400 | Silver | All running paragraphs |
 | Detail text | Inter | 15px / 1.6 | 400 | Silver | Case-study details, tools list |
 | Navigation | Inter | 15px | 500 | Silver | Header links |
 | Button and chip | Inter | 16px (buttons), 14px (chips) | 600 | Deep Teal on Silver (primary), Silver (ghost, chips) | Buttons, Codex filter chips |
 | Tag | Inter | 12px (tiles), 13px (case-study page) | 500 | Silver | Pill tags |
-| Caption and count | Inter | 14px | 400 | Silver | Lightbox caption, project count |
+| Caption and count | Inter | 14px | 400 | Silver | Lightbox caption (one line), project count |
 | Footer text | Inter | 13px | 400 | Silver | Copyright |
 | Tile label and badge | Inter | 12px (label), 11px (category badge) | 500 | Silver | Codex tiles |
 
@@ -192,7 +192,7 @@ Every page uses one centered column up to 1200px wide, with 16px side margins an
 | 2 | `--space-2` | 8px | Gap between tags and nav links, image-frame inset, chip vertical padding |
 | 3 | `--space-3` | 12px | Gap between chips, title-to-tags gap, nav link vertical padding, tag horizontal padding |
 | 4 | `--space-4` | 16px | Page side margins, header padding, divider gap, Codex grid gap, button vertical padding |
-| 5 | `--space-5` | 24px | Button horizontal padding, Codex banner and lightbox padding, Collection grid gap |
+| 5 | `--space-5` | 24px | Button horizontal padding, Codex banner padding, Collection grid gap |
 | 6 | `--space-6` | 32px | Gap between page sections and hero columns, case-study grid gap, footer side padding |
 | 7 | `--space-7` | 44px | Panel padding, page bottom padding |
 
@@ -217,7 +217,6 @@ Every page uses one centered column up to 1200px wide, with 16px side margins an
 | Case-study tile | Info area 16px 16px 24px | 12px between title and tags | `--radius-card` | `--shadow-tile` |
 | Codex banner | 24px | 16px | `--radius-card` | none, with a 1px `--line-codex-banner` border |
 | Codex tile | none | n/a | `--radius-codex-tile` | `--shadow-codex-tile` |
-| Lightbox panel | 24px | 16px | `--radius-panel` | `--shadow-lightbox` |
 
 **Grids**
 
@@ -238,7 +237,7 @@ Every page uses one centered column up to 1200px wide, with 16px side margins an
 | Tags | 4px 12px padding on tiles, 8px 12px on the case-study page, `--radius-pill`, 8px between tags |
 | Image frame | Inset 8px, 1px line, `--radius-frame` |
 | Play button | 72px circle |
-| Lightbox image | 440px high, panel 860px maximum width |
+| Lightbox image | As large as the window allows, never larger than its native size; `--shadow-lightbox`. Close (X) and arrows are 44px circles |
 
 **Responsive behavior.** Two-column rows (hero, case-study page, contact page) wrap to a single column when the screen is too narrow for both: the hero columns start at 520px and 420px, and the case-study page columns at 560px and 380px. Grids reflow by themselves. The header and nav wrap. The hero name scales down to fit narrow screens, with 84px as its maximum. The one breakpoint is 640px: below it, the padding of the hero, case-study page, collection intro and contact panels drops from 44px to 24px (`--space-5`).
 
@@ -265,8 +264,8 @@ Every page uses one centered column up to 1200px wide, with 16px side margins an
 | Case-study page | One template for every case study, modeled on the 57 West mockup. "← Back to all work" link above the panel. Left column: large image and four thumbnails. Right column: page title, Project Type tags, Software + Tools, Problem, Solution, Impact, then buttons (a primary button when there is something to view, plus an "All projects" ghost button). | Field labels are Averia Serif Libre Italic. Problem, Solution and Impact follow the Case study format in `brand-voice.md`, which governs their content and tone. Existing text may be sorted into these fields without rewording; missing fields get bracketed placeholders. |
 | Codex banner | A wide card linking to a themed collection page, with a title, one line of description and "View Collection →". | On hover or keyboard focus a Pink veil eases in from the right and reads "View Collection" in Averia Serif Libre Italic. The same behavior applies to every collection banner (Halloween Cards, Illustration Collection and any future one). The veil is a stand-in: each banner will get a collage image of its collection's pieces (including some Pink, supplied by Andrew) that slides in from the right the same way and is fully opaque. The veils on banners and case-study tiles stay semi-transparent (`--pink-veil`) until real images replace them. |
 | Codex filter chips | All, Illustration, Photo Manipulation, Logos, Email. | These filter the Codex tiles. One is selected at a time. Selected is a Pink fill with Silver text; unselected is Dark Teal with a 1px border. The selected chip also shows a checkmark (✓) before its label, so the state does not rely on color alone. 44px minimum height. |
-| Codex tile | Small square image with a category tag (badge) in the lower left, as in the mockup. | The badge names the piece's category from the chip list. The Pink veil reads "View larger" on hover. A click opens the lightbox, which loads the image larger at its native dimensions. Current tiles include Applied Bioplastics (Email), RecoSweep (Email) and The Nasty Nuggets (Logos). |
-| Lightbox | Dark backdrop, a teal panel with a 440px image, title, caption, Previous, Next and Close. | Caption format: "Category · Medium, Year". Previous and Next wrap around within the active filter. Keyboard: Escape closes it, the arrow keys move between pieces, and focus stays inside while it is open. Close is the only Pink button. |
+| Codex tile | Small square image with a category tag (badge) in the lower left, as in the mockup. | The badge names the piece's category from the chip list. The Pink veil reads "View larger" on hover. A click opens the lightbox. Current tiles include Applied Bioplastics (Email), RecoSweep (Email) and The Nasty Nuggets (Logos). |
+| Lightbox | A basic gallery view: the image on the `--lightbox-backdrop`, with no panel or frame. A Pink X close button on the image's top-right corner, ‹ and › arrow buttons at the window's left and right edges, and a one-line caption under the image. | Caption format, one line: "Title · Category · Medium, Year" (long captions end with an ellipsis). The arrows wrap around within the active filter. Keyboard: Escape closes it, the arrow keys move between pieces, and focus stays inside while it is open. On touch screens, swipe left or right to move. Clicking the dark area around the image also closes it. The X is the only Pink button. |
 | Collection page | One template for every collection, modeled on Halloween Cards. "← Back to the Codex" link. Page-title headline with a short blurb under it, top left. Then a grid of portrait cards, four per row, newest first, with a caption under each card. | Halloween cards are 5×7 portrait; each collection may set its own card shape. On hover or keyboard focus a card flips to its back. A click opens a pop-up over the `--lightbox-backdrop` showing front and back side by side (stacked on phones), with Escape to close and focus kept inside. The back is optional: a card without one does not flip, and the pop-up shows the single image. Adding a card means copying one HTML block and adding its images, so the grid grows a row at a time. |
 | Contact page | One panel, one row, two columns: a circular portrait image on the left (placeholder until Andrew supplies it), and an email section on the right. | The Contact Me button and the Contact nav link go here. May carry over useful pieces of the archived about-me page. Columns stack on narrow screens. |
 | Footer | Wordmark and copyright in a Dark Teal bar. | Lives once in `partials/footer.html`. No social icons here; the header links carry them. |

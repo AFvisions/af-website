@@ -937,16 +937,12 @@
 }
 
 /* ------------------------------------------------------------------
-   Lightbox (Codex). A <dialog> that fills the screen with the Charcoal
-   backdrop and centers a Dark Teal panel.
+   Lightbox (Codex): a basic gallery view. The image sits on the dimmed
+   page, as large as the window allows (never larger than its native
+   size), with a Pink X on its top-right corner, side arrows, and a
+   one-line caption underneath.
    ------------------------------------------------------------------ */
 @layer components {
-
-  /* Close is the only Pink button on the site. */
-  .btn--close {
-    background-color: var(--pink);
-    color: var(--silver);
-  }
 
   .lightbox {
     width: 100%;
@@ -958,6 +954,7 @@
     border: 0;
     background-color: var(--lightbox-backdrop);
     color: var(--silver);
+    overflow: hidden;
   }
 
   .lightbox[open] {
@@ -969,55 +966,113 @@
     background: transparent;
   }
 
-  .lightbox__panel {
+  .lightbox__figure {
     display: grid;
-    gap: var(--space-4);
-    width: 100%;
-    max-width: 860px;
-    max-height: 100%;
-    overflow: auto;
-    padding: var(--space-5);
-    background-color: var(--dark-teal);
-    border-radius: var(--radius-panel);
+    justify-items: center;
+    gap: var(--space-3);
+    max-width: 100%;
+  }
+
+  /* Wraps the image tightly so the X can sit on the image's corner. */
+  .lightbox__frame {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  /* Leaves room for the side arrows and the caption line. */
+  .lightbox__img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: calc(100vw - 2 * (44px + var(--space-6)));
+    max-height: calc(100vh - 2 * var(--space-4) - var(--space-3) - 3 * var(--space-4));
     box-shadow: var(--shadow-lightbox);
   }
 
-  /* 440px image area; the image shows at its native size, never larger. */
-  .lightbox__media {
+  .lightbox__placeholder {
     display: grid;
     place-items: center;
-    height: min(440px, 60vh);
+    width: min(600px, 70vw);
+    aspect-ratio: 1 / 1;
     background-color: var(--night-teal);
-    border-radius: var(--radius-card);
-    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.4;
   }
 
-  .lightbox__img {
-    max-width: 100%;
-    max-height: min(440px, 60vh);
-    width: auto;
-    height: auto;
+  .lightbox__placeholder[hidden],
+  .lightbox__img[hidden] {
+    display: none;
   }
 
-  .lightbox__text {
+  /* Close: the one Pink button. Sits on the image's top-right corner. */
+  .lightbox__close {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
     display: grid;
-    gap: var(--space-2);
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--pink);
+    color: var(--silver);
+    font-size: 28px;
+    line-height: 1;
   }
 
-  .lightbox__title {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 24px;
-    line-height: 1.2;
+  /* One line; long captions end with an ellipsis. */
+  .lightbox__caption {
+    max-width: calc(100vw - 2 * var(--space-4));
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
   }
 
-  .lightbox__controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
+  /* Side arrows, fixed at the window's left and right edges. */
+  .lightbox__arrow {
+    position: fixed;
+    top: 50%;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    padding: 0;
+    border: 1px solid var(--tag-border);
+    border-radius: 50%;
+    background-color: var(--tag-fill);
+    color: var(--silver);
+    font-size: 28px;
+    line-height: 1;
   }
 
-  .lightbox__controls [data-lightbox-close] {
-    margin-left: auto;
+  .lightbox__arrow--prev {
+    left: var(--space-4);
+  }
+
+  .lightbox__arrow--next {
+    right: var(--space-4);
+  }
+
+  /* Phones: the image uses the full width; arrows overlap its edges. */
+  @media (max-width: 640px) {
+    .lightbox__img {
+      max-width: calc(100vw - 2 * var(--space-4));
+    }
+
+    .lightbox__arrow--prev {
+      left: var(--space-2);
+    }
+
+    .lightbox__arrow--next {
+      right: var(--space-2);
+    }
   }
 }

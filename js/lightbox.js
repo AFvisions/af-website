@@ -1,18 +1,19 @@
 /*
-  Codex lightbox.
+  Codex gallery view (lightbox).
 
   Clicking a Codex tile opens the <dialog data-lightbox> with that piece:
-  the image at its native size (up to 440px high), the title, and the caption
-  "Category · Medium, Year". It reads everything from the tile:
+  the image as large as the window allows (never past its native size) and a
+  one-line caption "Title · Category · Medium, Year". It reads everything from the tile:
     data-category  on the <li>         (also used by the filter chips)
     data-title     on the button
     data-full      on the button       (the larger image; leave off for placeholders)
     data-medium    on the button       ("Medium, year")
     the tile <img> alt                 (reused as the large image's alt text)
 
-  Previous and Next wrap around within the tiles the active filter shows.
+  The side arrows wrap around within the tiles the active filter shows.
   Keyboard: Escape closes, Left and Right arrows move, and focus stays inside
-  the dialog while it is open. Closing returns focus to the tile.
+  the dialog while it is open. On touch screens, swiping left or right moves.
+  Closing returns focus to the tile.
 */
 (function () {
   const dialog = document.querySelector('[data-lightbox]');
@@ -20,7 +21,6 @@
 
   const img = dialog.querySelector('.lightbox__img');
   const placeholder = dialog.querySelector('.lightbox__placeholder');
-  const title = dialog.querySelector('.lightbox__title');
   const caption = dialog.querySelector('.lightbox__caption');
   let current = null;
 
@@ -36,8 +36,11 @@
     const full = tile.getAttribute('data-full');
     const thumb = tile.querySelector('img');
 
-    title.textContent = tile.getAttribute('data-title') || '';
-    caption.textContent = [li.getAttribute('data-category'), tile.getAttribute('data-medium')]
+    caption.textContent = [
+      tile.getAttribute('data-title'),
+      li.getAttribute('data-category'),
+      tile.getAttribute('data-medium')
+    ]
       .filter(Boolean)
       .join(' · ');
 
@@ -49,7 +52,6 @@
     } else {
       img.removeAttribute('src');
       img.hidden = true;
-      placeholder.textContent = '[Image to come]';
       placeholder.hidden = false;
     }
   }
@@ -84,9 +86,21 @@
     if (event.key === 'ArrowRight') { event.preventDefault(); step(1); }
   });
 
-  // Clicking the dark backdrop (outside the panel) closes it.
+  // Clicking the dark area around the image closes it.
   dialog.addEventListener('click', function (event) {
     if (event.target === dialog) close();
+  });
+
+  // Swipe left or right on touch screens.
+  let touchStartX = null;
+  dialog.addEventListener('touchstart', function (event) {
+    touchStartX = event.changedTouches[0].clientX;
+  }, { passive: true });
+  dialog.addEventListener('touchend', function (event) {
+    if (touchStartX === null) return;
+    const distance = event.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(distance) > 50) step(distance < 0 ? 1 : -1);
+    touchStartX = null;
   });
 
   // Return focus to the tile that was showing when the lightbox closes.
