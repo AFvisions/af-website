@@ -16,6 +16,10 @@
         .specimen { max-width: 1200px; margin: 0 auto; padding: var(--space-7) var(--space-4); }
         .specimen > section { padding-block: var(--space-5); border-top: 1px solid var(--line-divider); }
         .specimen-meta { font-size: 13px; line-height: 1.4; opacity: 0.7; margin-bottom: var(--space-2); }
+        .specimen-stack { display: grid; gap: var(--space-3); }
+        .specimen-stack .specimen-meta { margin: var(--space-3) 0 0; }
+        .specimen-gap { margin-top: var(--space-6); }
+        .specimen-frame { display: grid; place-items: center; height: 240px; background: var(--night-teal); border-radius: var(--radius-card); font-size: 14px; }
         .specimen-swatches { display: flex; flex-wrap: wrap; gap: var(--space-3); }
         .specimen-swatches span { width: 120px; padding: var(--space-3); border-radius: var(--radius-button); font-size: 13px; line-height: 1.4; border: 1px solid var(--line-divider); }
     </style>
@@ -81,6 +85,46 @@
         <section>
             <p class="specimen-meta">Base link and keyboard focus (press Tab to see the 2px Silver outline)</p>
             <p><a href="#top">[Sample link]</a></p>
+        </section>
+
+        <section>
+            <p class="specimen-meta">Components · step 3 (hover or Tab through them to see states)</p>
+            <div class="panel specimen-stack">
+                <p class="specimen-meta">Panel · Dark Teal · 44px padding (24px below 640px)</p>
+                <h2 class="t-page-title">57 West</h2>
+
+                <p class="specimen-meta">Tags on a tile · 12px · descriptors, not clickable</p>
+                <ul class="tags" aria-label="Project type">
+                    <li class="tag">Graphic Design</li>
+                    <li class="tag">Print</li>
+                    <li class="tag">Illustration</li>
+                </ul>
+
+                <p class="specimen-meta">Tags on the case-study page · 13px</p>
+                <ul class="tags tags--page" aria-label="Project type">
+                    <li class="tag">Graphic Design</li>
+                    <li class="tag">Print</li>
+                    <li class="tag">Illustration</li>
+                </ul>
+
+                <p class="specimen-meta">Primary and ghost buttons</p>
+                <div class="btn-row">
+                    <a class="btn btn--primary" href="#top">View Brochure</a>
+                    <a class="btn btn--ghost" href="#top">All projects</a>
+                </div>
+
+                <p class="specimen-meta">Text links</p>
+                <div class="btn-row">
+                    <a class="text-link" href="#top">See the work ↓</a>
+                    <a class="text-link" href="#top">← Back to all work</a>
+                </div>
+
+                <p class="specimen-meta">Image frame · 1px line inset 8px</p>
+                <div class="frame specimen-frame">[Add a crop of the real work]</div>
+            </div>
+
+            <p class="specimen-meta specimen-gap">Section divider</p>
+            <div class="divider" aria-hidden="true"><span class="divider__diamond"></span></div>
         </section>
 
         <section>
