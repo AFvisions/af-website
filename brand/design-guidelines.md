@@ -233,7 +233,7 @@ Every page uses one centered column up to 1200px wide, with 16px side margins an
 | Element | Size |
 | --- | --- |
 | Primary and ghost buttons | 16px 24px padding, `--radius-button` |
-| Navigation links | 12px 16px padding, `--radius-button`, 8px between links |
+| Navigation links | 12px 16px padding, `--radius-button`, 8px between links. Below 640px: 12px 12px padding, 4px between links, and the nav pulls left 12px so the first link lines up with the wordmark |
 | Codex filter chips | 8px 16px padding, 44px minimum height, `--radius-pill` |
 | Tags | 4px 12px padding on tiles, 8px 12px on the case-study page, `--radius-pill`, 8px between tags |
 | Image frame | Inset 8px, 1px line, `--radius-frame` |

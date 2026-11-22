@@ -490,6 +490,23 @@
     transition: background-color var(--duration-fast);
   }
 
+  /* Phones: tighter link padding, and the nav pulls left so its first link lines up
+     with the wordmark. Keeps all four links on one row down to about 340px. */
+  @media (max-width: 640px) {
+    [data-include="header"] {
+      min-height: 121px;
+    }
+
+    .site-nav__list {
+      gap: var(--space-1);
+      margin-inline-start: calc(-1 * var(--space-3));
+    }
+
+    .site-nav__link {
+      padding-inline: var(--space-3);
+    }
+  }
+
   .site-nav__link:hover,
   .site-nav__link:focus-visible {
     background-color: var(--lavender);
