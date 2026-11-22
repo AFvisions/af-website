@@ -1,0 +1,59 @@
+/* AFvisions site stylesheet
+   Source of truth: brand/design-guidelines.md. The variables block below is copied
+   verbatim from the spec; change it there first, then here. */
+
+:root {
+  /* Color: these ten are the only colors on the site */
+  --charcoal: #2A2A2A;
+  --dark-teal: #35504C;
+  --silver: #DCDCDC;
+  --pink: #A34E69;
+  --lavender: #6B5A9A;
+  --antique-gold: #C9A45C;
+  --logo-teal: #9CC2BE;
+  --deep-teal: #223230;
+  --gold-label: #2A2010;
+  --night-teal: #1A2826;
+
+  /* Overlays: palette colors at partial opacity */
+  --line-divider: color-mix(in srgb, var(--silver) 25%, transparent);
+  --line-image-frame: color-mix(in srgb, var(--silver) 30%, transparent);
+  --line-codex-banner: color-mix(in srgb, var(--silver) 30%, transparent);
+  --line-ghost-button: color-mix(in srgb, var(--silver) 50%, transparent);
+  --tag-fill: color-mix(in srgb, var(--night-teal) 60%, transparent);
+  --tag-border: color-mix(in srgb, var(--silver) 35%, transparent);
+  --pink-veil: color-mix(in srgb, var(--pink) 93%, transparent);
+  --lightbox-backdrop: color-mix(in srgb, var(--charcoal) 92%, transparent);
+
+  /* Fonts */
+  --font-blackletter: "UnifrakturCook", serif;                 /* 700 */
+  --font-serif: "Averia Serif Libre", Georgia, serif;          /* italic 400 */
+  --font-sans: "Inter", system-ui, sans-serif;                 /* 400, 500, 600 */
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 44px;
+
+  /* Radius */
+  --radius-frame: 6px;
+  --radius-button: 8px;
+  --radius-codex-tile: 10px;
+  --radius-card: 12px;
+  --radius-panel: 14px;
+  --radius-pill: 999px;
+
+  /* Shadows: neutral black, not counted as colors */
+  --shadow-panel: 0 8px 24px rgb(0 0 0 / 0.4);
+  --shadow-tile: 0 6px 18px rgb(0 0 0 / 0.35);
+  --shadow-codex-tile: 0 4px 12px rgb(0 0 0 / 0.35);
+  --shadow-lightbox: 0 12px 40px rgb(0 0 0 / 0.6);
+
+  /* Transitions */
+  --duration-fast: 0.2s;
+  --duration-tile: 0.25s;
+}
