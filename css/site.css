@@ -935,3 +935,89 @@
     opacity: 1;
   }
 }
+
+/* ------------------------------------------------------------------
+   Lightbox (Codex). A <dialog> that fills the screen with the Charcoal
+   backdrop and centers a Dark Teal panel.
+   ------------------------------------------------------------------ */
+@layer components {
+
+  /* Close is the only Pink button on the site. */
+  .btn--close {
+    background-color: var(--pink);
+    color: var(--silver);
+  }
+
+  .lightbox {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    padding: var(--space-4);
+    border: 0;
+    background-color: var(--lightbox-backdrop);
+    color: var(--silver);
+  }
+
+  .lightbox[open] {
+    display: grid;
+    place-items: center;
+  }
+
+  .lightbox::backdrop {
+    background: transparent;
+  }
+
+  .lightbox__panel {
+    display: grid;
+    gap: var(--space-4);
+    width: 100%;
+    max-width: 860px;
+    max-height: 100%;
+    overflow: auto;
+    padding: var(--space-5);
+    background-color: var(--dark-teal);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-lightbox);
+  }
+
+  /* 440px image area; the image shows at its native size, never larger. */
+  .lightbox__media {
+    display: grid;
+    place-items: center;
+    height: min(440px, 60vh);
+    background-color: var(--night-teal);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+
+  .lightbox__img {
+    max-width: 100%;
+    max-height: min(440px, 60vh);
+    width: auto;
+    height: auto;
+  }
+
+  .lightbox__text {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .lightbox__title {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .lightbox__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .lightbox__controls [data-lightbox-close] {
+    margin-left: auto;
+  }
+}

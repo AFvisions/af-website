@@ -282,8 +282,28 @@
 
     </main>
 
+    <!-- Codex lightbox. Filled in by js/lightbox.js from the tile that was clicked. -->
+    <dialog class="lightbox" aria-labelledby="lightbox-title" data-lightbox>
+        <div class="lightbox__panel">
+            <div class="lightbox__media">
+                <img class="lightbox__img" src="" alt="" hidden>
+                <span class="lightbox__placeholder placeholder-text" hidden></span>
+            </div>
+            <div class="lightbox__text">
+                <h2 class="lightbox__title" id="lightbox-title"></h2>
+                <p class="lightbox__caption t-caption"></p>
+            </div>
+            <div class="lightbox__controls">
+                <button class="btn btn--ghost" type="button" data-lightbox-prev>← Previous</button>
+                <button class="btn btn--ghost" type="button" data-lightbox-next>Next →</button>
+                <button class="btn btn--close" type="button" data-lightbox-close>Close</button>
+            </div>
+        </div>
+    </dialog>
+
     <div data-include="footer"></div>
     <script src="/js/codex.js" defer></script>
+    <script src="/js/lightbox.js" defer></script>
 </body>
 
 </html>
