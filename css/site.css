@@ -57,3 +57,210 @@
   --duration-fast: 0.2s;
   --duration-tile: 0.25s;
 }
+
+/* ------------------------------------------------------------------
+   Cascade layers. Everything below lives in a layer, so it never
+   outranks a page's own unlayered styles.
+   ------------------------------------------------------------------ */
+@layer reset, base, type, components, layout, pages;
+
+/* ------------------------------------------------------------------
+   Opt-in: rebuilt pages put class="site" on <html>. Legacy pages don't,
+   so none of these rules reach them until they are rebuilt.
+   Pixel sizes below are temporary literals (see "How to use this file"
+   in brand/design-guidelines.md); they are flagged for Andrew's review.
+   ------------------------------------------------------------------ */
+
+@layer reset {
+  :where(.site) *,
+  :where(.site) *::before,
+  :where(.site) *::after {
+    box-sizing: border-box;
+  }
+
+  :where(.site) body,
+  :where(.site) h1,
+  :where(.site) h2,
+  :where(.site) h3,
+  :where(.site) h4,
+  :where(.site) p,
+  :where(.site) figure,
+  :where(.site) ul,
+  :where(.site) ol {
+    margin: 0;
+  }
+
+  :where(.site) ul,
+  :where(.site) ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  :where(.site) img,
+  :where(.site) video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  :where(.site) button {
+    font: inherit;
+    color: inherit;
+  }
+}
+
+@layer base {
+  /* Plain Charcoal until the damask file is supplied. Do not add a pattern. */
+  :where(.site) body {
+    background-color: var(--charcoal);
+    color: var(--silver);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :where(.site) h1,
+  :where(.site) h2,
+  :where(.site) h3,
+  :where(.site) h4 {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 1.2;
+  }
+
+  :where(.site) a {
+    color: var(--silver);
+  }
+
+  /* Tap targets: 44px minimum. Links that act as controls get it in their component. */
+  :where(.site) button {
+    min-height: 44px;
+    cursor: pointer;
+  }
+
+  /* Keyboard focus on every link, button, chip, tile and card. */
+  :where(.site) :focus-visible {
+    outline: 2px solid var(--silver);
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion: no transitions, lifts, slides or flips. Changes happen instantly.
+     Components also reset their transforms under this query. */
+  @media (prefers-reduced-motion: reduce) {
+    :where(.site) *,
+    :where(.site) *::before,
+    :where(.site) *::after {
+      transition-duration: 0s !important;
+      animation-duration: 0s !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Type scale (brand/design-guidelines.md, "Type scale").
+   Nav, buttons, chips, tags, veils, badges and tile labels are styled
+   with their components in a later step.
+   ------------------------------------------------------------------ */
+@layer type {
+  /* Blackletter: name, wordmark and page titles only, 26px and up. */
+  .t-hero-name,
+  .t-page-title,
+  .t-codex-heading,
+  .t-wordmark {
+    font-family: var(--font-blackletter);
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* Scales down on narrow screens; 84px maximum. */
+  .t-hero-name {
+    font-size: clamp(44px, 11vw, 84px);
+    line-height: 0.95;
+  }
+
+  .t-page-title {
+    font-size: 60px;
+    line-height: 1;
+  }
+
+  .t-page-title--collection {
+    font-size: 56px;
+  }
+
+  .t-codex-heading {
+    font-size: 44px;
+    line-height: 1.2;
+  }
+
+  .t-wordmark {
+    font-size: 30px;
+    line-height: 1.2;
+    color: var(--logo-teal);
+  }
+
+  .t-wordmark--footer {
+    font-size: 26px;
+  }
+
+  /* Italic serif: headings, labels, hover text. */
+  .t-section-heading,
+  .t-tagline,
+  .t-label,
+  .t-sublabel {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .t-section-heading {
+    font-size: 36px;
+  }
+
+  /* Hero tagline and case-study field labels share one size. */
+  .t-tagline,
+  .t-label {
+    font-size: 22px;
+  }
+
+  .t-sublabel {
+    font-size: 18px;
+  }
+
+  /* Sans: everything people read. */
+  .t-card-title {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .t-body {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .t-detail {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .t-caption {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .t-footer {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* Running text keeps a comfortable gap between paragraphs. */
+  .t-prose > * + * {
+    margin-top: var(--space-4);
+  }
+}
