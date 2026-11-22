@@ -175,7 +175,7 @@ The site is plain HTML and CSS hosted on Namecheap, with no build step. It is bu
 | `brand/` | This file and `brand-voice.md`. Not uploaded |
 | `archive/` | Unused pages and images. Nothing on the live site links here. Not uploaded |
 
-- Every page keeps the Google Tag Manager snippet (`GTM-TBSSBW57`) and the Google Analytics tag (`G-MT9WN4B9BP`) written directly into its own `<head>`, never loaded from a partial. Keep both unless Andrew says otherwise.
+- Every page keeps the Google Tag Manager snippet (`GTM-TBSSBW57`) and the Google Analytics tag (`G-MT9WN4B9BP`) written directly into its own `<head>`, never loaded from a partial. Keep both unless Andrew says otherwise. Both are wrapped so they do not run on local hosts (`localhost`, `127.0.0.1`, `[::1]`), so local previews never count as visits.
 - When a page stops being used, move it to `archive/` and remove every link to it.
 - Partials load only through a server, so preview with Live Server, not by opening the file directly.
 - Do not upload `archive/`, `brand/` or `new-site-mockups/` to the host.
