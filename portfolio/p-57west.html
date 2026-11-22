@@ -1,16 +1,16 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
-<html lang="en">
+<!DOCTYPE html>
+<!--
+  CASE-STUDY TEMPLATE (57 West is the reference page).
+  To make a new case study, copy this file to portfolio/p-<project>.html and change:
+    1. <title> and the meta description
+    2. The large image and the four thumbnails (src, width, height, alt)
+    3. The page title, Project Type tags, Software + Tools, Problem, Solution, Impact
+    4. The primary button (or remove it if there is nothing to view)
+  Keep the tracking snippets, the header/footer placeholders and the scripts as they are.
+-->
+<html lang="en" class="site">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="x-apple-disable-message-reformatting">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>AFvisions</title>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-
     <!-- Google Tag Manager (skipped on local previews so they don't count as visits) -->
     <script>if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -22,383 +22,104 @@
         })(window, document, 'script', 'dataLayer', 'GTM-TBSSBW57');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- Font Families -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT9WN4B9BP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) gtag('config', 'G-MT9WN4B9BP');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>57 West – Case Study | AFvisions</title>
+    <meta name="description" content="57 West: a digital brochure rebuilt in InDesign, with Spanish and printable versions and a 3D model made in Blender.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400;1,700&family=Carrois+Gothic&family=Francois+One&display=swap"
-        rel="stylesheet">
-
-
-    <style type="text/css">
-        body {
-            margin: 0;
-            word-spacing: normal;
-            color: #c7c7c7;
-            background-color: #2e2e2e;
-            background-image: url('../images/wraught-iron.png');
-            background-repeat: repeat;
-            background-attachment: fixed;
-            background-position: center;
-        }
-
-        table {
-            border-spacing: 0;
-        }
-
-        td {
-            padding: 0;
-        }
-
-        p {
-            font-family: 'Roboto', sans-serif;
-            text-align: left;
-            font-size: 16px;
-            line-height: 23px;
-            margin-top: 0px;
-
-        }
-
-        h2 {
-            font-family: 'Averia Serif Libre', cursive;
-            text-align: left;
-            font-size: 32px;
-            margin: 0;
-
-        }
-
-        a {
-            color: #567a75;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #324744;
-            text-decoration: none;
-        }
-
-        #button:hover {
-            transition: all 0.3s linear;
-
-        }
-
-        #buttonBG:hover {
-            transition: all 0.3s linear;
-            background-color: #6e6578 !important;
-            color: #c7c7c7 !important;
-        }
-
-
-
-        .wrapper {
-            width: 100%;
-            table-layout: fixed;
-            margin: 0;
-            min-width: 320px;
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .main {
-            width: 100%;
-            max-width: 640px;
-            font-family: courier, serif;
-            color: #afafaf;
-            text-align: left;
-            margin-top: 2em;
-            margin-bottom: 2em;
-            border-collapse: collapse;
-            border-radius: .7em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-        .main-header {
-            width: 100%;
-            font-family: courier, serif;
-            color: #afafaf;
-            text-align: center;
-            border-bottom-left-radius: .7em;
-            border-bottom-right-radius: .7em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-
-
-        /* #i-github {
-            background-image: url('icon-git-green.png');
-            height: 100%;
-        }
-
-        #i-github:hover {
-            background-image: url('icon-git-purple.png');
-            height: 100%;
-        } */
-
-        .main-footer {
-            width: 100%;
-            max-width: 640px;
-            margin-top: 2em;
-            font-family: courier, serif;
-            color: #afafaf;
-            text-align: center;
-            border-top-left-radius: .7em;
-            border-top-right-radius: .7em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-        .header {
-            background-color: #2e2e2e;
-
-            height: 3em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-        .footer {
-            background-color: #2e2e2e;
-            padding: 2em;
-            height: 7em;
-            margin-bottom: 0px;
-            border-collapse: collapse;
-
-        }
-
-        .center-image {
-            padding: 40px 0px 40px 0px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 400px;
-        }
-
-        img {
-            border: 0;
-        }
-
-        /* td {
-            outline: dashed 1px orange
-        } */
-
-        .one-column {
-            background-color: #2e2e2e;
-            padding: 2em;
-            text-align: center;
-        }
-
-        .cell-padding {}
-
-        .three-columns {
-            background-color: #324744;
-            text-align: center;
-            font-size: 0;
-        }
-
-        .three-columns .column {
-            width: 100%;
-            max-width: 200px;
-            display: inline-block;
-            vertical-align: top;
-
-        }
-
-        .three-columns .padding {
-            padding: 25px;
-        }
-
-        .three-columns .content {
-            font-size: 15px;
-            line-height: 20px;
-
-        }
-
-
-
-        .sub-title {
-            margin-top: 3em;
-            margin-bottom: -4.5em;
-        }
-
-
-        .responsive-table {
-            display: block;
-            width: 100% !important;
-        }
-
-        .responsive-image {
-            height: auto;
-            max-width: 100% !important;
-
-
-        }
-
-        .img-border {
-            border: #567a75 solid 1em;
-            border-radius: .7em;
-        }
-
-        .rounded-image {
-            border-radius: .7em;
-
-        }
-
-        svg {
-            color: red;
-            width: 10px;
-
-        }
-
-        .endcap-icon {
-            height: 1.25em;
-        }
-
-        .pointer {
-            cursor: pointer;
-        }
-
-        /* @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
-            u~div .email-container {
-                min-width: 320px !important;
-            }
-        } */
-
-
-
-        @media (max-width: 550px) {
-            .narrow {
-                display: block;
-            }
-
-            .no-and {
-                display: none;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .size {
-                font-size: 24px;
-            }
-        }
-
-
-
-
-        /* @media screen and (max-width: 640px) {
-            table[class="responsive-table"] {
-                display: block !important;
-                width: 100% !important;
-            }
-
-            img[class="responsive-image"] {
-                height: auto !important;
-                max-width: 100% !important;
-            }
-        } */
-    </style>
-    <!-- Redesign: site stylesheet and fonts (see brand/design-guidelines.md). The older font link above goes when this page is rebuilt. -->
     <link rel="stylesheet" href="/css/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400&family=Inter:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <script src="/js/include.js" defer></script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MT9WN4B9BP"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) gtag('config', 'G-MT9WN4B9BP');
-</script>
-
 <body>
-
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBSSBW57" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <center>
-        <table class="main">
-            <tr>
-                <td>
-                    <table width="100%" class="one-column">
-                        <tr>
-                            <td>
-                                <table width="100%">
-                                    <tr>
-                                        <td width="5%">
-                                            <div><!--[if mso]>
-                                                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="../index.html#projects" style="height:44px;v-text-anchor:middle;width:60px;" arcsize="10%" strokecolor="#000000" fillcolor="#c7c7c7">
-                                                  <w:anchorlock/>
-                                                  <center style="color:#324744;font-family:sans-serif;font-size:13px;font-weight:bold;">< Back</center>
-                                                </v:roundrect>
-                                              <![endif]--><a href="../index.html#projects" id="buttonBG"
-                                                    style="background-color:#c7c7c7;border:1px solid #000000;border-radius:4px;color:#324744;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:36px;text-align:center;text-decoration:none;width:60px;-webkit-text-size-adjust:none;mso-hide:all;">
-                                                    < Back</a>
-                                            </div>
-                                        </td>
-                                        <td width="20%"></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="images/57west-collage.png" width="564px" class="responsive-image"
-                                    style="padding: 32px 0px 32px 0px"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h2>Project Type:</h2>
-                                <p style="text-align: left;">
-                                    Graphic Design, Print, 3D
-                                    Graphics, Illustration
-                                </p>
-                                <h2>Software + Tools:</h2>
-                                <p>
-                                    Adobe InDesign, Photoshop, Illustrator, Acrobat,
-                                    Blender
-                                </p>
-                                <h2>Project Details:</h2>
-                                <p>
-                                    This project is one that I inherited from my client’s former designer and
-                                    because I
-                                    didn’t have the native files I chose to completely recreate the digital brochure
-                                    using InDesign so that current and future changes that the brochure needed could
-                                    easily be accomplished. Highlights of the brochure include a spanish version and a
-                                    printable version, high resolution stock photos, and within the “360 Method” page a
-                                    3D model I created in Blender.
-                                </p>
-                            </td>
-                        </tr>
-                        <td id="button" style="padding: 32px 0px 32px 0px">
-                            <div>
-                                <a href="https://indd.adobe.com/view/42fa5652-3fc4-4c8c-b7a1-bb9788f79f06"
-                                    id="buttonBG"
-                                    style="background-color:#c7c7c7;border:1px solid #000000;border-radius:4px;color:#324744;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:36px;text-align:center;text-decoration:none;width:132px;-webkit-text-size-adjust:none;mso-hide:all;">View
-                                    Brochure</a>
-                            </div>
+    <div data-include="header"></div>
 
-                        </td>
+    <main class="page container">
+        <a class="text-link back-link" href="/index.html#work">← Back to all work</a>
 
-                        <tr>
-                            <td>
-                                <p text-align="center"
-                                    style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 10px;text-align:center">
-                                    Created
-                                    by © AFvisions
-                                    2024. All rights reserved</p>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </center>
+        <article class="case-study panel" aria-labelledby="case-title">
 
+            <!-- Left column: large image and four thumbnails -->
+            <div class="case-study__media">
+                <div class="case-study__hero frame">
+                    <img src="/images/case-studies/57west-collage.png" width="1128" height="1128"
+                        alt="[57 West Capital Advisors brochure cover and a spread titled “A personalized approach”, set against a wall of blue 3D cubes]">
+                </div>
+
+                <!-- Thumbnails. Replace each placeholder with:
+                     <img src="/images/case-studies/[file]" alt="[Description]"> -->
+                <ul class="thumb-grid">
+                    <li class="thumb frame placeholder--night" role="img" aria-label="[Placeholder: spread detail]">[Spread detail]</li>
+                    <li class="thumb frame placeholder--night" role="img" aria-label="[Placeholder: Spanish version]">[Spanish version]</li>
+                    <li class="thumb frame placeholder--night" role="img" aria-label="[Placeholder: printable version]">[Printable version]</li>
+                    <li class="thumb frame placeholder--night" role="img" aria-label="[Placeholder: Blender model]">[Blender model]</li>
+                </ul>
+            </div>
+
+            <!-- Right column: title, fields, buttons -->
+            <div class="case-study__body">
+                <h1 class="t-page-title" id="case-title">57 West</h1>
+
+                <section class="field">
+                    <h2 class="t-label">Project Type:</h2>
+                    <ul class="tags tags--page" aria-label="Project type">
+                        <li class="tag">Graphic Design</li>
+                        <li class="tag">Print</li>
+                        <li class="tag">Illustration</li>
+                    </ul>
+                </section>
+
+                <section class="field">
+                    <h2 class="t-label">Software + Tools:</h2>
+                    <p class="t-detail">Adobe InDesign, Photoshop, Illustrator, Acrobat, Blender</p>
+                </section>
+
+                <section class="field">
+                    <h2 class="t-label">Problem:</h2>
+                    <p class="t-detail">[Who the client is and what they needed, in 2 to 3 sentences.]</p>
+                </section>
+
+                <section class="field">
+                    <h2 class="t-label">Solution:</h2>
+                    <p class="t-detail">This project is one that I inherited from my client’s former designer and
+                        because I didn’t have the native files I chose to completely recreate the digital brochure using
+                        InDesign so that current and future changes that the brochure needed could easily be
+                        accomplished. Highlights of the brochure include a Spanish version and a printable version, high
+                        resolution stock photos, and within the “360 Method” page a 3D model I created in Blender.</p>
+                </section>
+
+                <section class="field">
+                    <h2 class="t-label">Impact:</h2>
+                    <p class="t-detail">[Real numbers with a cited benchmark where possible, an honest note on anything
+                        that underperformed, and the client’s reaction.]</p>
+                </section>
+
+                <div class="btn-row case-study__actions">
+                    <a class="btn btn--primary" href="https://indd.adobe.com/view/42fa5652-3fc4-4c8c-b7a1-bb9788f79f06">View Brochure</a>
+                    <a class="btn btn--ghost" href="/index.html#work">All projects</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <div data-include="footer"></div>
 </body>
+
+</html>

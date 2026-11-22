@@ -225,7 +225,7 @@ Every page uses one centered column up to 1200px wide, with 16px side margins an
 | Case studies | Auto-fill, 300px minimum | 32px | 240px |
 | Codex quick pieces | Auto-fill, 200px minimum; two per row below 640px | 16px | Square |
 | Collection page | Auto-fill, 260px minimum | 24px | 300px |
-| Case-study page thumbnails | Auto-fill, 160px minimum | 16px | 110px |
+| Case-study page thumbnails | Auto-fill, 160px minimum; two per row below 640px | 16px | 110px |
 
 **Components**
 

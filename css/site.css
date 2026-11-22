@@ -1076,3 +1076,99 @@
     }
   }
 }
+
+/* ------------------------------------------------------------------
+   Case-study page (one template for every case study; 57 West is the
+   reference). Two columns starting at 560px and 380px that stack when
+   narrow.
+   ------------------------------------------------------------------ */
+@layer pages {
+
+  .back-link {
+    justify-self: start;
+  }
+
+  .case-study {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+  }
+
+  .case-study__media {
+    flex: 1 1 560px;
+    display: grid;
+    align-content: start;
+    gap: var(--space-4);
+    min-width: 0;
+  }
+
+  .case-study__body {
+    flex: 1 1 380px;
+    display: grid;
+    align-content: start;
+    gap: var(--space-5);
+    min-width: 0;
+  }
+
+  /* Large image. Real images keep their own shape; a placeholder uses 3:2. */
+  .case-study__hero {
+    border-radius: var(--radius-card);
+    background-color: var(--night-teal);
+  }
+
+  .case-study__hero img {
+    width: 100%;
+    height: auto;
+  }
+
+  .case-study__hero:not(:has(img)) {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 3 / 2;
+  }
+
+  /* Thumbnails: auto-fill, 160px minimum, 16px gap, 110px high. */
+  .thumb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr));
+    gap: var(--space-4);
+  }
+
+  /* Phones: two thumbnails per row, matching the Codex grid. */
+  @media (max-width: 640px) {
+    .thumb-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .thumb {
+    display: grid;
+    place-items: center;
+    height: 110px;
+    padding: var(--space-2);
+    border-radius: var(--radius-card);
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .thumb:has(img) {
+    padding: 0;
+  }
+
+  /* Field: italic label, then its content. */
+  .field {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .case-study__actions {
+    margin-top: var(--space-2);
+  }
+}
