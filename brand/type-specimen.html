@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400&family=Inter:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
     <style>
         /* Specimen-only layout. Not part of the site. */
-        .specimen { max-width: 1200px; margin: 0 auto; padding: var(--space-7) var(--space-4); }
+        .specimen { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-4); }
         .specimen > section { padding-block: var(--space-5); border-top: 1px solid var(--line-divider); }
         .specimen-meta { font-size: 13px; line-height: 1.4; opacity: 0.7; margin-bottom: var(--space-2); }
         .specimen-stack { display: grid; gap: var(--space-3); }
@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    <div data-include="header"></div>
     <main class="specimen">
         <p class="t-sublabel">Type specimen · base styles · step 2 review</p>
 
@@ -143,6 +144,8 @@
             </div>
         </section>
     </main>
+    <div data-include="footer"></div>
+    <script src="/js/include.js" defer></script>
 </body>
 
 </html>
