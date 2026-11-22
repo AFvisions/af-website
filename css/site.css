@@ -818,9 +818,29 @@
     line-height: 1.4;
   }
 
+  /* Collage image (optional): a fully opaque collage of the collection's pieces that
+     slides in from the right in place of the Pink veil. Add it inside the banner link:
+       <img class="codex-banner__collage" src="/images/codex/[collection]-collage.jpg" alt="[Collage of ...]">
+     and remove that banner's .veil span. */
+  .codex-banner__collage {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateX(100%);
+    transition: transform var(--duration-tile) ease-out;
+  }
+
   .codex-banner:hover .veil--slide,
   .codex-banner:focus-visible .veil--slide {
     opacity: 1;
+    transform: translateX(0);
+  }
+
+  .codex-banner:hover .codex-banner__collage,
+  .codex-banner:focus-visible .codex-banner__collage {
     transform: translateX(0);
   }
 
@@ -862,6 +882,13 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
     gap: var(--space-4);
+  }
+
+  /* Phones: two tiles per row instead of one large one. */
+  @media (max-width: 640px) {
+    .codex-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   .codex-grid > li[hidden] {
