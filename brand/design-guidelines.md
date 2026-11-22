@@ -13,7 +13,7 @@ Design spec for the AFvisions portfolio site (homepage, case-study, collection a
 
 The site has personality in the frame and restraint in the content, so the work stays the focus.
 
-- **Gothic, not costume.** Blackletter appears only for the name, the wordmark and page titles. Everything people read is a clean serif or sans.
+- **Gothic, not costume.** Blackletter appears only for the hero name and the wordmark. Page titles and section headings use the italic serif. Everything people read is a clean serif or sans.
 - **Dark teal on charcoal.** One panel color (teal) sits on one page color (charcoal).
 - **Type is always visible.** Every case-study tile carries its tags at rest, so a visitor knows what kind of work it is without hovering or clicking. Tags describe; they never filter.
 - **Two tiers of work.** Case Studies hold the in-depth projects. The Codex holds quick pieces, personal work and series, opened in a lightbox or on a collection page.
@@ -123,7 +123,7 @@ Three families do three jobs: blackletter for identity, an italic serif for head
 
 | Role | Font (Google Fonts) | Weights loaded |
 | --- | --- | --- |
-| Blackletter: name, wordmark, page titles | UnifrakturCook | 700 |
+| Blackletter: hero name, wordmark | UnifrakturCook | 700 |
 | Italic serif: headings, labels, hover text | Averia Serif Libre Italic | 400 |
 | Sans: body, navigation, buttons, tags | Inter | 400, 500, 600 |
 
@@ -139,10 +139,9 @@ Load all three with one link in the `<head>` of every page:
 
 | Style | Font | Size / line height | Weight | Color | Used for |
 | --- | --- | --- | --- | --- | --- |
-| Hero name | UnifrakturCook | 84px / 0.95 | 700 | Silver | Homepage name |
-| Page title | UnifrakturCook | 60px / 1 (case study), 56px / 1 (collection) | 700 | Silver | Case-study and collection titles |
-| Codex heading | UnifrakturCook | 44px | 700 | Silver | Codex section title |
-| Section heading | Averia Serif Libre Italic | 36px | 400 | Silver | Case Studies title |
+| Hero name | UnifrakturCook | 84px / 0.95, scales down on phones | 700 | Silver | Homepage name |
+| Page title | Averia Serif Libre Italic | 56px / 1, scales down on phones (36px minimum) | 400 | Silver | Case-study and collection titles |
+| Section heading | Averia Serif Libre Italic | 36px | 400 | Silver | Case Studies and Codex titles |
 | Wordmark | UnifrakturCook | 30px (header), 26px (footer) | 700 | Logo Teal | AFvisions mark |
 | Tagline and field labels | Averia Serif Libre Italic | 22px | 400 | Silver | Hero tagline, Project Type, Software + Tools, Problem, Solution, Impact |
 | Sub-label | Averia Serif Libre Italic | 18px | 400 | Silver | Featured label, Codex tagline |
@@ -263,12 +262,12 @@ Every page uses one centered column up to 1200px wide, with 16px side margins an
 | Primary button | Silver fill, Deep Teal label, `--radius-button`. | On hover it fills Antique Gold with a Gold Label and lifts 2px. Never Pink. One primary button per area. Used for Contact Me in the hero, which links to the contact page because email is only one way to get in touch, and for View Brochure on case-study pages. |
 | Ghost button | Transparent with a 1px `--line-ghost-button` border, Silver label, `--radius-button`. This is the secondary button. | Used for secondary actions such as All projects, beside a primary button when needed. On hover it fills Night Teal, the border turns solid Silver and the label stays Silver, with no lift. |
 | Text link | Silver, medium weight, with an arrow (← or →). | Underlines on hover. Used for back links and "See the work". |
-| Case-study page | One template for every case study, modeled on the 57 West mockup. "← Back to all work" link above the panel. Left column: large image and four thumbnails. Right column: blackletter title, Project Type tags, Software + Tools, Problem, Solution, Impact, then buttons (a primary button when there is something to view, plus an "All projects" ghost button). | Field labels are Averia Serif Libre Italic. Problem, Solution and Impact follow the Case study format in `brand-voice.md`, which governs their content and tone. Existing text may be sorted into these fields without rewording; missing fields get bracketed placeholders. |
+| Case-study page | One template for every case study, modeled on the 57 West mockup. "← Back to all work" link above the panel. Left column: large image and four thumbnails. Right column: page title, Project Type tags, Software + Tools, Problem, Solution, Impact, then buttons (a primary button when there is something to view, plus an "All projects" ghost button). | Field labels are Averia Serif Libre Italic. Problem, Solution and Impact follow the Case study format in `brand-voice.md`, which governs their content and tone. Existing text may be sorted into these fields without rewording; missing fields get bracketed placeholders. |
 | Codex banner | A wide card linking to a themed collection page, with a title, one line of description and "View Collection →". | On hover or keyboard focus a Pink veil eases in from the right and reads "View Collection" in Averia Serif Libre Italic. The same behavior applies to every collection banner (Halloween Cards, Illustration Collection and any future one). |
 | Codex filter chips | All, Illustration, Photo Manipulation, Logos, Email. | These filter the Codex tiles. One is selected at a time. Selected is a Pink fill with Silver text; unselected is Dark Teal with a 1px border. The selected chip also shows a checkmark (✓) before its label, so the state does not rely on color alone. 44px minimum height. |
 | Codex tile | Small square image with a category tag (badge) in the lower left, as in the mockup. | The badge names the piece's category from the chip list. The Pink veil reads "View larger" on hover. A click opens the lightbox, which loads the image larger at its native dimensions. Current tiles include Applied Bioplastics (Email), RecoSweep (Email) and The Nasty Nuggets (Logos). |
 | Lightbox | Dark backdrop, a teal panel with a 440px image, title, caption, Previous, Next and Close. | Caption format: "Category · Medium, Year". Previous and Next wrap around within the active filter. Keyboard: Escape closes it, the arrow keys move between pieces, and focus stays inside while it is open. Close is the only Pink button. |
-| Collection page | One template for every collection, modeled on Halloween Cards. "← Back to the Codex" link. Blackletter headline with a short blurb under it, top left. Then a grid of portrait cards, four per row, newest first, with a caption under each card. | Halloween cards are 5×7 portrait; each collection may set its own card shape. On hover or keyboard focus a card flips to its back. A click opens a pop-up over the `--lightbox-backdrop` showing front and back side by side (stacked on phones), with Escape to close and focus kept inside. The back is optional: a card without one does not flip, and the pop-up shows the single image. Adding a card means copying one HTML block and adding its images, so the grid grows a row at a time. |
+| Collection page | One template for every collection, modeled on Halloween Cards. "← Back to the Codex" link. Page-title headline with a short blurb under it, top left. Then a grid of portrait cards, four per row, newest first, with a caption under each card. | Halloween cards are 5×7 portrait; each collection may set its own card shape. On hover or keyboard focus a card flips to its back. A click opens a pop-up over the `--lightbox-backdrop` showing front and back side by side (stacked on phones), with Escape to close and focus kept inside. The back is optional: a card without one does not flip, and the pop-up shows the single image. Adding a card means copying one HTML block and adding its images, so the grid grows a row at a time. |
 | Contact page | One panel, one row, two columns: a circular portrait image on the left (placeholder until Andrew supplies it), and an email section on the right. | The Contact Me button and the Contact nav link go here. May carry over useful pieces of the archived about-me page. Columns stack on narrow screens. |
 | Footer | Wordmark and copyright in a Dark Teal bar. | Lives once in `partials/footer.html`. No social icons here; the header links carry them. |
 

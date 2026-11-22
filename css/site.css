@@ -166,10 +166,8 @@
    with their components in a later step.
    ------------------------------------------------------------------ */
 @layer type {
-  /* Blackletter: name, wordmark and page titles only, 26px and up. */
+  /* Blackletter: hero name and wordmark only, 26px and up. */
   .t-hero-name,
-  .t-page-title,
-  .t-codex-heading,
   .t-wordmark {
     font-family: var(--font-blackletter);
     font-weight: 700;
@@ -182,20 +180,6 @@
     line-height: 0.95;
   }
 
-  .t-page-title {
-    font-size: 60px;
-    line-height: 1;
-  }
-
-  .t-page-title--collection {
-    font-size: 56px;
-  }
-
-  .t-codex-heading {
-    font-size: 44px;
-    line-height: 1.2;
-  }
-
   .t-wordmark {
     font-size: 30px;
     line-height: 1.2;
@@ -206,7 +190,8 @@
     font-size: 26px;
   }
 
-  /* Italic serif: headings, labels, hover text. */
+  /* Italic serif: page titles, section headings, labels, hover text. */
+  .t-page-title,
   .t-section-heading,
   .t-tagline,
   .t-label,
@@ -217,6 +202,13 @@
     line-height: 1.2;
   }
 
+  /* Case-study and collection titles. Scales down on narrow screens: 56px max, 36px min. */
+  .t-page-title {
+    font-size: clamp(36px, 10vw, 56px);
+    line-height: 1;
+  }
+
+  /* Case Studies and Codex titles. */
   .t-section-heading {
     font-size: 36px;
   }
