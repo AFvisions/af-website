@@ -284,12 +284,13 @@
 
     <!-- Codex gallery view. Filled in by js/lightbox.js from the tile that was clicked. -->
     <dialog class="lightbox" aria-labelledby="lightbox-caption" data-lightbox>
+        <!-- Close: sits at the window's top-right, above the image. -->
+        <button class="lightbox__close" type="button" aria-label="Close" data-lightbox-close>×</button>
         <button class="lightbox__arrow lightbox__arrow--prev" type="button" aria-label="Previous piece" data-lightbox-prev>‹</button>
         <figure class="lightbox__figure">
             <div class="lightbox__frame">
                 <img class="lightbox__img" src="" alt="" hidden>
                 <span class="lightbox__placeholder" hidden>[Image to come]</span>
-                <button class="lightbox__close" type="button" aria-label="Close" data-lightbox-close>×</button>
             </div>
             <figcaption class="lightbox__caption" id="lightbox-caption"></figcaption>
         </figure>

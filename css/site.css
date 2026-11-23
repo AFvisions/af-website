@@ -1009,20 +1009,24 @@
 }
 
 /* ------------------------------------------------------------------
-   Lightbox (Codex): a basic gallery view. The image sits on the dimmed
-   page, as large as the window allows (never larger than its native
-   size), with a Pink X on its top-right corner, side arrows, and a
-   one-line caption underneath.
+   Lightbox (Codex and collection pop-ups): a basic gallery view. The
+   image sits on the dimmed page, as large as the window allows (never
+   larger than its native size), with side arrows and a one-line caption
+   underneath. The X sits in its own strip at the window's top-right, so
+   it never covers the image.
    ------------------------------------------------------------------ */
 @layer components {
 
   .lightbox {
+    /* Height of the strip at the top that holds the X. */
+    --lightbox-top: calc(44px + 2 * var(--space-4));
+
     width: 100%;
     max-width: none;
     height: 100%;
     max-height: none;
     margin: 0;
-    padding: var(--space-4);
+    padding: var(--lightbox-top) var(--space-4) var(--space-4);
     border: 0;
     background-color: var(--lightbox-backdrop);
     color: var(--silver);
@@ -1045,20 +1049,20 @@
     max-width: 100%;
   }
 
-  /* Wraps the image tightly so the X can sit on the image's corner. */
+  /* Wraps the image tightly. */
   .lightbox__frame {
     position: relative;
     display: inline-block;
     max-width: 100%;
   }
 
-  /* Leaves room for the side arrows and the caption line. */
+  /* Leaves room for the X strip, the side arrows and the caption line. */
   .lightbox__img {
     display: block;
     width: auto;
     height: auto;
     max-width: calc(100vw - 2 * (44px + var(--space-6)));
-    max-height: calc(100vh - 2 * var(--space-4) - var(--space-3) - 3 * var(--space-4));
+    max-height: calc(100vh - var(--lightbox-top) - var(--space-4) - var(--space-3) - 3 * var(--space-4));
     box-shadow: var(--shadow-lightbox);
   }
 
@@ -1077,19 +1081,20 @@
     display: none;
   }
 
-  /* Close: the one Pink button. Sits on the image's top-right corner. */
+  /* Close: at the window's top-right, above the image, styled like the arrows. */
   .lightbox__close {
-    position: absolute;
-    top: var(--space-2);
-    right: var(--space-2);
+    position: fixed;
+    top: var(--space-4);
+    right: var(--space-4);
+    z-index: 1;
     display: grid;
     place-items: center;
     width: 44px;
     height: 44px;
     padding: 0;
-    border: 0;
+    border: 1px solid var(--tag-border);
     border-radius: 50%;
-    background-color: var(--pink);
+    background-color: var(--tag-fill);
     color: var(--silver);
     font-size: 28px;
     line-height: 1;
@@ -1767,12 +1772,6 @@
     display: none;
   }
 
-  /* The X sits on the top-right corner of the last image showing. */
-  .lightbox__pair .lightbox__close {
-    top: var(--space-2);
-    right: var(--space-2);
-  }
-
   @media (max-width: 640px) {
     .lightbox__pair {
       flex-direction: column;
@@ -1781,12 +1780,12 @@
 
     .lightbox__pair .lightbox__img {
       max-width: calc(100vw - 2 * var(--space-4));
-      max-height: calc((100vh - 2 * var(--space-4) - var(--space-3) - 3 * var(--space-4)) / 2);
+      max-height: calc((100vh - var(--lightbox-top) - var(--space-4) - var(--space-3) - 3 * var(--space-4)) / 2);
     }
 
     .lightbox__pair .lightbox__placeholder {
       width: auto;
-      height: calc((100vh - 2 * var(--space-7) - var(--space-5)) / 2);
+      height: calc((100vh - var(--lightbox-top) - var(--space-4) - var(--space-3) - 3 * var(--space-4)) / 2);
     }
   }
 }

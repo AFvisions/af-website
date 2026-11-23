@@ -3,7 +3,7 @@
   COLLECTION TEMPLATE (Halloween Cards is the reference page).
   To make a new collection, copy this file to codex/<collection>.html and change:
     1. <title> and the meta description
-    2. The page title, blurb and tag in the intro panel
+    2. The page title, blurb and tags in the intro panel
     3. The cards (newest first). Card shape is set in css/site.css (.postcard, 5 × 7 here).
   Add the collection's banner to the Codex on index.html so it links here.
 
@@ -41,7 +41,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halloween Cards – Codex | AFvisions</title>
-    <meta name="description" content="Halloween Cards: a yearly series of illustrated 5 × 7 postcards by Andrew Fumagalli.">
+    <meta name="description" content="Halloween Cards: a yearly series of 5 × 7 postcards by Andrew Fumagalli.">
 
     <link rel="stylesheet" href="/css/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,12 +61,16 @@
     <main class="page container">
         <a class="text-link back-link" href="/index.html#codex">← Back to the Codex</a>
 
-        <!-- Intro: title, blurb and tag -->
+        <!-- Intro: title, blurb and tags -->
         <section class="collection-intro panel" aria-labelledby="collection-title">
             <h1 class="t-page-title" id="collection-title">Halloween Cards</h1>
             <p class="t-body">[A short intro to the series: what it is, why you made it, and the tools you used.]</p>
-            <ul class="tags tags--page" aria-label="Category">
+            <ul class="tags tags--page" aria-label="Categories">
                 <li class="tag">Illustration</li>
+                <li class="tag">Photo Manipulation</li>
+                <li class="tag">Photography</li>
+                <li class="tag">Typography</li>
+                <li class="tag">Just for Fun</li>
             </ul>
         </section>
 
@@ -177,6 +181,8 @@
 
     <!-- Pop-up: front and back side by side. Filled in by js/collection.js from the card that was clicked. -->
     <dialog class="lightbox" aria-labelledby="postcard-caption" data-postcard-view>
+        <!-- Close: sits at the window's top-right, above the image. -->
+        <button class="lightbox__close" type="button" aria-label="Close" data-postcard-close>×</button>
         <figure class="lightbox__figure">
             <div class="lightbox__pair">
                 <div class="lightbox__side" data-side="front">
@@ -187,7 +193,6 @@
                     <img class="lightbox__img" src="" alt="" hidden>
                     <span class="lightbox__placeholder" hidden></span>
                 </div>
-                <button class="lightbox__close" type="button" aria-label="Close" data-postcard-close>×</button>
             </div>
             <figcaption class="lightbox__caption" id="postcard-caption"></figcaption>
         </figure>
