@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>57 West Case Study, Chapters Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400&family=Inter:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --charcoal: #2A2A2A; --dark-teal: #35504C; --silver: #DCDCDC; --pink: #A34E69;
+  --lavender: #6B5A9A; --antique-gold: #C9A45C; --logo-teal: #9CC2BE; --deep-teal: #223230;
+  --gold-label: #2A2010; --night-teal: #1A2826;
+  --line-divider: color-mix(in srgb, var(--silver) 25%, transparent);
+  --line-image-frame: color-mix(in srgb, var(--silver) 30%, transparent);
+  --line-ghost-button: color-mix(in srgb, var(--silver) 50%, transparent);
+  --tag-fill: color-mix(in srgb, var(--night-teal) 60%, transparent);
+  --tag-border: color-mix(in srgb, var(--silver) 35%, transparent);
+  --font-blackletter: "UnifrakturCook", serif;
+  --font-serif: "Averia Serif Libre", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 44px;
+  --radius-frame: 6px; --radius-button: 8px; --radius-card: 12px; --radius-panel: 14px; --radius-pill: 999px;
+  --shadow-panel: 0 8px 24px rgb(0 0 0 / 0.4);
+  --shadow-tile: 0 6px 18px rgb(0 0 0 / 0.35);
+  --duration-fast: 0.2s; --duration-tile: 0.25s;
+  --duration-reveal: 0.7s;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--charcoal); color: var(--silver); font: 400 16px/1.65 var(--font-sans); overflow-x: hidden; }
+a { color: var(--silver); }
+:focus-visible { outline: 2px solid var(--silver); outline-offset: 2px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-4); }
+
+/* Header */
+.site-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-2); padding: var(--space-4) 0; }
+.wordmark { font: 700 30px/1 var(--font-blackletter); color: var(--logo-teal); text-decoration: none; }
+.nav { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.nav a { font: 500 15px/1.4 var(--font-sans); text-decoration: none; padding: var(--space-3) var(--space-4); border-radius: var(--radius-button); transition: background var(--duration-fast); }
+.nav a:hover { background: var(--lavender); }
+.back { display: inline-block; font-weight: 500; margin: var(--space-5) 0 var(--space-6); text-decoration: none; }
+.back:hover { text-decoration: underline; }
+
+/* Title + full-bleed hero */
+.title { font: 700 clamp(48px, 9vw, 96px)/1 var(--font-blackletter); margin: 0; }
+.subtitle { font: italic 400 22px/1.3 var(--font-serif); margin: var(--space-3) 0 var(--space-6); }
+.bleed { width: 100vw; margin-left: calc(50% - 50vw); }
+.ph { position: relative; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 500; font-size: 15px; padding: var(--space-4); }
+.ph::after { content: ""; position: absolute; inset: var(--space-2); border: 1px solid var(--line-image-frame); border-radius: var(--radius-frame); pointer-events: none; }
+.hero-img { height: clamp(340px, 62vh, 680px); background: var(--night-teal); }
+
+/* Placard */
+.placard { position: relative; margin-top: -72px; background: var(--dark-teal); border-radius: var(--radius-panel); box-shadow: var(--shadow-panel); padding: var(--space-5) var(--space-6); display: grid; grid-template-columns: 1.4fr 1.2fr 0.6fr 0.5fr auto; gap: var(--space-6); align-items: start; }
+.field-label { font: italic 400 18px/1.2 var(--font-serif); margin: 0 0 var(--space-2); }
+.field p { margin: 0; font-size: 15px; line-height: 1.6; }
+.tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.tag { font: 500 13px/1.4 var(--font-sans); padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--tag-fill); border: 1px solid var(--tag-border); }
+.btn { display: inline-block; font: 600 16px/1.4 var(--font-sans); padding: var(--space-4) var(--space-5); border-radius: var(--radius-button); text-decoration: none; transition: background var(--duration-fast), transform var(--duration-fast); white-space: nowrap; }
+.btn-primary { background: var(--silver); color: var(--deep-teal); }
+.btn-primary:hover { background: var(--antique-gold); color: var(--gold-label); transform: translateY(-2px); }
+.placard .btn { align-self: center; }
+
+/* Divider */
+.divider { display: flex; align-items: center; gap: var(--space-4); margin: 96px 0; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--line-divider); }
+.divider span { width: 10px; height: 10px; background: var(--pink); transform: rotate(45deg); }
+
+/* Chapters */
+.chapter { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: var(--space-6); margin-bottom: 72px; }
+.chapter-mark { position: sticky; top: var(--space-6); align-self: start; }
+.numeral { font: 700 64px/1 var(--font-blackletter); color: var(--logo-teal); display: block; }
+.chapter-name { font: italic 400 24px/1.2 var(--font-serif); margin: var(--space-2) 0 0; }
+.lead { font-size: 22px; line-height: 1.55; margin: 0 0 var(--space-5); max-width: 760px; }
+.body { max-width: 680px; }
+.body p { margin: 0 0 var(--space-4); }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); margin-top: var(--space-6); }
+.pair figure { margin: 0; }
+.pair .ph { height: 360px; border-radius: var(--radius-card); }
+figcaption { font-size: 14px; margin-top: var(--space-3); font-style: normal; }
+figcaption em { font: italic 400 16px var(--font-serif); }
+
+/* Pinned brochure story */
+.story { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 56px; margin: 72px 0; }
+.stage-col { position: relative; }
+.stage { position: sticky; top: calc(50vh - 240px); height: 480px; display: flex; flex-direction: column; justify-content: center; gap: var(--space-4); }
+.spread-wrap { position: relative; width: 100%; aspect-ratio: 16 / 10.5; perspective: 1600px; }
+.sheet { position: absolute; inset: 0; display: flex; gap: 3px; opacity: 0; transform: rotateY(-8deg) translateX(16px); transition: opacity 0.5s ease, transform 0.6s ease; filter: drop-shadow(0 12px 22px rgb(0 0 0 / 0.45)); }
+.sheet.on { opacity: 1; transform: none; }
+.page { flex: 1; background: var(--silver); color: var(--deep-teal); border-radius: 3px; padding: 6%; display: flex; flex-direction: column; gap: 6%; overflow: hidden; }
+.page.single { flex: 0 0 62%; margin: 0 auto; }
+.blk { border-radius: 2px; display: flex; align-items: center; justify-content: center; text-align: center; font: 600 12px/1.3 var(--font-sans); color: var(--silver); padding: 6px; }
+.blk.photo { background: var(--dark-teal); flex: 1; }
+.blk.lav { background: var(--lavender); }
+.blk.pink { background: var(--pink); }
+.blk.night { background: var(--night-teal); }
+.pg-title { font: 700 clamp(18px, 2.6vw, 30px)/1 var(--font-blackletter); margin: 0; }
+.pg-head { font: italic 400 clamp(13px, 1.5vw, 17px)/1.2 var(--font-serif); margin: 0; }
+.lines { display: flex; flex-direction: column; gap: 6px; }
+.lines i { display: block; height: 5px; border-radius: 3px; background: color-mix(in srgb, var(--deep-teal) 35%, transparent); }
+.lines i:nth-child(2n) { width: 82%; } .lines i:nth-child(3n) { width: 64%; }
+.navdots { display: flex; gap: 6px; } .navdots b { flex: 1; height: 14px; border-radius: 2px; background: var(--deep-teal); }
+.crop { position: relative; }
+.crop::before, .crop::after { content: ""; position: absolute; width: 14px; height: 14px; border: 0 solid var(--silver); }
+.crop::before { top: -10px; left: -10px; border-right-width: 1px; border-bottom-width: 1px; }
+.crop::after { bottom: -10px; right: -10px; border-left-width: 1px; border-top-width: 1px; }
+.stage-caption { font-size: 14px; display: flex; justify-content: space-between; gap: var(--space-4); }
+.progress { display: flex; gap: 6px; } .progress span { width: 22px; height: 3px; border-radius: 2px; background: var(--line-divider); transition: background var(--duration-fast); }
+.progress span.on { background: var(--pink); }
+.lang-es, [data-lang="es"] .lang-en { display: none; }
+[data-lang="es"] .lang-es { display: inline; }
+
+/* Cube */
+.cube-scene { flex: 1; display: flex; align-items: center; justify-content: center; perspective: 600px; }
+.cube { --s: clamp(60px, 9vw, 110px); width: var(--s); height: var(--s); position: relative; transform-style: preserve-3d; transform: rotateX(-22deg) rotateY(35deg); }
+.cube div { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font: italic 400 15px var(--font-serif); color: var(--silver); border: 1px solid var(--line-image-frame); }
+.cube .f1 { background: var(--lavender); transform: translateZ(calc(var(--s) / 2)); }
+.cube .f2 { background: var(--pink); transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); }
+.cube .f3 { background: var(--lavender); transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }
+.cube .f4 { background: var(--pink); transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); }
+.cube .f5 { background: var(--silver); transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); }
+.cube .f6 { background: var(--dark-teal); transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); }
+
+/* Steps */
+.step { min-height: 85vh; display: flex; flex-direction: column; justify-content: center; opacity: 0.3; transition: opacity 0.4s ease; }
+.step.active { opacity: 1; }
+.step:first-child { min-height: 70vh; } .step:last-child { min-height: 70vh; }
+.step-kicker { font: italic 400 18px/1.2 var(--font-serif); color: var(--logo-teal); margin: 0 0 var(--space-2); }
+.step h3 { font: 600 24px/1.25 var(--font-sans); margin: 0 0 var(--space-3); }
+.step p { margin: 0 0 var(--space-4); }
+.chips { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+.chip { font: 600 14px/1.4 var(--font-sans); min-height: 44px; padding: var(--space-2) var(--space-4); border-radius: var(--radius-pill); background: var(--dark-teal); color: var(--silver); border: 1px solid var(--tag-border); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--pink); border-color: var(--pink); }
+.chip[aria-pressed="true"]::before { content: "✓ "; }
+
+/* Callout image */
+.callout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: var(--space-6); align-items: center; margin: 72px 0 0; }
+.callout .ph { height: 440px; background: var(--night-teal); border-radius: var(--radius-card); }
+.pin { position: absolute; width: 32px; height: 32px; border-radius: 50%; background: var(--pink); color: var(--silver); border: 2px solid var(--silver); font: 600 14px/1 var(--font-sans); display: flex; align-items: center; justify-content: center; z-index: 1; cursor: default; }
+.legend { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-5); }
+.legend li { display: grid; grid-template-columns: 32px 1fr; gap: var(--space-4); align-items: start; }
+.legend b { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line-ghost-button); display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.legend strong { display: block; font-weight: 600; }
+
+/* Impact */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-5); margin: 0 0 var(--space-6); }
+.stat { background: var(--dark-teal); border-radius: var(--radius-card); box-shadow: var(--shadow-tile); padding: var(--space-5); }
+.stat-num { font: italic 400 48px/1 var(--font-serif); display: block; margin-bottom: var(--space-3); }
+.stat p { margin: 0; font-size: 15px; line-height: 1.6; }
+.quote { margin: var(--space-6) 0 0; padding: 0 0 0 var(--space-5); border-left: 1px solid var(--pink); }
+.quote p { font: italic 400 26px/1.4 var(--font-serif); margin: 0 0 var(--space-3); }
+.quote cite { font-style: normal; font-size: 14px; }
+
+/* Next project */
+.next { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--dark-teal); border-radius: var(--radius-panel); overflow: hidden; text-decoration: none; box-shadow: var(--shadow-panel); transition: transform var(--duration-tile); }
+.next:hover { transform: translateY(-4px); }
+.next .ph { min-height: 280px; background: var(--pink); }
+.next-body { padding: var(--space-7); display: flex; flex-direction: column; justify-content: center; gap: var(--space-3); }
+.next-kicker { font: italic 400 18px/1.2 var(--font-serif); }
+.next-title { font: 700 56px/1 var(--font-blackletter); }
+.next-go { font-weight: 600; }
+.next:hover .next-go { text-decoration: underline; }
+
+/* Footer */
+.footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-3); background: var(--dark-teal); border-radius: var(--radius-panel); padding: var(--space-5) var(--space-6); margin: 96px auto var(--space-7); }
+.footer .wordmark { font-size: 26px; }
+.footer small { font-size: 13px; }
+
+/* Scroll reveal: only hides content once JS is running */
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity var(--duration-reveal) ease, transform var(--duration-reveal) ease; }
+.js .reveal.d1 { transition-delay: 0.12s; } .js .reveal.d2 { transition-delay: 0.24s; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* Prototype note */
+.proto-note { font-size: 13px; background: var(--night-teal); border: 1px dashed var(--line-ghost-button); border-radius: var(--radius-button); padding: var(--space-3) var(--space-4); margin-top: var(--space-4); }
+
+@media (max-width: 900px) {
+  .placard { grid-template-columns: 1fr 1fr; margin-top: -48px; }
+  .placard .btn { grid-column: 1 / -1; justify-self: start; }
+  .chapter { grid-template-columns: 1fr; gap: var(--space-4); }
+  .chapter-mark { position: static; display: flex; align-items: baseline; gap: var(--space-4); }
+  .numeral { font-size: 48px; }
+  .story { grid-template-columns: 1fr; gap: 0; }
+  .stage { top: 0; height: auto; padding: var(--space-4) 0; background: var(--charcoal); z-index: 2; }
+  .spread-wrap { max-height: 40vh; }
+  .step { min-height: 60vh; }
+  .callout { grid-template-columns: 1fr; }
+  .next { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .placard { grid-template-columns: 1fr; padding: var(--space-5); }
+  .next-body { padding: var(--space-5); }
+  .lead { font-size: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+  .sheet { transform: none; }
+  .next:hover, .btn-primary:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header">
+    <a class="wordmark" href="#">AFvisions</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#">Work</a><a href="#">About</a><a href="#">Contact</a>
+      <a href="https://www.linkedin.com/in/andrewfumagalli/">LinkedIn</a><a href="https://github.com/AFvisions">GitHub</a>
+    </nav>
+  </header>
+
+  <a class="back" href="#">← Back to all work</a>
+
+  <h1 class="title reveal">57 West</h1>
+  <p class="subtitle reveal d1">[One-line summary: e.g. a brochure rebuilt from scratch, in two languages and two formats.]</p>
+</div>
+
+<div class="bleed">
+  <div class="ph hero-img reveal" role="img" aria-label="Placeholder: 57 West brochure cover, an open spread and the 3D cube, shown together">[Hero image: brochure cover, spread and 3D cube, full width]</div>
+</div>
+
+<div class="wrap">
+  <section class="placard reveal" aria-label="Project details">
+    <div class="field">
+      <h2 class="field-label">Project Type</h2>
+      <div class="tags"><span class="tag">Graphic Design</span><span class="tag">Print</span><span class="tag">3D Graphics</span><span class="tag">Illustration</span></div>
+    </div>
+    <div class="field">
+      <h2 class="field-label">Software + Tools</h2>
+      <p>Adobe InDesign, Photoshop, Illustrator, Acrobat, Blender</p>
+    </div>
+    <div class="field">
+      <h2 class="field-label">Role</h2>
+      <p>[Your role]</p>
+    </div>
+    <div class="field">
+      <h2 class="field-label">Year</h2>
+      <p>[Year]</p>
+    </div>
+    <a class="btn btn-primary" href="#">View Brochure</a>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span></span></div>
+
+  <!-- Chapter I -->
+  <section class="chapter" aria-labelledby="ch1">
+    <div class="chapter-mark reveal"><span class="numeral" aria-hidden="true">I</span><h2 class="chapter-name" id="ch1">Problem</h2></div>
+    <div>
+      <p class="lead reveal">[Who the client is and what they needed, in 2 to 3 sentences. Set large: this is the hook, not a paragraph to skim.]</p>
+      <div class="pair">
+        <figure class="reveal">
+          <div class="ph" style="background: var(--night-teal)" role="img" aria-label="Placeholder: the brochure as inherited from the previous designer">[The brochure as I inherited it]</div>
+          <figcaption><em>Before.</em> [Short caption.]</figcaption>
+        </figure>
+        <figure class="reveal d1">
+          <div class="ph" style="background: var(--dark-teal)" role="img" aria-label="Placeholder: the same page rebuilt in InDesign">[The same page, rebuilt]</div>
+          <figcaption><em>After.</em> [Short caption.]</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter II -->
+  <section class="chapter" aria-labelledby="ch2" style="margin-bottom: 0">
+    <div class="chapter-mark reveal"><span class="numeral" aria-hidden="true">II</span><h2 class="chapter-name" id="ch2">Solution</h2></div>
+    <div class="body">
+      <p class="lead reveal">I inherited this project from my client's former designer without the native files, so I rebuilt the digital brochure from scratch in InDesign.</p>
+      <p class="reveal d1">That way, any change the brochure needs now or later is easy to make. Scroll on to see what the rebuild made possible.</p>
+    </div>
+  </section>
+
+  <!-- Pinned brochure -->
+  <section class="story" aria-label="The brochure, step by step">
+    <div class="stage-col">
+      <div class="stage" id="stage" data-state="0" data-lang="en" data-format="digital">
+        <div class="spread-wrap">
+          <!-- 0: cover -->
+          <div class="sheet on" data-sheet="0" role="img" aria-label="Placeholder: brochure cover spread">
+            <div class="page"><div class="blk photo">[Cover photo]</div></div>
+            <div class="page" style="justify-content: center"><p class="pg-title">57 West</p><p class="pg-head">[Cover line]</p><div class="lines"><i></i><i></i><i></i></div></div>
+          </div>
+          <!-- 1: language -->
+          <div class="sheet" data-sheet="1" role="img" aria-label="Placeholder: interior spread in English or Spanish">
+            <div class="page"><p class="pg-head"><span class="lang-en">[English headline]</span><span class="lang-es">[Titular en español]</span></p><div class="lines"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="blk lav" style="height: 30%"><span class="lang-en">[Stock photo]</span><span class="lang-es">[Foto]</span></div></div>
+            <div class="page"><div class="blk photo"><span class="lang-en">[High-res stock photo]</span><span class="lang-es">[Foto de alta resolución]</span></div><div class="lines"><i></i><i></i><i></i></div></div>
+          </div>
+          <!-- 2: format -->
+          <div class="sheet" data-sheet="2" role="img" aria-label="Placeholder: digital spread with navigation, or a printable single page">
+            <div class="page fmt-digital"><div class="navdots"><b></b><b></b><b></b><b></b></div><p class="pg-head">[Digital: clickable navigation]</p><div class="blk photo">[Spread]</div></div>
+            <div class="page fmt-digital"><div class="lines"><i></i><i></i><i></i><i></i></div><div class="blk pink" style="height: 22%">[Linked button]</div><div class="lines"><i></i><i></i></div></div>
+            <div class="page single crop fmt-print"><p class="pg-head">[Printable version]</p><div class="blk photo">[Letter-size page]</div><div class="lines"><i></i><i></i><i></i></div></div>
+          </div>
+          <!-- 3: 360 method -->
+          <div class="sheet" data-sheet="3" role="img" aria-label="Placeholder: the 360 Method page with the 3D cube model">
+            <div class="page"><p class="pg-head">[“360 Method” page]</p><div class="lines"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <div class="page" style="background: var(--night-teal)"><div class="cube-scene"><div class="cube" id="cube"><div class="f1">360</div><div class="f2"></div><div class="f3"></div><div class="f4"></div><div class="f5"></div><div class="f6"></div></div></div></div>
+          </div>
+        </div>
+        <div class="stage-caption" aria-hidden="true">
+          <span id="stage-label">Cover</span>
+          <span class="progress"><span class="on"></span><span></span><span></span><span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step active" data-step="0" data-label="Cover">
+        <p class="step-kicker">Rebuilt from scratch</p>
+        <h3>[Headline for the rebuild]</h3>
+        <p>[One or two sentences on recreating the layout in InDesign without the original files: what you matched, what you improved.]</p>
+      </div>
+      <div class="step" data-step="1" data-label="Interior spread">
+        <p class="step-kicker">Two languages</p>
+        <h3>An English and a Spanish version</h3>
+        <p>[One sentence on how the Spanish version was handled: translation source, text expansion, type adjustments.]</p>
+        <div class="chips" role="group" aria-label="Brochure language">
+          <button class="chip" type="button" data-lang-btn="en" aria-pressed="true">English</button>
+          <button class="chip" type="button" data-lang-btn="es" aria-pressed="false">Español</button>
+        </div>
+      </div>
+      <div class="step" data-step="2" data-label="Digital and print">
+        <p class="step-kicker">Two formats</p>
+        <h3>A digital brochure and a printable version</h3>
+        <p>[One sentence on what changed between them: interactive navigation vs. bleed, crop marks, color mode.]</p>
+        <div class="chips" role="group" aria-label="Brochure format">
+          <button class="chip" type="button" data-fmt-btn="digital" aria-pressed="true">Digital</button>
+          <button class="chip" type="button" data-fmt-btn="print" aria-pressed="false">Print</button>
+        </div>
+      </div>
+      <div class="step" data-step="3" data-label="360 Method">
+        <p class="step-kicker">Made in Blender</p>
+        <h3>A 3D model for the “360 Method” page</h3>
+        <p>[One or two sentences on the model: why a cube, how it was lit and rendered, how it sits on the page.] Keep scrolling to turn it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Callout detail -->
+  <div class="callout">
+    <div class="ph reveal" role="img" aria-label="Placeholder: close-up of one spread with three numbered callouts">
+      [Spread detail, close-up]
+      <span class="pin" style="top: 22%; left: 18%" aria-hidden="true">1</span>
+      <span class="pin" style="top: 55%; left: 62%" aria-hidden="true">2</span>
+      <span class="pin" style="top: 74%; left: 30%" aria-hidden="true">3</span>
+    </div>
+    <ol class="legend">
+      <li class="reveal"><b aria-hidden="true">1</b><div><strong>[Detail one]</strong>[A specific technique, in a sentence.]</div></li>
+      <li class="reveal d1"><b aria-hidden="true">2</b><div><strong>[Detail two]</strong>[A specific technique, in a sentence.]</div></li>
+      <li class="reveal d2"><b aria-hidden="true">3</b><div><strong>[Detail three]</strong>[A specific technique, in a sentence.]</div></li>
+    </ol>
+  </div>
+
+  <div class="divider" aria-hidden="true"><span></span></div>
+
+  <!-- Chapter III -->
+  <section class="chapter" aria-labelledby="ch3">
+    <div class="chapter-mark reveal"><span class="numeral" aria-hidden="true">III</span><h2 class="chapter-name" id="ch3">Impact</h2></div>
+    <div>
+      <div class="stats">
+        <div class="stat reveal"><span class="stat-num">[00]</span><p>[Metric, with the cited benchmark it beats or misses]</p></div>
+        <div class="stat reveal d1"><span class="stat-num">[00]</span><p>[Metric, e.g. time to make an update before vs. after]</p></div>
+        <div class="stat reveal d2"><span class="stat-num">[2]</span><p>[Languages, formats, or another plain count]</p></div>
+      </div>
+      <div class="body reveal"><p>[An honest note on anything that underperformed and the likely reason.]</p></div>
+      <blockquote class="quote reveal">
+        <p>“[The client's reaction, in their words.]”</p>
+        <cite>[Client name, title]</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <a class="next reveal" href="#">
+    <div class="ph" role="img" aria-label="Placeholder: crop of the SXSW event signage">[SXSW crop]</div>
+    <div class="next-body">
+      <span class="next-kicker">Next case study</span>
+      <span class="next-title">SXSW</span>
+      <div class="tags"><span class="tag">Event Signs</span><span class="tag">Print Production</span><span class="tag">Environmental Design</span></div>
+      <span class="next-go">Read the case study →</span>
+    </div>
+  </a>
+
+  <p class="proto-note">Prototype: square-bracketed text and colored blocks are placeholders for your copy and images.</p>
+
+  <footer class="footer">
+    <a class="wordmark" href="#">AFvisions</a>
+    <small>© AFvisions 2026. All rights reserved.</small>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Scroll reveal, once per element
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+    revealEls.forEach(function (el) { ro.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Pinned brochure: the step in the middle of the screen sets the sheet
+  var stage = document.getElementById('stage');
+  var sheets = stage.querySelectorAll('.sheet');
+  var bars = stage.querySelectorAll('.progress span');
+  var label = document.getElementById('stage-label');
+  var steps = document.querySelectorAll('.step');
+  function setState(i) {
+    stage.dataset.state = i;
+    sheets.forEach(function (s) { s.classList.toggle('on', s.dataset.sheet === String(i)); });
+    bars.forEach(function (b, n) { b.classList.toggle('on', n <= i); });
+    steps.forEach(function (s) { s.classList.toggle('active', s.dataset.step === String(i)); });
+    label.textContent = steps[i].dataset.label;
+  }
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setState(Number(e.target.dataset.step)); });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    steps.forEach(function (s) { so.observe(s); });
+  }
+
+  // Language and format toggles
+  function group(attr, apply) {
+    var btns = document.querySelectorAll('[' + attr + ']');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        btns.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+        apply(b.getAttribute(attr));
+      });
+    });
+  }
+  group('data-lang-btn', function (v) { stage.dataset.lang = v; });
+  function applyFmt(v) {
+    stage.dataset.format = v;
+    document.querySelectorAll('.fmt-digital').forEach(function (p) { p.style.display = v === 'digital' ? '' : 'none'; });
+    document.querySelectorAll('.fmt-print').forEach(function (p) { p.style.display = v === 'print' ? '' : 'none'; });
+  }
+  group('data-fmt-btn', applyFmt);
+  applyFmt('digital');
+
+  // Cube turns with scroll (static if reduced motion)
+  var cube = document.getElementById('cube');
+  if (!reduce) {
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        cube.style.transform = 'rotateX(-22deg) rotateY(' + (35 + window.scrollY * 0.35) + 'deg)';
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+})();
+</script>
+</body>
+</html>
