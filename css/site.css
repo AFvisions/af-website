@@ -56,6 +56,7 @@
   /* Transitions */
   --duration-fast: 0.2s;
   --duration-tile: 0.25s;
+  --duration-reveal: 0.7s;
 }
 
 /* ------------------------------------------------------------------
@@ -251,6 +252,62 @@
     line-height: 1.4;
   }
 
+  /* Case-study page styles. */
+  .t-chapter-numeral,
+  .t-chapter-name,
+  .t-stat,
+  .t-quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* I, II, III beside each chapter. 44px below 900px. */
+  .t-chapter-numeral {
+    font-size: 56px;
+    line-height: 1;
+  }
+
+  .t-chapter-name {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .t-stat {
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  .t-quote {
+    font-size: 26px;
+    line-height: 1.4;
+  }
+
+  /* Opening sentence of a chapter. 19px below 640px. */
+  .t-lead {
+    font-size: 22px;
+    line-height: 1.55;
+  }
+
+  .t-step-heading {
+    font-family: var(--font-sans);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  @media (max-width: 900px) {
+    .t-chapter-numeral {
+      font-size: 44px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .t-lead {
+      font-size: 19px;
+    }
+  }
+
   /* Running text keeps a comfortable gap between paragraphs. */
   .t-prose > * + * {
     margin-top: var(--space-4);
@@ -264,7 +321,7 @@
 @layer components {
 
   /* Panel: Dark Teal rounded rectangle on the Charcoal page.
-     Used by the hero, case-study page, collection intro and contact panels. */
+     Used by the hero, collection intro and contact panels. */
   .panel {
     background-color: var(--dark-teal);
     border-radius: var(--radius-panel);
@@ -1077,89 +1134,86 @@
   }
 }
 
+
 /* ------------------------------------------------------------------
    Case-study page (one template for every case study; 57 West is the
-   reference). Two columns starting at 560px and 380px that stack when
-   narrow.
+   reference). A long page in three chapters, with no panel around it.
+   Uses the larger "Case-study page layout" values from the spec and a
+   second breakpoint at 900px. Sections in page order:
+     intro (back link, title, hero, details card) → chapters →
+     image pair → pinned story → callout → stats and quote → next card
    ------------------------------------------------------------------ */
 @layer pages {
+
+  /* 72px between chapters and sections. Dividers add 24px either side (96px total). */
+  .page--case-study {
+    gap: 72px;
+  }
+
+  .page--case-study .divider {
+    margin-block: var(--space-5);
+  }
 
   .back-link {
     justify-self: start;
   }
 
-  .case-study {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-6);
-  }
-
-  .case-study__media {
-    flex: 1 1 560px;
-    display: grid;
-    align-content: start;
-    gap: var(--space-4);
-    min-width: 0;
-  }
-
-  .case-study__body {
-    flex: 1 1 380px;
-    display: grid;
-    align-content: start;
-    gap: var(--space-5);
-    min-width: 0;
-  }
-
-  /* Large image. Real images keep their own shape; a placeholder uses 3:2. */
-  .case-study__hero {
-    border-radius: var(--radius-card);
-    background-color: var(--night-teal);
-  }
-
-  .case-study__hero img {
-    width: 100%;
-    height: auto;
-  }
-
-  .case-study__hero:not(:has(img)) {
+  /* Image areas. Each one holds either a placeholder (centered bracketed text)
+     or an <img>, which is cropped to fill the area. */
+  .case-hero,
+  .image-pair__media,
+  .story__slide,
+  .callout__media,
+  .next-card__media {
+    position: relative;
     display: grid;
     place-items: center;
-    aspect-ratio: 3 / 2;
+    overflow: hidden;
   }
 
-  /* Thumbnails: auto-fill, 160px minimum, 16px gap, 110px high. */
-  .thumb-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr));
-    gap: var(--space-4);
-  }
-
-  /* Phones: two thumbnails per row, matching the Codex grid. */
-  @media (max-width: 640px) {
-    .thumb-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  .thumb {
-    display: grid;
-    place-items: center;
-    height: 110px;
-    padding: var(--space-2);
-    border-radius: var(--radius-card);
-    font-size: 13px;
-    line-height: 1.4;
-    text-align: center;
-  }
-
-  .thumb img {
+  .case-hero img,
+  .image-pair__media img,
+  .story__slide img,
+  .callout__media img,
+  .next-card__media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .thumb:has(img) {
-    padding: 0;
+  /* ---- Intro: back link, title and summary, hero image, details card ---- */
+
+  .case-intro {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .case-intro__heading {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  /* Hero image: inside the column, 560px tall (320px on phones), no inset frame. */
+  .case-hero {
+    height: 560px;
+    border-radius: var(--radius-card);
+  }
+
+  /* Details card: Project Type, Software + Tools, Role, Year, and a button. */
+  .details-card {
+    display: grid;
+    grid-template-columns: 1.4fr 1.2fr 0.6fr 0.5fr auto;
+    align-items: start;
+    gap: var(--space-6);
+    padding: var(--space-5) var(--space-6);
+    background-color: var(--dark-teal);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-panel);
+  }
+
+  .details-card .btn {
+    align-self: center;
+    white-space: nowrap;
   }
 
   /* Field: italic label, then its content. */
@@ -1168,7 +1222,397 @@
     gap: var(--space-3);
   }
 
-  .case-study__actions {
+  /* ---- Chapters: numeral and name on the left, content on the right ---- */
+
+  .chapter {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* The numeral and name stay at the top of the window while the chapter scrolls by. */
+  .chapter__mark {
+    position: sticky;
+    top: var(--space-6);
+    align-self: start;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .chapter__content {
+    display: grid;
+    align-content: start;
+    gap: var(--space-5);
+  }
+
+  .chapter__content .t-lead {
+    max-width: 760px;
+  }
+
+  .chapter__content .t-prose {
+    max-width: 680px;
+  }
+
+  /* ---- Optional: before/after image pair ---- */
+
+  .image-pair {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: var(--space-6);
+  }
+
+  .image-pair__media {
+    height: 360px;
+    border-radius: var(--radius-card);
+  }
+
+  .image-pair figcaption {
+    margin-top: var(--space-3);
+  }
+
+  /* "Before." and "After." */
+  .image-pair__label {
+    font-family: var(--font-serif);
+    font-size: 16px;
+  }
+
+  /* ---- Optional: pinned story ----
+     The stage (left) stays in view while the steps (right) scroll past.
+     js/story.js shows the slide for the step in the middle of the window. */
+
+  .story {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 56px;
+  }
+
+  .story__stage {
+    position: sticky;
+    top: calc(50vh - 240px);
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  /* Slides sit on top of each other; the active one fades in. */
+  .story__frame {
+    position: relative;
+    aspect-ratio: 16 / 10.5;
+  }
+
+  .story__slide {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-frame);
+    box-shadow: var(--shadow-tile);
+    opacity: 0;
+    transition: opacity var(--duration-reveal);
+  }
+
+  .story__slide.is-active {
+    opacity: 1;
+  }
+
+  /* Brochure pages are shown whole, not cropped. */
+  .story__slide img {
+    object-fit: contain;
+  }
+
+  /* Step label on the left, progress bars on the right. */
+  .story__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .story__progress {
+    display: flex;
+    gap: var(--space-1);
+  }
+
+  .story__bar {
+    width: 22px;
+    height: 3px;
+    border-radius: var(--radius-pill);
+    background-color: var(--line-divider);
+    transition: background-color var(--duration-fast);
+  }
+
+  .story__bar.is-reached {
+    background-color: var(--pink);
+  }
+
+  /* Each step is about a screen tall so one sits in the middle at a time. */
+  .story__step {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-3);
+    opacity: 0.3;
+    transition: opacity var(--duration-tile);
+  }
+
+  .story__step:first-child,
+  .story__step:last-child {
+    min-height: 70vh;
+  }
+
+  .story__step.is-active {
+    opacity: 1;
+  }
+
+  .story__step .chips {
     margin-top: var(--space-2);
+  }
+
+  /* ---- Optional: callout image with numbered pins and a legend ---- */
+
+  .callout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .callout__media {
+    height: 440px;
+    border-radius: var(--radius-card);
+  }
+
+  /* 32px Pink circle with a Silver border. Decorative: the legend carries the text. */
+  .callout__pin {
+    position: absolute;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--pink);
+    border: 2px solid var(--silver);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  /* Pin positions on the image. To move a pin, change its top and left here. */
+  .callout__pin--1 { top: 22%; left: 18%; }
+  .callout__pin--2 { top: 55%; left: 62%; }
+  .callout__pin--3 { top: 74%; left: 30%; }
+
+  .legend {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .legend li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    align-items: start;
+    gap: var(--space-4);
+  }
+
+  .legend__number {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--line-ghost-button);
+    border-radius: 50%;
+    font-size: 14px;
+  }
+
+  .legend__title {
+    display: block;
+    font-weight: 600;
+  }
+
+  /* ---- Optional: impact stats, honest note, client quote ---- */
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: var(--space-5);
+  }
+
+  .stat {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    background-color: var(--dark-teal);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-tile);
+  }
+
+  /* 1px Pink line on the left. */
+  .quote {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+    padding-left: var(--space-5);
+    border-left: 1px solid var(--pink);
+  }
+
+  .quote cite {
+    font-style: normal;
+  }
+
+  /* ---- Next case study card: one link, lifts 4px on hover ---- */
+
+  .next-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    background-color: var(--dark-teal);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-panel);
+    overflow: hidden;
+    color: var(--silver);
+    text-decoration: none;
+    transition: transform var(--duration-tile);
+  }
+
+  .next-card__media {
+    min-height: 280px;
+  }
+
+  .next-card__body {
+    display: grid;
+    align-content: center;
+    gap: var(--space-3);
+    padding: var(--space-7);
+  }
+
+  .next-card__go {
+    font-weight: 600;
+    text-underline-offset: 3px;
+  }
+
+  .next-card:hover,
+  .next-card:focus-visible {
+    transform: translateY(-4px);
+  }
+
+  .next-card:hover .next-card__go,
+  .next-card:focus-visible .next-card__go {
+    text-decoration: underline;
+  }
+
+  /* ---- Scroll fade-in. js/reveal.js adds .js-reveal to <html> only when it
+     can run, so the page stays fully visible without scripts. ---- */
+
+  .js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity var(--duration-reveal) ease,
+      transform var(--duration-reveal) ease;
+  }
+
+  .js-reveal .reveal--delay-1 {
+    transition-delay: 0.12s;
+  }
+
+  .js-reveal .reveal--delay-2 {
+    transition-delay: 0.24s;
+  }
+
+  .js-reveal .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ---- 900px: two-column rows stack ---- */
+
+  @media (max-width: 900px) {
+    .details-card {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .details-card .btn {
+      grid-column: 1 / -1;
+      justify-self: start;
+    }
+
+    .chapter {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .chapter__mark {
+      position: static;
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-4);
+    }
+
+    .story {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    /* The stage sits at the top of the window above the steps. Its wrapper steps
+       aside so the stage can stay pinned for the whole height of the story. */
+    .story__visual {
+      display: contents;
+    }
+
+    .story__stage {
+      top: 0;
+      z-index: 2;
+      height: auto;
+      padding-block: var(--space-4);
+      background-color: var(--charcoal);
+    }
+
+    .story__frame {
+      max-height: 40vh;
+    }
+
+    .story__step,
+    .story__step:first-child,
+    .story__step:last-child {
+      min-height: 60vh;
+    }
+
+    .callout,
+    .next-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---- 640px: phones ---- */
+
+  @media (max-width: 640px) {
+    .case-hero {
+      height: 320px;
+    }
+
+    .details-card {
+      grid-template-columns: 1fr;
+      padding: var(--space-5);
+    }
+
+    .next-card__body {
+      padding: var(--space-5);
+    }
+  }
+
+  /* ---- Reduced motion: no fade-in, no lift; slides swap instantly ---- */
+
+  @media (prefers-reduced-motion: reduce) {
+    .js-reveal .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    .next-card:hover,
+    .next-card:focus-visible {
+      transform: none;
+    }
   }
 }
