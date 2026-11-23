@@ -1642,3 +1642,151 @@
     }
   }
 }
+
+/* ------------------------------------------------------------------
+   Collection page (one template for every collection; Halloween Cards
+   is the reference). Intro panel, then a grid of portrait cards, four
+   per row at full width (two on phones), newest first. Hovering or
+   focusing a card flips it to its back; clicking opens the pop-up,
+   which reuses the lightbox styles above. Script: js/collection.js
+   ------------------------------------------------------------------ */
+@layer pages {
+
+  .collection-intro {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .collection-intro .t-body {
+    max-width: 680px;
+  }
+
+  /* Auto-fill, 260px minimum, 24px gap: four per row at full width. */
+  .collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+    gap: var(--space-5);
+  }
+
+  @media (max-width: 640px) {
+    .collection-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+  }
+
+  .collection-grid figure {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  /* The card is a button that opens the pop-up. Its shape is set here:
+     5 × 7 portrait for Halloween Cards. Another collection can change it. */
+  .postcard {
+    display: block;
+    width: 100%;
+    aspect-ratio: 5 / 7;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-card);
+    background: none;
+    color: var(--silver);
+    cursor: pointer;
+    perspective: 1200px;
+  }
+
+  /* Holds the front and back; turns over on hover or keyboard focus. */
+  .postcard__inner {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform var(--duration-reveal) ease;
+  }
+
+  .postcard__face {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-tile);
+    backface-visibility: hidden;
+  }
+
+  .postcard__face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .postcard__back {
+    transform: rotateY(180deg);
+  }
+
+  /* Only cards that have a back turn over. Hover flips only on devices with
+     a mouse, so a tap on a phone goes straight to the pop-up. */
+  @media (hover: hover) {
+    .postcard:hover .postcard__inner:has(.postcard__back) {
+      transform: rotateY(180deg);
+    }
+  }
+
+  .postcard:focus-visible .postcard__inner:has(.postcard__back) {
+    transform: rotateY(180deg);
+  }
+
+  /* Reduced motion: the card switches to its back instantly. */
+  @media (prefers-reduced-motion: reduce) {
+    .postcard__inner {
+      transition: none;
+    }
+  }
+
+  /* Pop-up: front and back side by side (stacked on phones). */
+  .lightbox__pair {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  .lightbox__pair .lightbox__img {
+    max-width: calc((100vw - 2 * var(--space-6) - var(--space-5)) / 2);
+  }
+
+  .lightbox__pair .lightbox__placeholder {
+    width: min(360px, 38vw);
+    aspect-ratio: 5 / 7;
+  }
+
+  /* A card without a back shows its front alone. */
+  .lightbox__side[hidden] {
+    display: none;
+  }
+
+  /* The X sits on the top-right corner of the last image showing. */
+  .lightbox__pair .lightbox__close {
+    top: var(--space-2);
+    right: var(--space-2);
+  }
+
+  @media (max-width: 640px) {
+    .lightbox__pair {
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .lightbox__pair .lightbox__img {
+      max-width: calc(100vw - 2 * var(--space-4));
+      max-height: calc((100vh - 2 * var(--space-4) - var(--space-3) - 3 * var(--space-4)) / 2);
+    }
+
+    .lightbox__pair .lightbox__placeholder {
+      width: auto;
+      height: calc((100vh - 2 * var(--space-7) - var(--space-5)) / 2);
+    }
+  }
+}
