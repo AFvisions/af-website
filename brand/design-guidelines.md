@@ -249,6 +249,7 @@ Every page uses one centered column up to 1200px wide, with 16px side margins an
 | Image frame | Inset 8px, 1px line, `--radius-frame` |
 | Play button | 72px circle |
 | Callout pin | 32px Pink circle, 2px Silver border, Silver number |
+| Contact portrait | 240px circle (200px below 640px), `--shadow-tile` |
 | Lightbox image | As large as the window allows, never larger than its native size; `--shadow-lightbox`. Close (X) and arrows are 44px circles |
 
 **Case-study page layout**
