@@ -646,6 +646,21 @@
    ------------------------------------------------------------------ */
 @layer pages {
 
+  /* Same section spacing as the case-study pages: 72px between sections,
+     and dividers add 24px either side (96px from a section to a divider). */
+  .page--home {
+    gap: 72px;
+  }
+
+  .page--home .divider {
+    margin-block: var(--space-5);
+  }
+
+  /* The footer sits 72px below the last section, matching the gaps above. */
+  .page--home ~ .site-footer {
+    margin-top: 72px;
+  }
+
   /* Hero: two columns (520px and 420px starting widths) that stack when narrow. */
   .hero {
     display: flex;
@@ -846,9 +861,12 @@
   }
 
   /* Collection banners */
+  /* The section gap (24px) plus this margin puts 48px between the banners and the
+     filter chips: half the 96px between the Codex and the divider above it. */
   .banner-list {
     display: grid;
     gap: var(--space-4);
+    margin-bottom: var(--space-5);
   }
 
   .codex-banner {

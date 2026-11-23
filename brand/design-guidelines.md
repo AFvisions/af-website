@@ -7,7 +7,7 @@ Design spec for the AFvisions portfolio site (homepage, case-study, collection a
 - Treat every value as the spec, except rows tagged **Pending** and the Undecided list at the end. Ask Andrew before building a Pending row or anything in the Undecided list.
 - Use the CSS variables below for color, spacing, radius, shadow and overlay values. Do not write raw values.
 - **Temporary exception:** sizes that have no variable (font sizes, the 1200px width, grid minimums, image heights, the play button, 1px lines, the 640px and 900px breakpoints) may be written as pixel literals for now. Andrew will review how they look and decide whether to add size variables. Remind him at that review.
-- **Spacing exception for inner pages:** the homepage uses only the spacing scale. Pages outside the homepage (case-study, collection and contact pages) may also use the larger layout values listed under "Case-study page layout", written as pixel literals.
+- **Spacing exception:** besides the spacing scale, the homepage and case-study pages use larger section spacing (72px between sections, 96px from a section to a divider), and pages outside the homepage (case-study, collection and contact pages) may also use the other larger layout values listed under "Case-study page layout". Both are written as pixel literals.
 - Anything in square brackets is placeholder text. Replace it with real content and never ship it as final copy.
 
 ## Brand character
@@ -190,7 +190,7 @@ The site is plain HTML and CSS hosted on Namecheap, with no build step. It is bu
 
 ## Spacing and layout
 
-Every page uses one centered column up to 1200px wide, with 16px side margins and 32px between sections. Panels are rounded rectangles on the charcoal page. All padding, gaps and margins come from one scale. Dimensions such as image heights, the 1200px width and the 72px play button are sizes, not spacing, and sit outside the scale. The tables in this section show pixel values for reading: 4, 8, 12, 16, 24, 32 and 44px map to `--space-1` through `--space-7`. In code, write the variable, not the pixels.
+Every page uses one centered column up to 1200px wide, with 16px side margins and 32px between sections (72px on the homepage and case-study pages). Panels are rounded rectangles on the charcoal page. All padding, gaps and margins come from one scale. Dimensions such as image heights, the 1200px width and the 72px play button are sizes, not spacing, and sit outside the scale. The tables in this section show pixel values for reading: 4, 8, 12, 16, 24, 32 and 44px map to `--space-1` through `--space-7`. In code, write the variable, not the pixels.
 
 **Spacing scale**
 
@@ -209,7 +209,7 @@ Every page uses one centered column up to 1200px wide, with 16px side margins an
 | Element | Value |
 | --- | --- |
 | Content width | 1200px maximum, centered, 16px side padding |
-| Gap between sections | 32px |
+| Gap between sections | 32px; 72px on the homepage and case-study pages, where dividers add 24px either side (96px from a section to a divider) and the footer sits 72px below the last section on the homepage |
 | Header | 16px top and bottom padding, wordmark left, nav right, wraps on narrow screens |
 | Page bottom padding | 44px |
 | Section divider | 1px lines either side of a 10px Pink diamond rotated 45°, 16px gap |
@@ -225,7 +225,7 @@ Every page uses one centered column up to 1200px wide, with 16px side margins an
 | Collection intro panel | 44px | 16px | `--radius-panel` | `--shadow-panel` |
 | Footer | 24px 32px | 12px | `--radius-panel` | none |
 | Case-study tile | Info area 16px 16px 24px | 12px between title and tags | `--radius-card` | `--shadow-tile` |
-| Codex banner | 24px | 16px | `--radius-card` | none, with a 1px `--line-codex-banner` border |
+| Codex banner | 24px | 16px between banners; 48px from the last banner to the filter chips | `--radius-card` | none, with a 1px `--line-codex-banner` border |
 | Codex tile | none | n/a | `--radius-codex-tile` | `--shadow-codex-tile` |
 
 **Grids**
