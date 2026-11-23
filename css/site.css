@@ -15,6 +15,10 @@
   --gold-label: #2A2010;
   --night-teal: #1A2826;
 
+  /* TEMPORARY: Under Construction banner only. Remove with the banner. */
+  --construction-yellow: #FFD400;
+  --construction-black: #000000;
+
   /* Overlays: palette colors at partial opacity */
   --line-divider: color-mix(in srgb, var(--silver) 25%, transparent);
   --line-image-frame: color-mix(in srgb, var(--silver) 30%, transparent);
@@ -1869,6 +1873,80 @@
 
     .contact__portrait {
       width: 200px;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Under Construction banner (TEMPORARY). A yellow strip across the top
+   of every page, covering about half the wordmark. It slides down when
+   the page loads, then the text scrolls slowly from right to left.
+   Clicks pass through it, so the header links still work.
+   Markup: partials/header.html. Remove both together.
+   ------------------------------------------------------------------ */
+@layer layout {
+
+  .construction {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--construction-yellow);
+    color: var(--construction-black);
+    pointer-events: none;
+    animation: construction-in 0.6s ease-out 0.3s both;
+  }
+
+  /* Two identical halves; moving left by one half loops without a gap. */
+  .construction__track {
+    display: flex;
+    flex: none;
+    animation: construction-scroll 60s linear infinite;
+  }
+
+  .construction__group {
+    display: flex;
+    flex: none;
+  }
+
+  .construction__group span {
+    padding-inline: var(--space-6);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  @keyframes construction-in {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+  }
+
+  @keyframes construction-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Phones: the wordmark sits higher, so a shorter strip still covers about half. */
+  @media (max-width: 640px) {
+    .construction {
+      height: 34px;
+    }
+  }
+
+  /* Reduced motion: the strip is simply there, and the text stands still. */
+  @media (prefers-reduced-motion: reduce) {
+    .construction,
+    .construction__track {
+      animation: none;
     }
   }
 }

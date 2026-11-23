@@ -38,6 +38,10 @@ This block is the single source for hex values, spacing, radii, shadows and over
   --gold-label: #2A2010;
   --night-teal: #1A2826;
 
+  /* TEMPORARY: Under Construction banner only. Remove with the banner. */
+  --construction-yellow: #FFD400;
+  --construction-black: #000000;
+
   /* Overlays: palette colors at partial opacity */
   --line-divider: color-mix(in srgb, var(--silver) 25%, transparent);
   --line-image-frame: color-mix(in srgb, var(--silver) 30%, transparent);
@@ -86,6 +90,8 @@ This block is the single source for hex values, spacing, radii, shadows and over
 ## Colors
 
 These ten colors are the only colors on the site. Overlays and placeholders are one of them at partial opacity. Hex values live in the CSS variables block.
+
+**Temporary exception:** the Under Construction banner uses its own yellow and black (`--construction-yellow`, `--construction-black`). Nothing else may use them, and both go when the banner is removed.
 
 | Name | Variable | Role |
 | --- | --- | --- |
@@ -306,6 +312,7 @@ These larger values apply only to pages outside the homepage (see "Spacing excep
 | Lightbox | A basic gallery view: the image on the `--lightbox-backdrop`, with no panel or frame. An X close button at the window's top-right corner, in its own strip above the image so it never covers it; ‹ and › arrow buttons at the window's left and right edges; and a one-line caption under the image. The X and the arrows are 44px circles with the tag fill and border (`--tag-fill`, `--tag-border`). | Caption format, one line: "Title · Category · Medium, Year" (long captions end with an ellipsis). The arrows wrap around within the active filter. Keyboard: Escape closes it, the arrow keys move between pieces, and focus stays inside while it is open. On touch screens, swipe left or right to move. Clicking the dark area around the image also closes it. This applies to every pop-up on the site, including the collection pop-up. |
 | Collection page | One template for every collection, modeled on Halloween Cards. "← Back to the Codex" link. Page-title headline with a short blurb under it, top left. Then a grid of portrait cards, four per row, newest first, with a caption under each card. | Halloween cards are 5×7 portrait; each collection may set its own card shape. The intro sits in the collection intro panel with optional category tags (Halloween Cards: Illustration, Photo Manipulation, Photography, Typography, Just for Fun). On hover (mouse only) or keyboard focus a card flips to its back over `--duration-reveal`. A click opens a pop-up over the `--lightbox-backdrop` showing front and back side by side (stacked on phones), with the card's caption on one line under them, the same X as the lightbox, no arrows, Escape or a click on the dark area to close, and focus kept inside. The back is optional: a card without one does not flip, and the pop-up shows the single image. Adding a card means copying one HTML block and adding its images, so the grid grows a row at a time. |
 | Contact page | One panel, one row, two columns: a circular portrait image on the left (placeholder until Andrew supplies it), and an email section on the right. | The Contact Me button and the Contact nav link go here. May carry over useful pieces of the archived about-me page. Columns stack on narrow screens. |
+| Under Construction banner (temporary) | A yellow strip across the top of every page with "Under Construction" repeated in black, uppercase Inter 13px/600. 38px tall (34px below 640px), so it covers about the top half of the wordmark. Lives in `partials/header.html`. | Slides down when the page loads (0.6s), then the text scrolls slowly right to left (one loop per 60s). Clicks pass through it to the header. With reduced motion it is simply there and the text doesn't move. Scrolls away with the page. |
 | Footer | Wordmark and copyright in a Dark Teal bar. | Lives once in `partials/footer.html`. No social icons here; the header links carry them. |
 
 ## Contrast checks
@@ -328,6 +335,7 @@ Silver on Charcoal, Dark Teal and Night Teal, Logo Teal on Charcoal and Dark Tea
 These are work to do, not rules. Remove an item when it is done. When the repo exists, move these to GitHub Issues and delete this section, so this spec stays stable.
 
 - [ ] Supply real images for the case-study pages and tiles, the featured video thumbnail, the Codex pieces, the Halloween cards (front and back) and the contact portrait, and fill in the \[Medium, year\] captions.
+- [ ] Remove the Under Construction banner (markup in `partials/header.html`, styles and two color variables in `css/site.css`) when the site is finished.
 - [ ] Supply the damask pattern file. Until then the background is plain Charcoal.
 - [ ] Write the Halloween Cards and Illustration Collection blurbs and card captions.
 - [ ] Supply a wide hero image for each case study (the 57 West collage is square, so it is cropped for now), the exported brochure pages and Blender render for the 57 West pinned story, and the Role and Year for 57 West and JEFFCO (JEFFCO shows \[2024\] to confirm).
