@@ -1,0 +1,1952 @@
+/* AFvisions site stylesheet
+   Source of truth: brand/design-guidelines.md. The variables block below is copied
+   verbatim from the spec; change it there first, then here. */
+
+:root {
+  /* Color: these ten are the only colors on the site */
+  --charcoal: #2A2A2A;
+  --dark-teal: #35504C;
+  --silver: #DCDCDC;
+  --pink: #A34E69;
+  --lavender: #6B5A9A;
+  --antique-gold: #C9A45C;
+  --logo-teal: #9CC2BE;
+  --deep-teal: #223230;
+  --gold-label: #2A2010;
+  --night-teal: #1A2826;
+
+  /* TEMPORARY: Under Construction banner only. Remove with the banner. */
+  --construction-yellow: #FFD400;
+  --construction-black: #000000;
+
+  /* Overlays: palette colors at partial opacity */
+  --line-divider: color-mix(in srgb, var(--silver) 25%, transparent);
+  --line-image-frame: color-mix(in srgb, var(--silver) 30%, transparent);
+  --line-codex-banner: color-mix(in srgb, var(--silver) 30%, transparent);
+  --line-ghost-button: color-mix(in srgb, var(--silver) 50%, transparent);
+  --tag-fill: color-mix(in srgb, var(--night-teal) 60%, transparent);
+  --tag-border: color-mix(in srgb, var(--silver) 35%, transparent);
+  --pink-veil: color-mix(in srgb, var(--pink) 93%, transparent);
+  --lightbox-backdrop: color-mix(in srgb, var(--charcoal) 92%, transparent);
+
+  /* Fonts */
+  --font-blackletter: "UnifrakturCook", serif;                 /* 700 */
+  --font-serif: "Averia Serif Libre", Georgia, serif;          /* italic 400 */
+  --font-sans: "Inter", system-ui, sans-serif;                 /* 400, 500, 600 */
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 44px;
+
+  /* Radius */
+  --radius-frame: 6px;
+  --radius-button: 8px;
+  --radius-codex-tile: 10px;
+  --radius-card: 12px;
+  --radius-panel: 14px;
+  --radius-pill: 999px;
+
+  /* Shadows: neutral black, not counted as colors */
+  --shadow-panel: 0 8px 24px rgb(0 0 0 / 0.4);
+  --shadow-tile: 0 6px 18px rgb(0 0 0 / 0.35);
+  --shadow-codex-tile: 0 4px 12px rgb(0 0 0 / 0.35);
+  --shadow-lightbox: 0 12px 40px rgb(0 0 0 / 0.6);
+
+  /* Transitions */
+  --duration-fast: 0.2s;
+  --duration-tile: 0.25s;
+  --duration-reveal: 0.7s;
+}
+
+/* ------------------------------------------------------------------
+   Cascade layers. Everything below lives in a layer, so it never
+   outranks a page's own unlayered styles.
+   ------------------------------------------------------------------ */
+@layer reset, base, type, components, layout, pages;
+
+/* ------------------------------------------------------------------
+   Opt-in: rebuilt pages put class="site" on <html>. Legacy pages don't,
+   so none of these rules reach them until they are rebuilt.
+   Pixel sizes below are temporary literals (see "How to use this file"
+   in brand/design-guidelines.md); they are flagged for Andrew's review.
+   ------------------------------------------------------------------ */
+
+@layer reset {
+  :where(.site) *,
+  :where(.site) *::before,
+  :where(.site) *::after {
+    box-sizing: border-box;
+  }
+
+  :where(.site) body,
+  :where(.site) h1,
+  :where(.site) h2,
+  :where(.site) h3,
+  :where(.site) h4,
+  :where(.site) p,
+  :where(.site) figure,
+  :where(.site) ul,
+  :where(.site) ol {
+    margin: 0;
+  }
+
+  :where(.site) ul,
+  :where(.site) ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  :where(.site) img,
+  :where(.site) video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  :where(.site) button {
+    font: inherit;
+    color: inherit;
+  }
+}
+
+@layer base {
+  /* Plain Charcoal until the damask file is supplied. Do not add a pattern. */
+  :where(.site) body {
+    background-color: var(--charcoal);
+    color: var(--silver);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :where(.site) h1,
+  :where(.site) h2,
+  :where(.site) h3,
+  :where(.site) h4 {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 1.2;
+  }
+
+  :where(.site) a {
+    color: var(--silver);
+  }
+
+  /* Tap targets: 44px minimum. Links that act as controls get it in their component. */
+  :where(.site) button {
+    min-height: 44px;
+    cursor: pointer;
+  }
+
+  /* Keyboard focus on every link, button, chip, tile and card. */
+  :where(.site) :focus-visible {
+    outline: 2px solid var(--silver);
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion: no transitions, lifts, slides or flips. Changes happen instantly.
+     Components also reset their transforms under this query. */
+  @media (prefers-reduced-motion: reduce) {
+    :where(.site) *,
+    :where(.site) *::before,
+    :where(.site) *::after {
+      transition-duration: 0s !important;
+      animation-duration: 0s !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Type scale (brand/design-guidelines.md, "Type scale").
+   Nav, buttons, chips, tags, veils, badges and tile labels are styled
+   with their components in a later step.
+   ------------------------------------------------------------------ */
+@layer type {
+  /* Blackletter: hero name and wordmark only, 26px and up. */
+  .t-hero-name,
+  .t-wordmark {
+    font-family: var(--font-blackletter);
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* Scales down on narrow screens; 84px maximum. */
+  .t-hero-name {
+    font-size: clamp(44px, 11vw, 84px);
+    line-height: 0.95;
+  }
+
+  .t-wordmark {
+    font-size: 30px;
+    line-height: 1.2;
+    color: var(--logo-teal);
+  }
+
+  .t-wordmark--footer {
+    font-size: 26px;
+  }
+
+  /* Italic serif: page titles, section headings, labels, hover text. */
+  .t-page-title,
+  .t-section-heading,
+  .t-tagline,
+  .t-label,
+  .t-sublabel {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  /* Case-study and collection titles. Scales down on narrow screens: 56px max, 36px min. */
+  .t-page-title {
+    font-size: clamp(36px, 10vw, 56px);
+    line-height: 1;
+  }
+
+  /* Case Studies and Codex titles. */
+  .t-section-heading {
+    font-size: 36px;
+  }
+
+  /* Hero tagline and case-study field labels share one size. */
+  .t-tagline,
+  .t-label {
+    font-size: 22px;
+  }
+
+  .t-sublabel {
+    font-size: 18px;
+  }
+
+  /* Sans: everything people read. */
+  .t-card-title {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .t-body {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .t-detail {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .t-caption {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .t-footer {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* Case-study page styles. */
+  .t-chapter-numeral,
+  .t-chapter-name,
+  .t-stat,
+  .t-quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* I, II, III beside each chapter. 44px below 900px. */
+  .t-chapter-numeral {
+    font-size: 56px;
+    line-height: 1;
+  }
+
+  .t-chapter-name {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .t-stat {
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  .t-quote {
+    font-size: 26px;
+    line-height: 1.4;
+  }
+
+  /* Opening sentence of a chapter. 19px below 640px. */
+  .t-lead {
+    font-size: 22px;
+    line-height: 1.55;
+  }
+
+  .t-step-heading {
+    font-family: var(--font-sans);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  @media (max-width: 900px) {
+    .t-chapter-numeral {
+      font-size: 44px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .t-lead {
+      font-size: 19px;
+    }
+  }
+
+  /* Running text keeps a comfortable gap between paragraphs. */
+  .t-prose > * + * {
+    margin-top: var(--space-4);
+  }
+
+  /* Subheadings inside running text get more room above them. */
+  .t-prose > * + h3 {
+    margin-top: var(--space-6);
+  }
+
+  /* Bulleted lists inside running text (the reset removes bullets elsewhere). */
+  .t-prose ul {
+    list-style: disc;
+    padding-left: var(--space-5);
+  }
+
+  .t-prose li + li {
+    margin-top: var(--space-2);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Shared components (brand/design-guidelines.md, "Components" and
+   "UX elements"). Class-based, so they only appear where used.
+   ------------------------------------------------------------------ */
+@layer components {
+
+  /* Panel: Dark Teal rounded rectangle on the Charcoal page.
+     Used by the hero, collection intro and contact panels. */
+  .panel {
+    background-color: var(--dark-teal);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-panel);
+    padding: var(--space-7);
+  }
+
+  @media (max-width: 640px) {
+    .panel {
+      padding: var(--space-5);
+    }
+  }
+
+  /* Buttons. One primary per area. Pink is never used on an action button. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 44px;
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid transparent;
+    border-radius: var(--radius-button);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color var(--duration-fast),
+      border-color var(--duration-fast),
+      color var(--duration-fast),
+      transform var(--duration-fast);
+  }
+
+  /* Primary: Silver fill, Deep Teal label. Hover: Antique Gold, Gold Label, 2px lift. */
+  .btn--primary {
+    background-color: var(--silver);
+    color: var(--deep-teal);
+  }
+
+  .btn--primary:hover,
+  .btn--primary:focus-visible {
+    background-color: var(--antique-gold);
+    color: var(--gold-label);
+    transform: translateY(-2px);
+  }
+
+  /* Ghost (secondary): transparent, 50% Silver border, Silver label.
+     Hover: Night Teal fill, solid Silver border, no lift. */
+  .btn--ghost {
+    background-color: transparent;
+    border-color: var(--line-ghost-button);
+    color: var(--silver);
+  }
+
+  .btn--ghost:hover,
+  .btn--ghost:focus-visible {
+    background-color: var(--night-teal);
+    border-color: var(--silver);
+  }
+
+  .btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  /* Text link: Silver, medium weight, with an arrow (← or →) written in the markup.
+     Underlines on hover. Used for back links and "See the work". */
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--silver);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    text-decoration: none;
+    text-underline-offset: 3px;
+  }
+
+  .text-link:hover,
+  .text-link:focus-visible {
+    text-decoration: underline;
+  }
+
+  /* Tags: high-level descriptors, never filters. Not links or buttons:
+     no hover state and no pointer cursor. Mark up as a list. */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .tag {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    background-color: var(--tag-fill);
+    border: 1px solid var(--tag-border);
+    border-radius: var(--radius-pill);
+    color: var(--silver);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    cursor: default;
+  }
+
+  /* Larger tags on the case-study page. */
+  .tags--page .tag {
+    padding: var(--space-2) var(--space-3);
+    font-size: 13px;
+  }
+
+  /* Section divider: line, 10px Pink diamond, line. Decorative only (aria-hidden). */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--line-divider);
+  }
+
+  .divider__diamond {
+    width: 10px;
+    height: 10px;
+    background-color: var(--pink);
+    transform: rotate(45deg);
+  }
+
+  /* Image frame: a 1px line inset 8px inside an image area. */
+  .frame {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frame::after {
+    content: "";
+    position: absolute;
+    inset: var(--space-2);
+    border: 1px solid var(--line-image-frame);
+    border-radius: var(--radius-frame);
+    pointer-events: none;
+  }
+
+  /* Reduced motion: no lifts. */
+  @media (prefers-reduced-motion: reduce) {
+    .btn--primary:hover,
+    .btn--primary:focus-visible {
+      transform: none;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Shared layout: page column, header, navigation, footer
+   (brand/design-guidelines.md, "Page structure").
+   ------------------------------------------------------------------ */
+@layer layout {
+
+  /* One centered column: 1200px of content plus 16px side margins. */
+  .container {
+    width: 100%;
+    max-width: calc(1200px + 2 * var(--space-4));
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+  }
+
+  /* Page content: 32px between sections. */
+  .page {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  /* Hold the header's space while the partial loads, so the page doesn't jump. */
+  [data-include="header"] {
+    min-height: 77px;
+  }
+
+  /* Header: wordmark left, nav right, wraps on narrow screens. */
+  .site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-6);
+    padding-block: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .site-header__wordmark,
+  .site-footer__wordmark {
+    text-decoration: none;
+  }
+
+  .site-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  /* Nav links: Silver on the page. Hover fills Lavender with Silver text. */
+  .site-nav__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-button);
+    color: var(--silver);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background-color var(--duration-fast);
+  }
+
+  /* Phones: tighter link padding, and the nav pulls left so its first link lines up
+     with the wordmark. Keeps all four links on one row down to about 340px. */
+  @media (max-width: 640px) {
+    [data-include="header"] {
+      min-height: 121px;
+    }
+
+    .site-nav__list {
+      gap: var(--space-1);
+      margin-inline-start: calc(-1 * var(--space-3));
+    }
+
+    .site-nav__link {
+      padding-inline: var(--space-3);
+    }
+  }
+
+  .site-nav__link:hover,
+  .site-nav__link:focus-visible {
+    background-color: var(--lavender);
+    color: var(--silver);
+  }
+
+  /* Footer: wordmark and copyright in a Dark Teal bar, no shadow, no social icons. */
+  .site-footer {
+    margin-top: var(--space-6);
+    padding-bottom: var(--space-7);
+  }
+
+  .site-footer__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-6);
+    background-color: var(--dark-teal);
+    border-radius: var(--radius-panel);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Placeholders and veil (shared by tiles and cards)
+   ------------------------------------------------------------------ */
+@layer components {
+
+  /* Stand-ins for real image crops. Only Dark Teal, Night Teal, Lavender and Pink. */
+  .placeholder--pink { background-color: var(--pink); }
+  .placeholder--lavender { background-color: var(--lavender); }
+  .placeholder--night { background-color: var(--night-teal); }
+  .placeholder--teal { background-color: var(--dark-teal); }
+
+  .placeholder-text {
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+    padding: var(--space-4);
+  }
+
+  /* Pink veil over an image area. Fades in on hover or keyboard focus of the parent link. */
+  .veil {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    padding: var(--space-4);
+    background-color: var(--pink-veil);
+    color: var(--silver);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.2;
+    text-align: center;
+    opacity: 0;
+    transition: opacity var(--duration-tile);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Homepage
+   ------------------------------------------------------------------ */
+@layer pages {
+
+  /* Same section spacing as the case-study pages: 72px between sections,
+     and dividers add 24px either side (96px from a section to a divider). */
+  .page--home {
+    gap: 72px;
+  }
+
+  .page--home .divider {
+    margin-block: var(--space-5);
+  }
+
+  /* The footer sits 72px below the last section, matching the gaps above. */
+  .page--home ~ .site-footer {
+    margin-top: 72px;
+  }
+
+  /* Hero: two columns (520px and 420px starting widths) that stack when narrow. */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+  }
+
+  .hero__intro {
+    flex: 1 1 520px;
+    display: grid;
+    align-content: start;
+    gap: var(--space-4);
+  }
+
+  .hero__featured {
+    flex: 1 1 420px;
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+  }
+
+  .hero .btn-row {
+    margin-top: var(--space-2);
+  }
+
+  /* Featured video: teal card, 72px Pink play button, title along the bottom. Links out. */
+  .video-card {
+    position: relative;
+    display: block;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    color: var(--silver);
+    text-decoration: none;
+  }
+
+  .video-card__media {
+    display: flex;
+    align-items: flex-start;
+    aspect-ratio: 16 / 9;
+    background-color: var(--night-teal);
+    border-radius: var(--radius-card);
+  }
+
+  .video-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-card__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 72px;
+    height: 72px;
+    margin: -36px 0 0 -36px;
+    border-radius: 50%;
+    background-color: var(--pink);
+  }
+
+  /* Play triangle, drawn with borders in Silver. */
+  .video-card__play::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -12px 0 0 -7px;
+    border-style: solid;
+    border-width: 12px 0 12px 20px;
+    border-color: transparent transparent transparent var(--silver);
+  }
+
+  .video-card__title {
+    position: absolute;
+    left: var(--space-2);
+    right: var(--space-2);
+    bottom: var(--space-2);
+    padding: var(--space-3);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* Section head: heading left, count right. */
+  .section {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .section__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-4);
+  }
+
+  /* Case studies grid: auto-fill, 300px minimum, 32px gap. */
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    gap: var(--space-6);
+  }
+
+  .case-grid > li {
+    display: flex;
+  }
+
+  /* Case-study tile: image, title, tags. The whole tile is one link. */
+  .case-tile {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-teal);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-tile);
+    overflow: hidden;
+    color: var(--silver);
+    text-decoration: none;
+    transition: transform var(--duration-tile);
+  }
+
+  .case-tile__media {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 240px;
+  }
+
+  .case-tile__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .case-tile__info {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-4) var(--space-5);
+  }
+
+  .case-tile:hover,
+  .case-tile:focus-visible {
+    transform: translateY(-4px);
+  }
+
+  .case-tile:hover .veil,
+  .case-tile:focus-visible .veil {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-tile:hover,
+    .case-tile:focus-visible {
+      transform: none;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Codex: banners, chips, tiles (homepage)
+   ------------------------------------------------------------------ */
+@layer components {
+
+  /* Veil variant that eases in from the right (collection banners). */
+  .veil--slide {
+    transform: translateX(100%);
+    transition:
+      opacity var(--duration-tile),
+      transform var(--duration-tile) ease-out;
+  }
+
+  /* Smaller veil text for Codex tiles. */
+  .veil--small {
+    font-size: 18px;
+  }
+
+  /* Category badge: sits on images, so it always has the Night Teal fill. */
+  .badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--night-teal);
+    border-radius: var(--radius-pill);
+    color: var(--silver);
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+}
+
+@layer pages {
+
+  .section__intro {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  /* Collection banners */
+  /* The section gap (24px) plus this margin puts 48px between the banners and the
+     filter chips: half the 96px between the Codex and the divider above it. */
+  .banner-list {
+    display: grid;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .codex-banner {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background-color: var(--dark-teal);
+    border: 1px solid var(--line-codex-banner);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    color: var(--silver);
+    text-decoration: none;
+  }
+
+  .codex-banner__text {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .codex-banner__title {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .codex-banner__desc {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .codex-banner__cta {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* Collage image (optional): a fully opaque collage of the collection's pieces that
+     slides in from the right in place of the Pink veil. Add it inside the banner link:
+       <img class="codex-banner__collage" src="/images/codex/[collection]-collage.jpg" alt="[Collage of ...]">
+     and remove that banner's .veil span. */
+  .codex-banner__collage {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateX(100%);
+    transition: transform var(--duration-tile) ease-out;
+  }
+
+  .codex-banner:hover .veil--slide,
+  .codex-banner:focus-visible .veil--slide {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .codex-banner:hover .codex-banner__collage,
+  .codex-banner:focus-visible .codex-banner__collage {
+    transform: translateX(0);
+  }
+
+  /* Filter chips: one selected at a time. Selected = Pink with a checkmark. */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    min-height: 44px;
+    padding: var(--space-2) var(--space-4);
+    background-color: var(--dark-teal);
+    border: 1px solid var(--tag-border);
+    border-radius: var(--radius-pill);
+    color: var(--silver);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    transition: background-color var(--duration-fast), border-color var(--duration-fast);
+  }
+
+  .chip[aria-pressed="true"] {
+    background-color: var(--pink);
+    border-color: var(--pink);
+  }
+
+  .chip[aria-pressed="true"]::before {
+    content: "✓";
+  }
+
+  /* Codex grid: auto-fill, 200px minimum, 16px gap, square tiles. */
+  .codex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+    gap: var(--space-4);
+  }
+
+  /* Phones: two tiles per row instead of one large one. */
+  @media (max-width: 640px) {
+    .codex-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .codex-grid > li[hidden] {
+    display: none;
+  }
+
+  .codex-tile {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-codex-tile);
+    box-shadow: var(--shadow-codex-tile);
+    overflow: hidden;
+    background-color: var(--night-teal);
+    cursor: pointer;
+  }
+
+  .codex-tile img,
+  .codex-tile__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .codex-tile__placeholder {
+    display: grid;
+    place-items: center;
+    padding: var(--space-4);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .codex-tile .badge {
+    position: absolute;
+    left: var(--space-2);
+    bottom: var(--space-2);
+  }
+
+  .codex-tile:hover .veil,
+  .codex-tile:focus-visible .veil {
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Lightbox (Codex and collection pop-ups): a basic gallery view. The
+   image sits on the dimmed page, as large as the window allows (never
+   larger than its native size), with side arrows and a one-line caption
+   underneath. The X sits in its own strip at the window's top-right, so
+   it never covers the image.
+   ------------------------------------------------------------------ */
+@layer components {
+
+  .lightbox {
+    /* Height of the strip at the top that holds the X. */
+    --lightbox-top: calc(44px + 2 * var(--space-4));
+
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    padding: var(--lightbox-top) var(--space-4) var(--space-4);
+    border: 0;
+    background-color: var(--lightbox-backdrop);
+    color: var(--silver);
+    overflow: hidden;
+  }
+
+  .lightbox[open] {
+    display: grid;
+    place-items: center;
+  }
+
+  .lightbox::backdrop {
+    background: transparent;
+  }
+
+  .lightbox__figure {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-3);
+    max-width: 100%;
+  }
+
+  /* Wraps the image tightly. */
+  .lightbox__frame {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  /* Leaves room for the X strip, the side arrows and the caption line. */
+  .lightbox__img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: calc(100vw - 2 * (44px + var(--space-6)));
+    max-height: calc(100vh - var(--lightbox-top) - var(--space-4) - var(--space-3) - 3 * var(--space-4));
+    box-shadow: var(--shadow-lightbox);
+  }
+
+  .lightbox__placeholder {
+    display: grid;
+    place-items: center;
+    width: min(600px, 70vw);
+    aspect-ratio: 1 / 1;
+    background-color: var(--night-teal);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .lightbox__placeholder[hidden],
+  .lightbox__img[hidden] {
+    display: none;
+  }
+
+  /* Close: at the window's top-right, above the image, styled like the arrows. */
+  .lightbox__close {
+    position: fixed;
+    top: var(--space-4);
+    right: var(--space-4);
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--tag-border);
+    border-radius: 50%;
+    background-color: var(--tag-fill);
+    color: var(--silver);
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  /* One line; long captions end with an ellipsis. */
+  .lightbox__caption {
+    max-width: calc(100vw - 2 * var(--space-4));
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  /* Side arrows, fixed at the window's left and right edges. */
+  .lightbox__arrow {
+    position: fixed;
+    top: 50%;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    padding: 0;
+    border: 1px solid var(--tag-border);
+    border-radius: 50%;
+    background-color: var(--tag-fill);
+    color: var(--silver);
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .lightbox__arrow--prev {
+    left: var(--space-4);
+  }
+
+  .lightbox__arrow--next {
+    right: var(--space-4);
+  }
+
+  /* Phones: the image uses the full width; arrows overlap its edges. */
+  @media (max-width: 640px) {
+    .lightbox__img {
+      max-width: calc(100vw - 2 * var(--space-4));
+    }
+
+    .lightbox__arrow--prev {
+      left: var(--space-2);
+    }
+
+    .lightbox__arrow--next {
+      right: var(--space-2);
+    }
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   Case-study page (one template for every case study; 57 West is the
+   reference). A long page in three chapters, with no panel around it.
+   Uses the larger "Case-study page layout" values from the spec and a
+   second breakpoint at 900px. Sections in page order:
+     intro (back link, title, hero, details card) → chapters →
+     image pair → pinned story → callout → stats and quote → next card
+   ------------------------------------------------------------------ */
+@layer pages {
+
+  /* 72px between chapters and sections. Dividers add 24px either side (96px total). */
+  .page--case-study {
+    gap: 72px;
+  }
+
+  .page--case-study .divider {
+    margin-block: var(--space-5);
+  }
+
+  .back-link {
+    justify-self: start;
+  }
+
+  /* Image areas. Each one holds either a placeholder (centered bracketed text)
+     or an <img>, which is cropped to fill the area. */
+  .case-hero,
+  .image-pair__media,
+  .story__slide,
+  .callout__media,
+  .next-card__media {
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  .case-hero img,
+  .image-pair__media img,
+  .story__slide img,
+  .callout__media img,
+  .next-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Add crop-top to an image area to keep the top of a tall image (such as an email). */
+  .crop-top img {
+    object-position: top;
+  }
+
+  /* ---- Intro: back link, title and summary, hero image, details card ---- */
+
+  .case-intro {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .case-intro__heading {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  /* Hero image: inside the column, 560px tall (320px on phones), no inset frame. */
+  .case-hero {
+    height: 560px;
+    border-radius: var(--radius-card);
+  }
+
+  /* Details card: Project Type, Software + Tools, Role, Year, and a button. */
+  .details-card {
+    display: grid;
+    grid-template-columns: 1.4fr 1.2fr 0.6fr 0.5fr auto;
+    align-items: start;
+    gap: var(--space-6);
+    padding: var(--space-5) var(--space-6);
+    background-color: var(--dark-teal);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-panel);
+  }
+
+  .details-card .btn {
+    align-self: center;
+    white-space: nowrap;
+  }
+
+  /* Field: italic label, then its content. */
+  .field {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  /* ---- Chapters: numeral and name on the left, content on the right ---- */
+
+  .chapter {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* The numeral and name stay at the top of the window while the chapter scrolls by. */
+  .chapter__mark {
+    position: sticky;
+    top: var(--space-6);
+    align-self: start;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .chapter__content {
+    display: grid;
+    align-content: start;
+    gap: var(--space-5);
+  }
+
+  .chapter__content .t-lead {
+    max-width: 760px;
+  }
+
+  .chapter__content .t-prose {
+    max-width: 680px;
+  }
+
+  /* ---- Optional: before/after image pair ---- */
+
+  .image-pair {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: var(--space-6);
+  }
+
+  .image-pair__media {
+    height: 360px;
+    border-radius: var(--radius-card);
+  }
+
+  .image-pair figcaption {
+    margin-top: var(--space-3);
+  }
+
+  /* "Before." and "After." */
+  .image-pair__label {
+    font-family: var(--font-serif);
+    font-size: 16px;
+  }
+
+  /* ---- Optional: pinned story ----
+     The stage (left) stays in view while the steps (right) scroll past.
+     js/story.js shows the slide for the step in the middle of the window. */
+
+  .story {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 56px;
+  }
+
+  .story__stage {
+    position: sticky;
+    top: calc(50vh - 240px);
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  /* Slides sit on top of each other; the active one fades in. */
+  .story__frame {
+    position: relative;
+    aspect-ratio: 16 / 10.5;
+  }
+
+  .story__slide {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-frame);
+    box-shadow: var(--shadow-tile);
+    opacity: 0;
+    transition: opacity var(--duration-reveal);
+  }
+
+  .story__slide.is-active {
+    opacity: 1;
+  }
+
+  /* Brochure pages are shown whole, not cropped. */
+  .story__slide img {
+    object-fit: contain;
+  }
+
+  /* Step label on the left, progress bars on the right. */
+  .story__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .story__progress {
+    display: flex;
+    gap: var(--space-1);
+  }
+
+  .story__bar {
+    width: 22px;
+    height: 3px;
+    border-radius: var(--radius-pill);
+    background-color: var(--line-divider);
+    transition: background-color var(--duration-fast);
+  }
+
+  .story__bar.is-reached {
+    background-color: var(--pink);
+  }
+
+  /* Each step is about a screen tall so one sits in the middle at a time. */
+  .story__step {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-3);
+    opacity: 0.3;
+    transition: opacity var(--duration-tile);
+  }
+
+  .story__step:first-child,
+  .story__step:last-child {
+    min-height: 70vh;
+  }
+
+  .story__step.is-active {
+    opacity: 1;
+  }
+
+  .story__step .chips {
+    margin-top: var(--space-2);
+  }
+
+  /* ---- Optional: callout image with numbered pins and a legend ---- */
+
+  .callout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .callout__media {
+    height: 440px;
+    border-radius: var(--radius-card);
+  }
+
+  /* 32px Pink circle with a Silver border. Decorative: the legend carries the text. */
+  .callout__pin {
+    position: absolute;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--pink);
+    border: 2px solid var(--silver);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  /* Pin positions on the image. To move a pin, change its top and left here. */
+  .callout__pin--1 { top: 22%; left: 18%; }
+  .callout__pin--2 { top: 55%; left: 62%; }
+  .callout__pin--3 { top: 74%; left: 30%; }
+
+  .legend {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .legend li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    align-items: start;
+    gap: var(--space-4);
+  }
+
+  .legend__number {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--line-ghost-button);
+    border-radius: 50%;
+    font-size: 14px;
+  }
+
+  .legend__title {
+    display: block;
+    font-weight: 600;
+  }
+
+  /* ---- Optional: impact stats, honest note, client quote ---- */
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: var(--space-5);
+  }
+
+  .stat {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    background-color: var(--dark-teal);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-tile);
+  }
+
+  /* 1px Pink line on the left. */
+  .quote {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+    padding-left: var(--space-5);
+    border-left: 1px solid var(--pink);
+  }
+
+  .quote cite {
+    font-style: normal;
+  }
+
+  /* ---- Next case study card: one link, lifts 4px on hover ---- */
+
+  .next-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    background-color: var(--dark-teal);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-panel);
+    overflow: hidden;
+    color: var(--silver);
+    text-decoration: none;
+    transition: transform var(--duration-tile);
+  }
+
+  .next-card__media {
+    min-height: 280px;
+  }
+
+  /* The image fills the card's height instead of setting it. */
+  .next-card__media img {
+    position: absolute;
+    inset: 0;
+  }
+
+  .next-card__body {
+    display: grid;
+    align-content: center;
+    gap: var(--space-3);
+    padding: var(--space-7);
+  }
+
+  .next-card__go {
+    font-weight: 600;
+    text-underline-offset: 3px;
+  }
+
+  .next-card:hover,
+  .next-card:focus-visible {
+    transform: translateY(-4px);
+  }
+
+  .next-card:hover .next-card__go,
+  .next-card:focus-visible .next-card__go {
+    text-decoration: underline;
+  }
+
+  /* ---- Scroll fade-in. js/reveal.js adds .js-reveal to <html> only when it
+     can run, so the page stays fully visible without scripts. ---- */
+
+  .js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity var(--duration-reveal) ease,
+      transform var(--duration-reveal) ease;
+  }
+
+  .js-reveal .reveal--delay-1 {
+    transition-delay: 0.12s;
+  }
+
+  .js-reveal .reveal--delay-2 {
+    transition-delay: 0.24s;
+  }
+
+  .js-reveal .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ---- 900px: two-column rows stack ---- */
+
+  @media (max-width: 900px) {
+    .details-card {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .details-card .btn {
+      grid-column: 1 / -1;
+      justify-self: start;
+    }
+
+    .chapter {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .chapter__mark {
+      position: static;
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-4);
+    }
+
+    .story {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    /* The stage sits at the top of the window above the steps. Its wrapper steps
+       aside so the stage can stay pinned for the whole height of the story. */
+    .story__visual {
+      display: contents;
+    }
+
+    .story__stage {
+      top: 0;
+      z-index: 2;
+      height: auto;
+      padding-block: var(--space-4);
+      background-color: var(--charcoal);
+    }
+
+    .story__frame {
+      max-height: 40vh;
+    }
+
+    .story__step,
+    .story__step:first-child,
+    .story__step:last-child {
+      min-height: 60vh;
+    }
+
+    .callout,
+    .next-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---- 640px: phones ---- */
+
+  @media (max-width: 640px) {
+    .case-hero {
+      height: 320px;
+    }
+
+    .details-card {
+      grid-template-columns: 1fr;
+      padding: var(--space-5);
+    }
+
+    .next-card__body {
+      padding: var(--space-5);
+    }
+  }
+
+  /* ---- Reduced motion: no fade-in, no lift; slides swap instantly ---- */
+
+  @media (prefers-reduced-motion: reduce) {
+    .js-reveal .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    .next-card:hover,
+    .next-card:focus-visible {
+      transform: none;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Collection page (one template for every collection; Halloween Cards
+   is the reference). Intro panel, then a grid of portrait cards, four
+   per row at full width (two on phones), newest first. Hovering or
+   focusing a card flips it to its back; clicking opens the pop-up,
+   which reuses the lightbox styles above. Script: js/collection.js
+   ------------------------------------------------------------------ */
+@layer pages {
+
+  .collection-intro {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .collection-intro .t-body {
+    max-width: 680px;
+  }
+
+  /* Auto-fill, 260px minimum, 24px gap: four per row at full width. */
+  .collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+    gap: var(--space-5);
+  }
+
+  @media (max-width: 640px) {
+    .collection-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+  }
+
+  .collection-grid figure {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  /* The card is a button that opens the pop-up. Its shape is set here:
+     5 × 7 portrait for Halloween Cards. Another collection can change it. */
+  .postcard {
+    display: block;
+    width: 100%;
+    aspect-ratio: 5 / 7;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-card);
+    background: none;
+    color: var(--silver);
+    cursor: pointer;
+    perspective: 1200px;
+  }
+
+  /* Holds the front and back; turns over on hover or keyboard focus. */
+  .postcard__inner {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform var(--duration-reveal) ease;
+  }
+
+  .postcard__face {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-tile);
+    backface-visibility: hidden;
+  }
+
+  .postcard__face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .postcard__back {
+    transform: rotateY(180deg);
+  }
+
+  /* Only cards that have a back turn over. Hover flips only on devices with
+     a mouse, so a tap on a phone goes straight to the pop-up. */
+  @media (hover: hover) {
+    .postcard:hover .postcard__inner:has(.postcard__back) {
+      transform: rotateY(180deg);
+    }
+  }
+
+  .postcard:focus-visible .postcard__inner:has(.postcard__back) {
+    transform: rotateY(180deg);
+  }
+
+  /* Reduced motion: the card switches to its back instantly. */
+  @media (prefers-reduced-motion: reduce) {
+    .postcard__inner {
+      transition: none;
+    }
+  }
+
+  /* Pop-up: front and back side by side (stacked on phones). */
+  .lightbox__pair {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  .lightbox__pair .lightbox__img {
+    max-width: calc((100vw - 2 * var(--space-6) - var(--space-5)) / 2);
+  }
+
+  .lightbox__pair .lightbox__placeholder {
+    width: min(360px, 38vw);
+    aspect-ratio: 5 / 7;
+  }
+
+  /* A card without a back shows its front alone. */
+  .lightbox__side[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    .lightbox__pair {
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .lightbox__pair .lightbox__img {
+      max-width: calc(100vw - 2 * var(--space-4));
+      max-height: calc((100vh - var(--lightbox-top) - var(--space-4) - var(--space-3) - 3 * var(--space-4)) / 2);
+    }
+
+    .lightbox__pair .lightbox__placeholder {
+      width: auto;
+      height: calc((100vh - var(--lightbox-top) - var(--space-4) - var(--space-3) - 3 * var(--space-4)) / 2);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Contact page: one panel, one row, two columns. A circular portrait
+   on the left and the email section on the right; they stack when
+   the screen is too narrow for both.
+   ------------------------------------------------------------------ */
+@layer pages {
+
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-6) var(--space-7);
+  }
+
+  /* 240px circle. Holds an <img> or a placeholder. */
+  .contact__portrait {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 240px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: var(--shadow-tile);
+  }
+
+  .contact__portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .contact__body {
+    flex: 1 1 380px;
+    display: grid;
+    align-content: start;
+    gap: var(--space-5);
+    min-width: 0;
+  }
+
+  /* The email address, large enough to read and copy. */
+  .contact__email {
+    justify-self: start;
+    font-size: 22px;
+    overflow-wrap: anywhere;
+  }
+
+  .contact__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+  }
+
+  /* Phones: the portrait sits centered above the text. */
+  @media (max-width: 640px) {
+    .contact {
+      justify-content: center;
+    }
+
+    .contact__portrait {
+      width: 200px;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Under Construction banner (TEMPORARY). A yellow strip across the top
+   of every page, covering about half the wordmark. It slides down when
+   the page loads, then the text scrolls slowly from right to left.
+   Clicks pass through it, so the header links still work.
+   Markup: partials/header.html. Remove both together.
+   ------------------------------------------------------------------ */
+@layer layout {
+
+  .construction {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--construction-yellow);
+    color: var(--construction-black);
+    pointer-events: none;
+    animation: construction-in 0.6s ease-out 0.3s both;
+  }
+
+  /* Two identical halves; moving left by one half loops without a gap. */
+  .construction__track {
+    display: flex;
+    flex: none;
+    animation: construction-scroll 60s linear infinite;
+  }
+
+  .construction__group {
+    display: flex;
+    flex: none;
+  }
+
+  .construction__group span {
+    padding-inline: var(--space-6);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  @keyframes construction-in {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+  }
+
+  @keyframes construction-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Phones: the wordmark sits higher, so a shorter strip still covers about half. */
+  @media (max-width: 640px) {
+    .construction {
+      height: 34px;
+    }
+  }
+
+  /* Reduced motion: the strip is simply there, and the text stands still. */
+  @media (prefers-reduced-motion: reduce) {
+    .construction,
+    .construction__track {
+      animation: none;
+    }
+  }
+}

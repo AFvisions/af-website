@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--
+  COLLECTION TEMPLATE (Halloween Cards is the reference page).
+  To make a new collection, copy this file to codex/<collection>.html and change:
+    1. <title> and the meta description
+    2. The page title, blurb and tags in the intro panel
+    3. The cards (newest first). Card shape is set in css/site.css (.postcard, 5 × 7 here).
+  Add the collection's banner to the Codex on index.html so it links here.
+
+  Adding a card: copy one <li> from the grid, put it first, and change:
+    - the button's aria-label ("Open [Title], front and back")
+    - the front image, the back image, and the caption under the card
+  To add the real images, replace each face's bracketed <span> with
+    <img src="/images/codex/halloween/[file]" alt="[Description]">
+  and remove role="img" and aria-label from that face.
+  The back is optional: delete the whole .postcard__back span and the card won't flip.
+-->
+<html lang="en" class="site">
+
+<head>
+    <!-- Google Tag Manager (skipped on local previews so they don't count as visits) -->
+    <script>if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TBSSBW57');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT9WN4B9BP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) gtag('config', 'G-MT9WN4B9BP');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween Cards – Codex | AFvisions</title>
+    <meta name="description" content="Halloween Cards: a yearly series of 5 × 7 postcards by Andrew Fumagalli.">
+
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400&family=Inter:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <script src="/js/include.js" defer></script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBSSBW57" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div data-include="header"></div>
+
+    <main class="page container">
+        <a class="text-link back-link" href="/index.html#codex">← Back to the Codex</a>
+
+        <!-- Intro: title, blurb and tags -->
+        <section class="collection-intro panel" aria-labelledby="collection-title">
+            <h1 class="t-page-title" id="collection-title">Halloween Cards</h1>
+            <p class="t-body">[A short intro to the series: what it is, why you made it, and the tools you used.]</p>
+            <ul class="tags tags--page" aria-label="Categories">
+                <li class="tag">Illustration</li>
+                <li class="tag">Photo Manipulation</li>
+                <li class="tag">Photography</li>
+                <li class="tag">Typography</li>
+                <li class="tag">Just for Fun</li>
+            </ul>
+        </section>
+
+        <!-- Cards, newest first. Each card flips to its back on hover; a click opens the pop-up. -->
+        <ul class="collection-grid" data-collection>
+                <li>
+                    <figure>
+                        <button class="postcard" type="button" aria-label="Open [Card 1], front and back">
+                            <span class="postcard__inner">
+                                <span class="postcard__face postcard__front placeholder--lavender" role="img"
+                                    aria-label="[Placeholder: front of Halloween card 1]">
+                                    <span class="placeholder-text">[Card 1, front]</span>
+                                </span>
+                                <span class="postcard__face postcard__back placeholder--night" role="img"
+                                    aria-label="[Placeholder: back of Halloween card 1]">
+                                    <span class="placeholder-text">[Card 1, back]</span>
+                                </span>
+                            </span>
+                        </button>
+                        <figcaption class="t-caption">[Card 1 title, year]</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <button class="postcard" type="button" aria-label="Open [Card 2], front and back">
+                            <span class="postcard__inner">
+                                <span class="postcard__face postcard__front placeholder--lavender" role="img"
+                                    aria-label="[Placeholder: front of Halloween card 2]">
+                                    <span class="placeholder-text">[Card 2, front]</span>
+                                </span>
+                                <span class="postcard__face postcard__back placeholder--night" role="img"
+                                    aria-label="[Placeholder: back of Halloween card 2]">
+                                    <span class="placeholder-text">[Card 2, back]</span>
+                                </span>
+                            </span>
+                        </button>
+                        <figcaption class="t-caption">[Card 2 title, year]</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <button class="postcard" type="button" aria-label="Open [Card 3], front and back">
+                            <span class="postcard__inner">
+                                <span class="postcard__face postcard__front placeholder--lavender" role="img"
+                                    aria-label="[Placeholder: front of Halloween card 3]">
+                                    <span class="placeholder-text">[Card 3, front]</span>
+                                </span>
+                                <span class="postcard__face postcard__back placeholder--night" role="img"
+                                    aria-label="[Placeholder: back of Halloween card 3]">
+                                    <span class="placeholder-text">[Card 3, back]</span>
+                                </span>
+                            </span>
+                        </button>
+                        <figcaption class="t-caption">[Card 3 title, year]</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <button class="postcard" type="button" aria-label="Open [Card 4], front and back">
+                            <span class="postcard__inner">
+                                <span class="postcard__face postcard__front placeholder--lavender" role="img"
+                                    aria-label="[Placeholder: front of Halloween card 4]">
+                                    <span class="placeholder-text">[Card 4, front]</span>
+                                </span>
+                                <span class="postcard__face postcard__back placeholder--night" role="img"
+                                    aria-label="[Placeholder: back of Halloween card 4]">
+                                    <span class="placeholder-text">[Card 4, back]</span>
+                                </span>
+                            </span>
+                        </button>
+                        <figcaption class="t-caption">[Card 4 title, year]</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <button class="postcard" type="button" aria-label="Open [Card 5], front and back">
+                            <span class="postcard__inner">
+                                <span class="postcard__face postcard__front placeholder--lavender" role="img"
+                                    aria-label="[Placeholder: front of Halloween card 5]">
+                                    <span class="placeholder-text">[Card 5, front]</span>
+                                </span>
+                                <span class="postcard__face postcard__back placeholder--night" role="img"
+                                    aria-label="[Placeholder: back of Halloween card 5]">
+                                    <span class="placeholder-text">[Card 5, back]</span>
+                                </span>
+                            </span>
+                        </button>
+                        <figcaption class="t-caption">[Card 5 title, year]</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <!-- This card has no back: it doesn't flip, and the pop-up shows the front alone. -->
+                    <figure>
+                        <button class="postcard" type="button" aria-label="Open [Card 6]">
+                            <span class="postcard__inner">
+                                <span class="postcard__face postcard__front placeholder--lavender" role="img"
+                                    aria-label="[Placeholder: front of Halloween card 6]">
+                                    <span class="placeholder-text">[Card 6, front]</span>
+                                </span>
+                            </span>
+                        </button>
+                        <figcaption class="t-caption">[Card 6 title, year]</figcaption>
+                    </figure>
+                </li>
+        </ul>
+
+    </main>
+
+    <!-- Pop-up: front and back side by side. Filled in by js/collection.js from the card that was clicked. -->
+    <dialog class="lightbox" aria-labelledby="postcard-caption" data-postcard-view>
+        <!-- Close: sits at the window's top-right, above the image. -->
+        <button class="lightbox__close" type="button" aria-label="Close" data-postcard-close>×</button>
+        <figure class="lightbox__figure">
+            <div class="lightbox__pair">
+                <div class="lightbox__side" data-side="front">
+                    <img class="lightbox__img" src="" alt="" hidden>
+                    <span class="lightbox__placeholder" hidden></span>
+                </div>
+                <div class="lightbox__side" data-side="back">
+                    <img class="lightbox__img" src="" alt="" hidden>
+                    <span class="lightbox__placeholder" hidden></span>
+                </div>
+            </div>
+            <figcaption class="lightbox__caption" id="postcard-caption"></figcaption>
+        </figure>
+    </dialog>
+
+    <div data-include="footer"></div>
+    <script src="/js/collection.js" defer></script>
+</body>
+
+</html>

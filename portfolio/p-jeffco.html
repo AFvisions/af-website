@@ -1,18 +1,13 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
-<html lang="en">
+<!DOCTYPE html>
+<!--
+  Case study built from the template in portfolio/p-57west.html.
+  See the note at the top of that file for how to swap placeholders for images.
+-->
+<html lang="en" class="site">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="x-apple-disable-message-reformatting">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>AFvisions</title>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
+    <!-- Google Tag Manager (skipped on local previews so they don't count as visits) -->
+    <script>if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
                 'gtm.start':
                     new Date().getTime(), event: 'gtm.js'
@@ -22,402 +17,188 @@
         })(window, document, 'script', 'dataLayer', 'GTM-TBSSBW57');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- Font Families -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT9WN4B9BP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) gtag('config', 'G-MT9WN4B9BP');
+    </script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEFFCO Food Policy Council – Case Study | AFvisions</title>
+    <meta name="description" content="Jefferson County Food Policy Council: a redesigned newsletter that reaches English and Spanish subscribers with one email campaign.">
+
+    <link rel="stylesheet" href="/css/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400;1,700&family=Carrois+Gothic&family=Francois+One&display=swap"
-        rel="stylesheet">
-
-
-    <style type="text/css">
-        body {
-            margin: 0;
-            word-spacing: normal;
-            color: #c7c7c7;
-            background-color: #2e2e2e;
-            background-image: url('../images/wraught-iron.png');
-            background-repeat: repeat;
-            background-attachment: fixed;
-            background-position: center;
-        }
-
-        table {
-            border-spacing: 0;
-        }
-
-        td {
-            vertical-align: top;
-            padding: 0;
-        }
-
-        p {
-            font-family: 'Roboto', sans-serif;
-            text-align: left;
-            font-size: 16px;
-            line-height: 23px;
-            margin-top: 0px;
-
-        }
-
-        h2 {
-            font-family: 'Averia Serif Libre', cursive;
-            text-align: left;
-            font-size: 32px;
-            margin: 0;
-
-        }
-
-        a {
-            color: #567a75;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #324744;
-            text-decoration: none;
-        }
-
-        #button:hover {
-            transition: all 0.3s linear;
-
-        }
-
-        #buttonBG:hover {
-            transition: all 0.3s linear;
-            background-color: #6e6578 !important;
-            color: #c7c7c7 !important;
-        }
-
-
-
-        .wrapper {
-            width: 100%;
-            table-layout: fixed;
-            margin: 0;
-            min-width: 320px;
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .main {
-            width: 100%;
-            max-width: 640px;
-            font-family: courier, serif;
-            color: #afafaf;
-            text-align: left;
-            margin-top: 2em;
-            margin-bottom: 2em;
-            border-collapse: collapse;
-            border-radius: .7em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-        .main-header {
-            width: 100%;
-            font-family: courier, serif;
-            color: #afafaf;
-            text-align: center;
-            border-bottom-left-radius: .7em;
-            border-bottom-right-radius: .7em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-
-
-        /* #i-github {
-            background-image: url('icon-git-green.png');
-            height: 100%;
-        }
-
-        #i-github:hover {
-            background-image: url('icon-git-purple.png');
-            height: 100%;
-        } */
-
-        .main-footer {
-            width: 100%;
-            max-width: 640px;
-            margin-top: 2em;
-            font-family: courier, serif;
-            color: #afafaf;
-            text-align: center;
-            border-top-left-radius: .7em;
-            border-top-right-radius: .7em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-        .header {
-            background-color: #2e2e2e;
-
-            height: 3em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-        .footer {
-            background-color: #2e2e2e;
-            padding: 2em;
-            height: 7em;
-            margin-bottom: 0px;
-            border-collapse: collapse;
-
-        }
-
-        .center-image {
-            padding: 40px 0px 40px 0px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 400px;
-        }
-
-        img {
-            border: 0;
-        }
-
-        /* td {
-            outline: dashed 1px orange
-        } */
-
-        .one-column {
-            background-color: #2e2e2e;
-            padding: 2em;
-            text-align: center;
-        }
-
-        .cell-padding {}
-
-        .three-columns {
-            background-color: #324744;
-            text-align: center;
-            font-size: 0;
-        }
-
-        .three-columns .column {
-            width: 100%;
-            max-width: 200px;
-            display: inline-block;
-            vertical-align: top;
-
-        }
-
-        .three-columns .padding {
-            padding: 25px;
-        }
-
-        .three-columns .content {
-            font-size: 15px;
-            line-height: 20px;
-
-        }
-
-
-
-        .sub-title {
-            margin-top: 3em;
-            margin-bottom: -4.5em;
-        }
-
-
-        .responsive-table {
-            display: block;
-            width: 100% !important;
-        }
-
-        .responsive-image {
-            height: auto;
-            max-width: 100% !important;
-
-
-        }
-
-        .img-border {
-            border: #567a75 solid 1em;
-            border-radius: .7em;
-        }
-
-        .rounded-image {
-            border-radius: .7em;
-
-        }
-
-        svg {
-            color: red;
-            width: 10px;
-
-        }
-
-        .endcap-icon {
-            height: 1.25em;
-        }
-
-        .pointer {
-            cursor: pointer;
-        }
-
-        /* @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
-            u~div .email-container {
-                min-width: 320px !important;
-            }
-        } */
-
-
-
-        @media (max-width: 550px) {
-            .narrow {
-                display: block;
-            }
-
-            .no-and {
-                display: none;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .size {
-                font-size: 24px;
-            }
-        }
-
-
-
-
-        /* @media screen and (max-width: 640px) {
-            table[class="responsive-table"] {
-                display: block !important;
-                width: 100% !important;
-            }
-
-            img[class="responsive-image"] {
-                height: auto !important;
-                max-width: 100% !important;
-            }
-        } */
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400&family=Inter:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <script src="/js/include.js" defer></script>
+    <!-- Loads first (no defer) so content can fade in without flashing. -->
+    <script src="/js/reveal.js"></script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MT9WN4B9BP"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-MT9WN4B9BP');
-</script>
-
 <body>
-
-
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBSSBW57" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <center>
-        <table class="main">
-            <tr>
-                <td>
-                    <table width="100%" class="one-column">
-                        <tr>
-                            <td>
-                                <table width="100%">
-                                    <tr>
-                                        <td style="text-align:left;">
-                                            <div><!--[if mso]>
-                                                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="../index.html#projects" style="height:44px;v-text-anchor:middle;width:60px;" arcsize="10%" strokecolor="#000000" fillcolor="#c7c7c7">
-                                                  <w:anchorlock/>
-                                                  <center style="color:#324744;font-family:sans-serif;font-size:13px;font-weight:bold;">< Back</center>
-                                                </v:roundrect>
-                                              <![endif]--><a href="../index.html#projects" id="buttonBG"
-                                                    style="background-color:#c7c7c7;border:1px solid #000000;border-radius:4px;color:#324744;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:36px;text-align:center;text-decoration:none;width:60px;-webkit-text-size-adjust:none;mso-hide:all;">
-                                                    < Back</a>
-                                            </div></a>
+    <div data-include="header"></div>
 
-                                        </td>
-                                    <tr>
-                                        <td style="padding-top: 20px;">
-                                            <h2 style="text-align:center;">Jefferson County Food Policy Council</h2>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 10px 0px 10px 0px; border-bottom: 1px solid #c7c7c7;">
+    <main class="page page--case-study container">
 
-                                        </td>
-                                    </tr>
+        <!-- Intro: back link, title and summary, hero image, details card -->
+        <header class="case-intro">
+            <a class="text-link back-link" href="/index.html#work">← Back to all work</a>
 
+            <div class="case-intro__heading">
+                <h1 class="t-page-title reveal">Jefferson County Food Policy Council</h1>
+                <p class="t-tagline reveal reveal--delay-1">[One-line summary: for example, one newsletter for English and Spanish subscribers.]</p>
+            </div>
 
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td style="padding-top: 10px;">
-                    <h2>Project Type:</h2>
-                    <p style="text-align: left;">
-                        Email Marketing, Graphic Design
-                    </p>
-                    <h2>Software + Tools:</h2>
-                    <p>
-                        Figma, Mailchimp
-                    </p>
-                    <h2>Problem:</h2>
-                    <p>
-                        This is a volunteer project I acquired through CatchAFire. The email marketing goal of the
-                        non-profit aimed to update
-                        the design of the newsletter and eliminate the need for overwhelming and long bilingual emails.
-                    </p>
-                    <h2>Solution:</h2>
+            <!-- Hero image: 560px tall, cropped to fill. The newsletter is tall, so crop-top
+                 shows its header. Replace with a wide image when ready and remove crop-top. -->
+            <div class="case-hero placeholder--lavender crop-top reveal">
+                <img src="/images/case-studies/jeffco-newsletter.png" width="702" height="2597"
+                    alt="[Top of the Jefferson County Food Policy Council newsletter: the green header with the council logo and “Newsletter, May Updates”, and a welcome note with a link to switch to Spanish]">
+            </div>
 
-                    <p>
-                        First, I conducted subscriber data analysis for the purpose of segmenting the audience
-                        based on their English or Spanish preference. As I waited for the data to come in I focused on
-                        building a modern and sleek email template in an easily digestible format
-                        that provided the user with a concise user experience. In addition, I added conditional merge
-                        tags which show or hide content that was relevant to the language of the user.
-                        Using this method my client is able to reach all subscribers using only one email campaign,
-                        rather than sending two separately built emails.
-                    </p>
-                    <h2>Impact:</h2>
-                    <p>
-                        Comparing seven previous bilingual campaigns to the seven following language focused campaigns
-                        we discovered a 6.3% increase in opens, and a 2.7% increase in clicks rate.
-                        These substantial improvements validate the importance of targeted emails, relevant content,
-                        personalization, and compelling CTAs.
-                    </p>
-                    <p>
-                        To provide content for these metrics, the non-profit received emails from subscribers in direct
-                        response to the updated newsletter stating that they were very happy with the changes
-                        because it was much easier to navigate. Knowing that I helped food advocates and those who are
-                        seeking food obtain the information they needed to better the community is a proud moment in my
-                        email career.
+            <!-- Details card. Tags come from the fixed list in the spec. -->
+            <section class="details-card reveal" aria-label="Project details">
+                <div class="field">
+                    <h2 class="t-label">Project Type</h2>
+                    <ul class="tags tags--page" aria-label="Project type">
+                        <li class="tag">Email</li>
+                        <li class="tag">Graphic Design</li>
+                    </ul>
+                </div>
+                <div class="field">
+                    <h2 class="t-label">Software + Tools</h2>
+                    <p class="t-detail">Figma, Mailchimp</p>
+                </div>
+                <div class="field">
+                    <h2 class="t-label">Role</h2>
+                    <p class="t-detail">[Your role]</p>
+                </div>
+                <div class="field">
+                    <h2 class="t-label">Year</h2>
+                    <p class="t-detail">[2024]</p>
+                </div>
+            </section>
+        </header>
 
-                    </p>
-                </td>
-            </tr>
+        <div class="divider" aria-hidden="true"><span class="divider__diamond"></span></div>
 
-            <tr>
-                <td><img src="images/jeffco-newsletter.png" width="564px" class="responsive-image"></td>
-            </tr>
-            <tr>
-                <td>
-                    <p text-align="center"
-                        style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 10px;text-align:center">
-                        Created
-                        by © AFvisions
-                        2024. All rights reserved</p>
-                </td>
-            </tr>
-        </table>
-        </td>
-        </tr>
-        </table>
-    </center>
+        <!-- Chapter I: Problem -->
+        <section class="chapter" aria-labelledby="chapter-1">
+            <div class="chapter__mark reveal">
+                <span class="t-chapter-numeral" aria-hidden="true">I</span>
+                <h2 class="t-chapter-name" id="chapter-1">Problem</h2>
+            </div>
+            <div class="chapter__content">
+                <p class="t-lead reveal">This is a volunteer project I acquired through CatchAFire. The email marketing
+                    goal of the non-profit aimed to update the design of the newsletter and eliminate the need for
+                    overwhelming and long bilingual emails.</p>
 
+                <!-- OPTIONAL: before/after image pair -->
+                <div class="image-pair">
+                    <figure class="reveal">
+                        <div class="image-pair__media placeholder--night" role="img"
+                            aria-label="[Placeholder: the earlier bilingual newsletter]">
+                            <span class="placeholder-text">[The bilingual newsletter before]</span>
+                        </div>
+                        <figcaption class="t-caption"><em class="image-pair__label">Before.</em> [Short caption.]</figcaption>
+                    </figure>
+                    <figure class="reveal reveal--delay-1">
+                        <div class="image-pair__media crop-top">
+                            <img src="/images/case-studies/jeffco-newsletter.png" width="702" height="2597" loading="lazy"
+                                alt="[The redesigned newsletter: green header, Policy Tracker section with a yellow Legislative Tracker button, and the General Council Meeting details beside an illustration of canned food and vegetables]">
+                        </div>
+                        <figcaption class="t-caption"><em class="image-pair__label">After.</em> [Short caption.]</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter II: Solution -->
+        <section class="chapter" aria-labelledby="chapter-2">
+            <div class="chapter__mark reveal">
+                <span class="t-chapter-numeral" aria-hidden="true">II</span>
+                <h2 class="t-chapter-name" id="chapter-2">Solution</h2>
+            </div>
+            <div class="chapter__content">
+                <p class="t-lead reveal">First, I conducted subscriber data analysis for the purpose of segmenting the
+                    audience based on their English or Spanish preference.</p>
+                <div class="t-prose reveal reveal--delay-1">
+                    <p>As I waited for the data to come in I focused on building a modern and sleek email template in an
+                        easily digestible format that provided the user with a concise user experience. In addition, I
+                        added conditional merge tags which show or hide content that was relevant to the language of the
+                        user. Using this method my client is able to reach all subscribers using only one email
+                        campaign, rather than sending two separately built emails.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider" aria-hidden="true"><span class="divider__diamond"></span></div>
+
+        <!-- Chapter III: Impact -->
+        <section class="chapter" aria-labelledby="chapter-3">
+            <div class="chapter__mark reveal">
+                <span class="t-chapter-numeral" aria-hidden="true">III</span>
+                <h2 class="t-chapter-name" id="chapter-3">Impact</h2>
+            </div>
+            <div class="chapter__content">
+
+                <!-- OPTIONAL: stat cards. The figures repeat the paragraph below. -->
+                <div class="stats">
+                    <div class="stat reveal">
+                        <span class="t-stat">6.3%</span>
+                        <p class="t-detail">increase in opens</p>
+                    </div>
+                    <div class="stat reveal reveal--delay-1">
+                        <span class="t-stat">2.7%</span>
+                        <p class="t-detail">increase in clicks rate</p>
+                    </div>
+                </div>
+
+                <div class="t-prose reveal">
+                    <p>Comparing seven previous bilingual campaigns to the seven following language focused campaigns
+                        we discovered a 6.3% increase in opens, and a 2.7% increase in clicks rate. These substantial
+                        improvements validate the importance of targeted emails, relevant content, personalization, and
+                        compelling CTAs.</p>
+                    <p>To provide content for these metrics, the non-profit received emails from subscribers in direct
+                        response to the updated newsletter stating that they were very happy with the changes because
+                        it was much easier to navigate. Knowing that I helped food advocates and those who are seeking
+                        food obtain the information they needed to better the community is a proud moment in my email
+                        career.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next case study: 57 West → SXSW → JEFFCO → 57 West -->
+        <a class="next-card reveal" href="/portfolio/p-57west.html">
+            <div class="next-card__media">
+                <img src="/images/case-studies/57west-collage.png" width="1128" height="1128" loading="lazy"
+                    alt="[57 West Capital Advisors brochure cover and a spread titled “A personalized approach”, set against a wall of blue 3D cubes]">
+            </div>
+            <div class="next-card__body">
+                <span class="t-sublabel">Next case study</span>
+                <span class="t-page-title">57 West</span>
+                <ul class="tags tags--page" aria-label="Project type">
+                    <li class="tag">Graphic Design</li>
+                    <li class="tag">Print</li>
+                    <li class="tag">Illustration</li>
+                </ul>
+                <span class="next-card__go">Read the case study →</span>
+            </div>
+        </a>
+
+    </main>
+
+    <div data-include="footer"></div>
 </body>
+
+</html>

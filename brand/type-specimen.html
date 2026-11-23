@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- Review page for the type scale and base styles. Lives in brand/, which is not
+     uploaded, so it carries no tracking snippets. Preview it through a local server. -->
+<html lang="en" class="site">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type specimen – AFvisions</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400&family=Inter:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Specimen-only layout. Not part of the site. */
+        .specimen { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-4); }
+        .specimen > section { padding-block: var(--space-5); border-top: 1px solid var(--line-divider); }
+        .specimen-meta { font-size: 13px; line-height: 1.4; opacity: 0.7; margin-bottom: var(--space-2); }
+        .specimen-stack { display: grid; gap: var(--space-3); }
+        .specimen-stack .specimen-meta { margin: var(--space-3) 0 0; }
+        .specimen-gap { margin-top: var(--space-6); }
+        .specimen-frame { display: grid; place-items: center; height: 240px; background: var(--night-teal); border-radius: var(--radius-card); font-size: 14px; }
+        .specimen-swatches { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+        .specimen-swatches span { width: 120px; padding: var(--space-3); border-radius: var(--radius-button); font-size: 13px; line-height: 1.4; border: 1px solid var(--line-divider); }
+    </style>
+</head>
+
+<body>
+    <div data-include="header"></div>
+    <main class="specimen">
+        <p class="t-sublabel">Type specimen · base styles · step 2 review</p>
+
+        <section>
+            <p class="specimen-meta">Hero name · UnifrakturCook 700 · 84px max, scales down on narrow screens · 0.95</p>
+            <h1 class="t-hero-name">Andrew Fumagalli</h1>
+        </section>
+
+        <section>
+            <p class="specimen-meta">Page title · Averia Serif Libre Italic · 56px / 1, scales down to 36px on narrow screens</p>
+            <h1 class="t-page-title">57 West</h1>
+            <h1 class="t-page-title">Halloween Cards</h1>
+        </section>
+
+        <section>
+            <p class="specimen-meta">Wordmark · Logo Teal · 30px header, 26px footer</p>
+            <p class="t-wordmark">AFvisions</p>
+            <p class="t-wordmark t-wordmark--footer">AFvisions</p>
+        </section>
+
+        <section>
+            <p class="specimen-meta">Section heading · Averia Serif Libre Italic · 36px</p>
+            <h2 class="t-section-heading">Case Studies</h2>
+            <h2 class="t-section-heading">Codex</h2>
+        </section>
+
+        <section>
+            <p class="specimen-meta">Tagline and field labels · 22px</p>
+            <p class="t-tagline">An Integrated Designer across digital and physical spaces.</p>
+            <h3 class="t-label">Project Type:</h3>
+            <p class="specimen-meta">Sub-label · 18px</p>
+            <p class="t-sublabel">Featured</p>
+        </section>
+
+        <section>
+            <p class="specimen-meta">Card title · Inter 600 · 18px</p>
+            <p class="t-card-title">JEFFCO Food Policy Council</p>
+        </section>
+
+        <section class="t-prose">
+            <p class="specimen-meta">Body · Inter 400 · 16px / 1.65</p>
+            <p>I’m an Integrated Designer with 15+ years of experience bringing ideas to life across print, digital,
+                wayfinding, and email. From event graphics and vehicle wraps to photo editing and HTML email design, I
+                combine hands-on execution with big-picture strategy.</p>
+            <p>Whether it’s in an inbox or on a wall, I design to make an impact.</p>
+        </section>
+
+        <section>
+            <p class="specimen-meta">Detail text · 15px / 1.6</p>
+            <p class="t-detail">Adobe InDesign, Photoshop, Illustrator, Acrobat, Blender</p>
+            <p class="specimen-meta">Caption and count · 14px</p>
+            <p class="t-caption">3 case studies</p>
+            <p class="specimen-meta">Footer text · 13px</p>
+            <p class="t-footer">© AFvisions 2026. All rights reserved.</p>
+        </section>
+
+        <section>
+            <p class="specimen-meta">Base link and keyboard focus (press Tab to see the 2px Silver outline)</p>
+            <p><a href="#top">[Sample link]</a></p>
+        </section>
+
+        <section>
+            <p class="specimen-meta">Components · step 3 (hover or Tab through them to see states)</p>
+            <div class="panel specimen-stack">
+                <p class="specimen-meta">Panel · Dark Teal · 44px padding (24px below 640px)</p>
+                <h2 class="t-page-title">57 West</h2>
+
+                <p class="specimen-meta">Tags on a tile · 12px · descriptors, not clickable</p>
+                <ul class="tags" aria-label="Project type">
+                    <li class="tag">Graphic Design</li>
+                    <li class="tag">Print</li>
+                    <li class="tag">Illustration</li>
+                </ul>
+
+                <p class="specimen-meta">Tags on the case-study page · 13px</p>
+                <ul class="tags tags--page" aria-label="Project type">
+                    <li class="tag">Graphic Design</li>
+                    <li class="tag">Print</li>
+                    <li class="tag">Illustration</li>
+                </ul>
+
+                <p class="specimen-meta">Primary and ghost buttons</p>
+                <div class="btn-row">
+                    <a class="btn btn--primary" href="#top">View Brochure</a>
+                    <a class="btn btn--ghost" href="#top">All projects</a>
+                </div>
+
+                <p class="specimen-meta">Text links</p>
+                <div class="btn-row">
+                    <a class="text-link" href="#top">See the work ↓</a>
+                    <a class="text-link" href="#top">← Back to all work</a>
+                </div>
+
+                <p class="specimen-meta">Image frame · 1px line inset 8px</p>
+                <div class="frame specimen-frame">[Add a crop of the real work]</div>
+            </div>
+
+            <p class="specimen-meta specimen-gap">Section divider</p>
+            <div class="divider" aria-hidden="true"><span class="divider__diamond"></span></div>
+        </section>
+
+        <section>
+            <p class="specimen-meta">Palette (from the variables block)</p>
+            <div class="specimen-swatches">
+                <span style="background: var(--charcoal)">Charcoal</span>
+                <span style="background: var(--dark-teal)">Dark Teal</span>
+                <span style="background: var(--silver); color: var(--deep-teal)">Silver</span>
+                <span style="background: var(--pink)">Pink</span>
+                <span style="background: var(--lavender)">Lavender</span>
+                <span style="background: var(--antique-gold); color: var(--gold-label)">Antique Gold</span>
+                <span style="background: var(--logo-teal); color: var(--deep-teal)">Logo Teal</span>
+                <span style="background: var(--deep-teal)">Deep Teal</span>
+                <span style="background: var(--gold-label)">Gold Label</span>
+                <span style="background: var(--night-teal)">Night Teal</span>
+            </div>
+        </section>
+    </main>
+    <div data-include="footer"></div>
+    <script src="/js/include.js" defer></script>
+</body>
+
+</html>

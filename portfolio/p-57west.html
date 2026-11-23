@@ -1,18 +1,26 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
-<html lang="en">
+<!DOCTYPE html>
+<!--
+  CASE-STUDY TEMPLATE (57 West is the reference page).
+  To make a new case study, copy this file to portfolio/p-<project>.html and change:
+    1. <title> and the meta description
+    2. The page title, summary line and hero image
+    3. The details card: Project Type tags, Software + Tools, Role, Year, and the button
+       (remove the button if there is nothing to view)
+    4. The text and images in Chapters I, II and III
+    5. The Next case study card (the next project in the order 57 West → SXSW → JEFFCO → 57 West)
+  Sections marked OPTIONAL can be deleted whole; nothing else depends on them.
+  Keep the tracking snippets, the header/footer placeholders and the scripts as they are.
+
+  Images: every placeholder is a <div ... role="img" aria-label="[...]"> with bracketed text.
+  To add the real image, delete the bracketed <span> inside it, put
+  <img src="/images/case-studies/[file]" alt="[Description]"> in its place,
+  and remove role="img" and aria-label from the <div>.
+-->
+<html lang="en" class="site">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="x-apple-disable-message-reformatting">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>AFvisions</title>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
+    <!-- Google Tag Manager (skipped on local previews so they don't count as visits) -->
+    <script>if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
                 'gtm.start':
                     new Date().getTime(), event: 'gtm.js'
@@ -22,383 +30,292 @@
         })(window, document, 'script', 'dataLayer', 'GTM-TBSSBW57');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- Font Families -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT9WN4B9BP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) gtag('config', 'G-MT9WN4B9BP');
+    </script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>57 West – Case Study | AFvisions</title>
+    <meta name="description" content="57 West: a digital brochure rebuilt in InDesign, with Spanish and printable versions and a 3D model made in Blender.">
+
+    <link rel="stylesheet" href="/css/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400;1,700&family=Carrois+Gothic&family=Francois+One&display=swap"
-        rel="stylesheet">
-
-
-    <style type="text/css">
-        body {
-            margin: 0;
-            word-spacing: normal;
-            color: #c7c7c7;
-            background-color: #2e2e2e;
-            background-image: url('../images/wraught-iron.png');
-            background-repeat: repeat;
-            background-attachment: fixed;
-            background-position: center;
-        }
-
-        table {
-            border-spacing: 0;
-        }
-
-        td {
-            padding: 0;
-        }
-
-        p {
-            font-family: 'Roboto', sans-serif;
-            text-align: left;
-            font-size: 16px;
-            line-height: 23px;
-            margin-top: 0px;
-
-        }
-
-        h2 {
-            font-family: 'Averia Serif Libre', cursive;
-            text-align: left;
-            font-size: 32px;
-            margin: 0;
-
-        }
-
-        a {
-            color: #567a75;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #324744;
-            text-decoration: none;
-        }
-
-        #button:hover {
-            transition: all 0.3s linear;
-
-        }
-
-        #buttonBG:hover {
-            transition: all 0.3s linear;
-            background-color: #6e6578 !important;
-            color: #c7c7c7 !important;
-        }
-
-
-
-        .wrapper {
-            width: 100%;
-            table-layout: fixed;
-            margin: 0;
-            min-width: 320px;
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .main {
-            width: 100%;
-            max-width: 640px;
-            font-family: courier, serif;
-            color: #afafaf;
-            text-align: left;
-            margin-top: 2em;
-            margin-bottom: 2em;
-            border-collapse: collapse;
-            border-radius: .7em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-        .main-header {
-            width: 100%;
-            font-family: courier, serif;
-            color: #afafaf;
-            text-align: center;
-            border-bottom-left-radius: .7em;
-            border-bottom-right-radius: .7em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-
-
-        /* #i-github {
-            background-image: url('icon-git-green.png');
-            height: 100%;
-        }
-
-        #i-github:hover {
-            background-image: url('icon-git-purple.png');
-            height: 100%;
-        } */
-
-        .main-footer {
-            width: 100%;
-            max-width: 640px;
-            margin-top: 2em;
-            font-family: courier, serif;
-            color: #afafaf;
-            text-align: center;
-            border-top-left-radius: .7em;
-            border-top-right-radius: .7em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-        .header {
-            background-color: #2e2e2e;
-
-            height: 3em;
-            overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-        }
-
-        .footer {
-            background-color: #2e2e2e;
-            padding: 2em;
-            height: 7em;
-            margin-bottom: 0px;
-            border-collapse: collapse;
-
-        }
-
-        .center-image {
-            padding: 40px 0px 40px 0px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 400px;
-        }
-
-        img {
-            border: 0;
-        }
-
-        /* td {
-            outline: dashed 1px orange
-        } */
-
-        .one-column {
-            background-color: #2e2e2e;
-            padding: 2em;
-            text-align: center;
-        }
-
-        .cell-padding {}
-
-        .three-columns {
-            background-color: #324744;
-            text-align: center;
-            font-size: 0;
-        }
-
-        .three-columns .column {
-            width: 100%;
-            max-width: 200px;
-            display: inline-block;
-            vertical-align: top;
-
-        }
-
-        .three-columns .padding {
-            padding: 25px;
-        }
-
-        .three-columns .content {
-            font-size: 15px;
-            line-height: 20px;
-
-        }
-
-
-
-        .sub-title {
-            margin-top: 3em;
-            margin-bottom: -4.5em;
-        }
-
-
-        .responsive-table {
-            display: block;
-            width: 100% !important;
-        }
-
-        .responsive-image {
-            height: auto;
-            max-width: 100% !important;
-
-
-        }
-
-        .img-border {
-            border: #567a75 solid 1em;
-            border-radius: .7em;
-        }
-
-        .rounded-image {
-            border-radius: .7em;
-
-        }
-
-        svg {
-            color: red;
-            width: 10px;
-
-        }
-
-        .endcap-icon {
-            height: 1.25em;
-        }
-
-        .pointer {
-            cursor: pointer;
-        }
-
-        /* @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
-            u~div .email-container {
-                min-width: 320px !important;
-            }
-        } */
-
-
-
-        @media (max-width: 550px) {
-            .narrow {
-                display: block;
-            }
-
-            .no-and {
-                display: none;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .size {
-                font-size: 24px;
-            }
-        }
-
-
-
-
-        /* @media screen and (max-width: 640px) {
-            table[class="responsive-table"] {
-                display: block !important;
-                width: 100% !important;
-            }
-
-            img[class="responsive-image"] {
-                height: auto !important;
-                max-width: 100% !important;
-            }
-        } */
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400&family=Inter:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <script src="/js/include.js" defer></script>
+    <!-- Loads first (no defer) so content can fade in without flashing. -->
+    <script src="/js/reveal.js"></script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MT9WN4B9BP"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-MT9WN4B9BP');
-</script>
-
 <body>
-
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBSSBW57" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <center>
-        <table class="main">
-            <tr>
-                <td>
-                    <table width="100%" class="one-column">
-                        <tr>
-                            <td>
-                                <table width="100%">
-                                    <tr>
-                                        <td width="5%">
-                                            <div><!--[if mso]>
-                                                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="../index.html#projects" style="height:44px;v-text-anchor:middle;width:60px;" arcsize="10%" strokecolor="#000000" fillcolor="#c7c7c7">
-                                                  <w:anchorlock/>
-                                                  <center style="color:#324744;font-family:sans-serif;font-size:13px;font-weight:bold;">< Back</center>
-                                                </v:roundrect>
-                                              <![endif]--><a href="../index.html#projects" id="buttonBG"
-                                                    style="background-color:#c7c7c7;border:1px solid #000000;border-radius:4px;color:#324744;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:36px;text-align:center;text-decoration:none;width:60px;-webkit-text-size-adjust:none;mso-hide:all;">
-                                                    < Back</a>
-                                            </div>
-                                        </td>
-                                        <td width="20%"></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="images/57west-collage.png" width="564px" class="responsive-image"
-                                    style="padding: 32px 0px 32px 0px"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h2>Project Type:</h2>
-                                <p style="text-align: left;">
-                                    Graphic Design, Print, 3D
-                                    Graphics, Illustration
-                                </p>
-                                <h2>Software + Tools:</h2>
-                                <p>
-                                    Adobe InDesign, Photoshop, Illustrator, Acrobat,
-                                    Blender
-                                </p>
-                                <h2>Project Details:</h2>
-                                <p>
-                                    This project is one that I inherited from my client’s former designer and
-                                    because I
-                                    didn’t have the native files I chose to completely recreate the digital brochure
-                                    using InDesign so that current and future changes that the brochure needed could
-                                    easily be accomplished. Highlights of the brochure include a spanish version and a
-                                    printable version, high resolution stock photos, and within the “360 Method” page a
-                                    3D model I created in Blender.
-                                </p>
-                            </td>
-                        </tr>
-                        <td id="button" style="padding: 32px 0px 32px 0px">
-                            <div>
-                                <!--[if mso]>
-                                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="portfolio/recosweep.html" style="height:36px;v-text-anchor:middle;width:132px;" arcsize="12%" strokecolor="#000000" fillcolor="#c7c7c7">
-                                  <w:anchorlock/>
-                                  <center style="color:#324744;font-family:sans-serif;font-size:14px;font-weight:bold;">View the Brochure</center>
-                                </v:roundrect>
-                              <![endif]--><a href="https://indd.adobe.com/view/42fa5652-3fc4-4c8c-b7a1-bb9788f79f06"
-                                    id="buttonBG"
-                                    style="background-color:#c7c7c7;border:1px solid #000000;border-radius:4px;color:#324744;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:36px;text-align:center;text-decoration:none;width:132px;-webkit-text-size-adjust:none;mso-hide:all;">View
-                                    Brochure</a>
-                            </div>
+    <div data-include="header"></div>
 
-                        </td>
+    <main class="page page--case-study container">
 
-                        <tr>
-                            <td>
-                                <p text-align="center"
-                                    style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 10px;text-align:center">
-                                    Created
-                                    by © AFvisions
-                                    2024. All rights reserved</p>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </center>
+        <!-- Intro: back link, title and summary, hero image, details card -->
+        <header class="case-intro">
+            <a class="text-link back-link" href="/index.html#work">← Back to all work</a>
 
+            <div class="case-intro__heading">
+                <h1 class="t-page-title reveal">57 West</h1>
+                <p class="t-tagline reveal reveal--delay-1">[One-line summary: for example, a brochure rebuilt from scratch, in two languages and two formats.]</p>
+            </div>
+
+            <!-- Hero image: 560px tall, cropped to fill. Replace with a wide image when ready. -->
+            <div class="case-hero placeholder--night reveal">
+                <img src="/images/case-studies/57west-collage.png" width="1128" height="1128"
+                    alt="[57 West Capital Advisors brochure cover and a spread titled “A personalized approach”, set against a wall of blue 3D cubes]">
+            </div>
+
+            <!-- Details card. Tags come from the fixed list in the spec. -->
+            <section class="details-card reveal" aria-label="Project details">
+                <div class="field">
+                    <h2 class="t-label">Project Type</h2>
+                    <ul class="tags tags--page" aria-label="Project type">
+                        <li class="tag">Graphic Design</li>
+                        <li class="tag">Print</li>
+                        <li class="tag">Illustration</li>
+                    </ul>
+                </div>
+                <div class="field">
+                    <h2 class="t-label">Software + Tools</h2>
+                    <p class="t-detail">Adobe InDesign, Photoshop, Illustrator, Acrobat, Blender</p>
+                </div>
+                <div class="field">
+                    <h2 class="t-label">Role</h2>
+                    <p class="t-detail">[Your role]</p>
+                </div>
+                <div class="field">
+                    <h2 class="t-label">Year</h2>
+                    <p class="t-detail">[Year]</p>
+                </div>
+                <a class="btn btn--primary" href="https://indd.adobe.com/view/42fa5652-3fc4-4c8c-b7a1-bb9788f79f06">View Brochure</a>
+            </section>
+        </header>
+
+        <div class="divider" aria-hidden="true"><span class="divider__diamond"></span></div>
+
+        <!-- Chapter I: Problem -->
+        <section class="chapter" aria-labelledby="chapter-1">
+            <div class="chapter__mark reveal">
+                <span class="t-chapter-numeral" aria-hidden="true">I</span>
+                <h2 class="t-chapter-name" id="chapter-1">Problem</h2>
+            </div>
+            <div class="chapter__content">
+                <p class="t-lead reveal">[Who the client is and what they needed, in 2 to 3 sentences.]</p>
+
+                <!-- OPTIONAL: before/after image pair -->
+                <div class="image-pair">
+                    <figure class="reveal">
+                        <div class="image-pair__media placeholder--night" role="img"
+                            aria-label="[Placeholder: the brochure as inherited from the previous designer]">
+                            <span class="placeholder-text">[The brochure as I inherited it]</span>
+                        </div>
+                        <figcaption class="t-caption"><em class="image-pair__label">Before.</em> [Short caption.]</figcaption>
+                    </figure>
+                    <figure class="reveal reveal--delay-1">
+                        <div class="image-pair__media placeholder--teal" role="img"
+                            aria-label="[Placeholder: the same page rebuilt in InDesign]">
+                            <span class="placeholder-text">[The same page, rebuilt]</span>
+                        </div>
+                        <figcaption class="t-caption"><em class="image-pair__label">After.</em> [Short caption.]</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter II: Solution -->
+        <section class="chapter" aria-labelledby="chapter-2">
+            <div class="chapter__mark reveal">
+                <span class="t-chapter-numeral" aria-hidden="true">II</span>
+                <h2 class="t-chapter-name" id="chapter-2">Solution</h2>
+            </div>
+            <div class="chapter__content">
+                <p class="t-lead reveal">This project is one that I inherited from my client’s former designer and
+                    because I didn’t have the native files I chose to completely recreate the digital brochure using
+                    InDesign so that current and future changes that the brochure needed could easily be
+                    accomplished.</p>
+                <div class="t-prose reveal reveal--delay-1">
+                    <p>Highlights of the brochure include a Spanish version and a printable version, high resolution
+                        stock photos, and within the “360 Method” page a 3D model I created in Blender.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- OPTIONAL: pinned story. The stage stays in view while the steps scroll past.
+             Each step shows the slide with the same data-story-slide number (0, 1, 2...).
+             A step with toggle chips shows the slide whose data-variant matches the selected chip.
+             To add a step: copy a .story__step, add its slide(s) and one .story__bar. -->
+        <section class="story" aria-label="The brochure, step by step" data-story>
+            <div class="story__visual">
+                <div class="story__stage">
+                    <div class="story__frame">
+                        <div class="story__slide placeholder--teal" data-story-slide="0" role="img"
+                            aria-label="[Placeholder: brochure cover spread]">
+                            <span class="placeholder-text">[Cover spread]</span>
+                        </div>
+                        <div class="story__slide placeholder--lavender" data-story-slide="1" data-variant="en" role="img"
+                            aria-label="[Placeholder: interior spread in English]">
+                            <span class="placeholder-text">[Interior spread, English]</span>
+                        </div>
+                        <div class="story__slide placeholder--lavender" data-story-slide="1" data-variant="es" role="img"
+                            aria-label="[Placeholder: the same spread in Spanish]">
+                            <span class="placeholder-text">[Interior spread, Spanish]</span>
+                        </div>
+                        <div class="story__slide placeholder--night" data-story-slide="2" data-variant="digital" role="img"
+                            aria-label="[Placeholder: digital spread with clickable navigation]">
+                            <span class="placeholder-text">[Digital spread with navigation]</span>
+                        </div>
+                        <div class="story__slide placeholder--night" data-story-slide="2" data-variant="print" role="img"
+                            aria-label="[Placeholder: printable letter-size page]">
+                            <span class="placeholder-text">[Printable page]</span>
+                        </div>
+                        <div class="story__slide placeholder--pink" data-story-slide="3" role="img"
+                            aria-label="[Placeholder: the 360 Method page with the 3D cube made in Blender]">
+                            <span class="placeholder-text">[“360 Method” page with the Blender render]</span>
+                        </div>
+                    </div>
+                    <div class="story__meta t-caption" aria-hidden="true">
+                        <span data-story-label>Cover</span>
+                        <span class="story__progress">
+                            <span class="story__bar"></span>
+                            <span class="story__bar"></span>
+                            <span class="story__bar"></span>
+                            <span class="story__bar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story__steps">
+                <div class="story__step" data-label="Cover">
+                    <p class="t-sublabel">Rebuilt from scratch</p>
+                    <h3 class="t-step-heading">[Headline for the rebuild]</h3>
+                    <p>[One or two sentences on recreating the layout in InDesign without the original files: what you matched, what you improved.]</p>
+                </div>
+                <div class="story__step" data-label="Interior spread">
+                    <p class="t-sublabel">Two languages</p>
+                    <h3 class="t-step-heading">An English and a Spanish version</h3>
+                    <p>[One sentence on how the Spanish version was handled: translation source, text expansion, type adjustments.]</p>
+                    <div class="chips" role="group" aria-label="Brochure language">
+                        <button class="chip" type="button" data-variant="en" aria-pressed="true">English</button>
+                        <button class="chip" type="button" data-variant="es" aria-pressed="false">Español</button>
+                    </div>
+                </div>
+                <div class="story__step" data-label="Digital and print">
+                    <p class="t-sublabel">Two formats</p>
+                    <h3 class="t-step-heading">A digital brochure and a printable version</h3>
+                    <p>[One sentence on what changed between them: interactive navigation vs. bleed, crop marks, color mode.]</p>
+                    <div class="chips" role="group" aria-label="Brochure format">
+                        <button class="chip" type="button" data-variant="digital" aria-pressed="true">Digital</button>
+                        <button class="chip" type="button" data-variant="print" aria-pressed="false">Print</button>
+                    </div>
+                </div>
+                <div class="story__step" data-label="360 Method">
+                    <p class="t-sublabel">Made in Blender</p>
+                    <h3 class="t-step-heading">A 3D model for the “360 Method” page</h3>
+                    <p>[One or two sentences on the model: why a cube, how it was lit and rendered, how it sits on the page.]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- OPTIONAL: callout image. Pin positions are set in css/site.css (.callout__pin--1, --2, --3).
+             Each pin's number matches a legend item. -->
+        <section class="callout" aria-label="Details from one spread">
+            <div class="callout__media placeholder--night reveal" role="img"
+                aria-label="[Placeholder: close-up of one spread with three numbered callouts]">
+                <span class="placeholder-text">[Spread detail, close-up]</span>
+                <span class="callout__pin callout__pin--1" aria-hidden="true">1</span>
+                <span class="callout__pin callout__pin--2" aria-hidden="true">2</span>
+                <span class="callout__pin callout__pin--3" aria-hidden="true">3</span>
+            </div>
+            <ol class="legend t-detail">
+                <li class="reveal">
+                    <span class="legend__number" aria-hidden="true">1</span>
+                    <p><strong class="legend__title">[Detail one]</strong>[A specific technique, in a sentence.]</p>
+                </li>
+                <li class="reveal reveal--delay-1">
+                    <span class="legend__number" aria-hidden="true">2</span>
+                    <p><strong class="legend__title">[Detail two]</strong>[A specific technique, in a sentence.]</p>
+                </li>
+                <li class="reveal reveal--delay-2">
+                    <span class="legend__number" aria-hidden="true">3</span>
+                    <p><strong class="legend__title">[Detail three]</strong>[A specific technique, in a sentence.]</p>
+                </li>
+            </ol>
+        </section>
+
+        <div class="divider" aria-hidden="true"><span class="divider__diamond"></span></div>
+
+        <!-- Chapter III: Impact -->
+        <section class="chapter" aria-labelledby="chapter-3">
+            <div class="chapter__mark reveal">
+                <span class="t-chapter-numeral" aria-hidden="true">III</span>
+                <h2 class="t-chapter-name" id="chapter-3">Impact</h2>
+            </div>
+            <div class="chapter__content">
+
+                <!-- OPTIONAL: stat cards. Copy or delete a .stat to change how many. -->
+                <div class="stats">
+                    <div class="stat reveal">
+                        <span class="t-stat">[00]</span>
+                        <p class="t-detail">[Metric, with the cited benchmark it beats or misses]</p>
+                    </div>
+                    <div class="stat reveal reveal--delay-1">
+                        <span class="t-stat">[00]</span>
+                        <p class="t-detail">[Metric, for example time to make an update before vs. after]</p>
+                    </div>
+                    <div class="stat reveal reveal--delay-2">
+                        <span class="t-stat">[2]</span>
+                        <p class="t-detail">[Languages, formats, or another plain count]</p>
+                    </div>
+                </div>
+
+                <!-- OPTIONAL: honest note -->
+                <div class="t-prose reveal">
+                    <p>[An honest note on anything that underperformed and the likely reason.]</p>
+                </div>
+
+                <!-- OPTIONAL: client quote -->
+                <blockquote class="quote reveal">
+                    <p class="t-quote">“[The client’s reaction, in their words.]”</p>
+                    <cite class="t-caption">[Client name, title]</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Next case study: 57 West → SXSW → JEFFCO → 57 West -->
+        <a class="next-card reveal" href="/portfolio/p-sxsw2025.html">
+            <div class="next-card__media placeholder--pink" role="img"
+                aria-label="[Placeholder: crop of the SXSW event signage]">
+                <span class="placeholder-text">[SXSW crop]</span>
+            </div>
+            <div class="next-card__body">
+                <span class="t-sublabel">Next case study</span>
+                <span class="t-page-title">SXSW</span>
+                <ul class="tags tags--page" aria-label="Project type">
+                    <li class="tag">Signage</li>
+                    <li class="tag">Print</li>
+                </ul>
+                <span class="next-card__go">Read the case study →</span>
+            </div>
+        </a>
+
+    </main>
+
+    <div data-include="footer"></div>
+    <script src="/js/story.js" defer></script>
 </body>
+
+</html>
