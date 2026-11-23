@@ -312,6 +312,21 @@
   .t-prose > * + * {
     margin-top: var(--space-4);
   }
+
+  /* Subheadings inside running text get more room above them. */
+  .t-prose > * + h3 {
+    margin-top: var(--space-6);
+  }
+
+  /* Bulleted lists inside running text (the reset removes bullets elsewhere). */
+  .t-prose ul {
+    list-style: disc;
+    padding-left: var(--space-5);
+  }
+
+  .t-prose li + li {
+    margin-top: var(--space-2);
+  }
 }
 
 /* ------------------------------------------------------------------
@@ -1181,6 +1196,11 @@
     object-fit: cover;
   }
 
+  /* Add crop-top to an image area to keep the top of a tall image (such as an email). */
+  .crop-top img {
+    object-position: top;
+  }
+
   /* ---- Intro: back link, title and summary, hero image, details card ---- */
 
   .case-intro {
@@ -1478,6 +1498,12 @@
 
   .next-card__media {
     min-height: 280px;
+  }
+
+  /* The image fills the card's height instead of setting it. */
+  .next-card__media img {
+    position: absolute;
+    inset: 0;
   }
 
   .next-card__body {

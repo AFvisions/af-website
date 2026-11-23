@@ -329,7 +329,6 @@ These are work to do, not rules. Remove an item when it is done. When the repo e
 - [ ] Supply real images for the case-study pages and tiles, the featured video thumbnail, the Codex pieces, the Halloween cards (front and back) and the contact portrait, and fill in the \[Medium, year\] captions.
 - [ ] Supply the damask pattern file. Until then the background is plain Charcoal.
 - [ ] Write the Halloween Cards and Illustration Collection blurbs and card captions.
-- [ ] Build the SXSW and JEFFCO case-study pages from the 57 West template and link their tiles to them.
 - [ ] Supply a wide hero image for each case study (the 57 West collage is square, so it is cropped for now), the exported brochure pages and Blender render for the 57 West pinned story, and the Role and Year for each case study.
 - [ ] Confirm the featured video link.
 - [ ] Replace the placeholder wordmark and add the favicon, which Andrew will supply.
